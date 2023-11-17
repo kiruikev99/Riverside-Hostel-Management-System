@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+
+
+.background-image{
+   background-image:url(background-image.png);
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   height: 100%;
+  
+    
+}
+.navlink button{
+    background-color: rgb(255, 255, 255);
+    
+    
+}
+.navlink{
+    display: flex;
+    color: rgb(255, 255, 255);
+    justify-content: space-evenly;
+}
+.navlink li{
+    font-family: 'Oxygen', sans-serif;
+    padding-top: 60px;
+    
+    list-style: none;
+}
+.navlink li:hover{
+    border-top: 2px solid gray;
+    cursor: pointer;
+    color: cadetblue;
+}
+.text{
+    font-family: 'Kanit', sans-serif;
+    color: aliceblue;
+    text-align: center;
+    padding-top: 14%;
+    font-size: 40px
+}
+.text h2{
+    font-size: 50px
+}
+.text p{
+    font-family: 'Kanit', sans-serif;
+}
+.header{
+    color: rgba(0, 0, 0, 0.486);
+}
+.about-tittle{
+    font-family: 'Kanit', sans-serif;
+    padding-top: 14%;
+    float: right;
+    clear: left;
+    
+}
+.about-tittle p{
+    font-family: 'Playfair Display', serif;
+    font-size: large;
+    padding-top: 20px;
+}
+.background-image2{
+    background-image:url(gray-abstract-wireframe-technology-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 8%;
+    height: 100%;
+}
+    
+.SERVICES .image{
+    text-align: center;
+    font-family: 'Titillium Web', sans-serif;
+}
+.card{
+    
+}
+.rooms-cards{
+    display: grid;
+    grid-template-columns: auto auto;
+    text-align: center;
+    padding-left: 200px;
+    padding-top: 100px;
+}
+.background{
+    background-image:url(/basss.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 3%;
+    height: 100%;
+
+}
+
+.facility{
+    text-align: left;
+    font-family: 'Kanit', sans-serif;
+    
+} 
+.facility h6{
+    font-family: 'Playfair Display', serif;
+
+}
+.btn-about{
+    background-color: rgb(255, 255, 255);
+    border-color: greenyellow;
+    color: green;
+    padding: 1%;
+    border-radius: 30px;
+
+}
+.parapgraphy button:hover{
+    color: white;
+    background-color: green;
+}
+.images img{
+    padding-left: 300px;
+   
+}
+
+.background3{
+    
+    background-color: rgb(77, 63, 63);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 3%;
+    height: 100%;
+}
+.grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.maps .contact-us{
+    padding-top: 400px;
+}
+.background-faculty{
+    padding: 8%;
+}
+.facitity-info{
+    padding-top: 50px;
+    font-family: 'Abel', sans-serif;
+    font-size: larger;
+}
+.icons{
+    flex-wrap: wrap;
+    padding-top: 50px;
+    padding-left: 20px;
+}
+.icons {
+    
+    padding-left: 10px ;
+}
+.grid-section{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.contact-us, .contact-form{
+    padding-top: 90px;
+    padding-right: 40px;
+}
+.contact-form{
+    color: aliceblue;
+}
+.contact-us li{
+    list-style: none;
+    color: aliceblue;
+    
+}
+.contact-form input{
+    display: block;
+    
+}
+.logo button{
+    background-color: aliceblue;
+}
+.logo a{
+    display: block;
+    padding-top: 5%;
+    filter: grayscale(50%);
+    padding-left: 30%;
+}
+.logo a:hover{
+    filter: grayscale(0);
+}
+.gridsecction{
+    color: aliceblue;
+}
+.terms input{
+    display: block;
+    
+    padding: 3%;
+}
+.name {
+    padding-bottom: 30px;
+    padding-left: 25px;
+}
+.jjj{
+    filter:blur(40);
+}@media screen and (max-width: 500px){
+   
+        .navlink{
+display: block;
+text-align: center;
+font-size: small;
+        }
+        .navlink li{
+            padding-top: 40px;
+           
+        }
+        .navlink a{
+            text-decoration: none;
+            color: rgb(222, 217, 217);
+        }
+        .text h2{
+            font-size: 40px;
+        }
+        .text p{
+            font-size: 15px;
+        }
+        .about-img{
+            display: none;
+        }
+        .header{
+            padding-top: 80px;
+            text-align: center
+        }
+        .parapgraphy p{
+            font-size: 13px;
+        }
+        .parapgraphy button{
+            font-size: small;
+
+        }
+        .images{
+            padding-top: 20px;
+            padding-left: 20px;
+        
+    }
+    .background-faculty{
+        padding-top: 80%;
+    }
+    .facility p{
+        font-size: small;
+    }
+    .icons img{
+        width: 40px;
+        padding-top: 3px;
+       
+    }
+    .icons{
+        display: grid;
+        grid-template-columns: auto auto;
+        border: 1px solid black;
+        padding-bottom: 20px;
+        padding: 3px;
+        text-align: center;
+    }
+    .background-faculty{
+        background-color: white;
+        color: rgb(0, 0, 0);
+        font-size: medium;
+    }
+    .image img{
+        width: 200px;
+        height: 200px;
+        border-radius: 30px;
+    }
+    .grid-section{
+        display: inline;
+
+    }
+
+    .rooms-cards{
+        display: inline;
+    }
+
+}
