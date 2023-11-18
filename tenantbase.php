@@ -47,10 +47,89 @@ mysqli_stmt_close($stmt);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
- Hey <?php echo $name; ?>  <br> Room No: <?php echo $roomNo; ?> <br> University:  <?php echo $university; ?> 
- <br> Course:  <?php echo  $course; ?> <br> Amount Paid:  <?php echo $amountPaid; ?> <br> Total Amount:  <?php echo $totalAmount; ?> <br> Checkin:  <?php echo $checkin; ?>
 </head>
+<Style>
+    header{
+        padding-left: 30px;
+    }
+    .head-content{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .head-content h2, p{
+        padding-top: 40px;
+    }
+    .intro{
+        background-color: lightblue;
+        padding: 10px;
+        border-radius: 30px;
+    }
+    .grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .sec-2{
+        padding-left: 400px;
+    }
+   .button-flex{
+    text-align: center;
+    border-left: 2px solid black;
+   }
+   .button-flex,button{
+    padding: 10px;
+   }
+   
+</Style>
 <body>
+    <header>
+        <div class="head-content">
+        <img src="ecare-logo.png" width="200" alt="Logo">
+
+        <h2> Dashbord </h2>
+
+        <div class="user">
+            <p><?php echo $name; ?></p>
+        </div>
+
+        </div>
+
+    </header>
+
+    <section class="intro">
+       <div class="grid">
+        <div class="sec-1">
+            <h3>Hi, <?php echo $name; ?></h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque, odio. Dicta, dolor! Eum earum quisquam fuga, 
+        </div>
+        <div class="sec-2">
+            <img width="300" src="student.png" alt="">
+        </div>
+       </div>
+
+
+        </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="overview">
+            <h1>Overview</h1>
+        </div>
+        <div class="tenant-info">
+            <div class="button-flex">
+                <span class="room"><button>RoomNo<br><?PHP echo $roomNo; ?></button></span>
+                <span class="room2"><button class="room">Balance<br><?PHP echo $amountPaid; ?></button></span>
+                <button class="room3">Total<br><?PHP echo $totalAmount; ?></button></span>
+            </div>
+            <h4>Name: <?php echo $name; ?></h4> 
+            <h4>RoomNo: <?php echo $roomNo; ?></h4>
+            <h4>University: <?php echo $university; ?></h4>
+            <h4>Course: <?php echo $course; ?></h4>
+            
+
+        </div>
+    </section>
     
 </body>
 </html>
