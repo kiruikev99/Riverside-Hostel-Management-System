@@ -115,29 +115,84 @@
       <P style="text-align: center;">In Riverside we offer this categories of Rooms:</P>
     </div>
 
-    <div class="rooms-cards">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="small-bedroom.jpeg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Single Bed</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Details</a>
+    <div style="display: grid; grid-template-columns: auto 600px; padding-top: 50px;   " class="grid-container">
+      <div style="padding: 10px;" class="grid-item"><img style="border-radius: 30px" width="500" src="small-bedroom.jpeg" alt=""></div>
+      <div style="padding-left:20px; border-left: 2px solid ; border-color:black;" class="grid-item">
+        <h3 style="@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');font-family: 'Bebas Neue', sans-serif;" >SINGLE ROOM</h3>
+        <button style="border-radius: 30px; background-color: aliceblue; border-color: aliceblue;"><img width="40" src="businessman.png" alt=""> 1 person</button>
+      
+        <button style="border-radius: 30px; background-color: aliceblue; border-color: aliceblue;"><img width="40" src="plans.png" alt=""> 20 sf</button>
+
+        <div style="padding-top: 60px;" class="text-11">
+          <ps style="@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap'); font-family: 'Rajdhani', sans-serif;" >Experience the freedom and tranquility of having your own space. Booking a single room allows you to create a personal sanctuary where you can study, relax, and recharge. Enjoy uninterrupted privacy and focus on your goals without any distractions. Treat yourself to the comfort and convenience of a single room booking today!</p>
+          <h2 style="@import url('https://fonts.googleapis.com/css2?family=Abel&family=PT+Serif&display=swap'); font-family: 'Abel', sans-serif;
+font-family: 'PT Serif', serif;">10,000/=</h2>
         </div>
-      </div>
-
-
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="double-room.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Duo Bed</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Details</a>
+        <div class="book-btn">
+          <button id="btn-book" style="text-align: center; border-color: aliceblue; box-shadow: 2px 2px 4px #000000; border-radius: 30px; padding: 10px; color: white; background-color : lightblue;" class="btn-book">BOOK NOW</button>
         </div>
-      </div>
-
-    </div>
     
+      </div>
+<div id="reservation" style="padding: 10px; display:none" class="center">
+      <div style="border-colour: aliceblue; border: 2px solid ; border-color:black; padding-left: 50px" class="booking">
+            <div class="header-1">
+            <span style="float: right; cursor: pointer; height: 30px" id="close"  aria-hidden="true">&times;</span>
+                <H3 style="text-align: center;"> <b>SINGLE RESERVATION BOOKING</b></H3>
+                
+            </div>
+            <div class="details">
+                <form action="roombook.php" method="post">
 
+                    <label for="fname">First Name
+                        <input type="text" name="fname" id="fname" placeholder="" required>
+                    </label>
+                       
+                    <label style="padding-left: 50px;" for="fname">Last Name
+                        <input type="text" name="lname" id="lname" placeholder="" required>
+                    </label>
+
+                    <br><br>
+                    <label style="padding-left: 10px;" for="fname">Email
+                        <input type="email" name="email" id="email" placeholder="" required>
+                    </label>
+
+                    
+                    <label style="padding-left: 67px;" for="fname">Number
+                        <input type="number" name="number" id="number" placeholder="" required>
+                    </label>
+                    <br><br>
+                    <label style="padding-left: 10px;" for="fname">Nationality
+                        <input type="number" name="nationality" id="email" placeholder="" required>
+                    </label>
+                    <label style="padding-left: 50px;" for="fname">Checkin Date
+                        <input type="date" name="lname" id="lname" placeholder="" required>
+                    </label>
+                    <div style="padding-top: 50px; padding-bottom: 30px; text-align: center;" class="BUTTON">
+                    <button type="submit">SUBMIT </button>
+                    </div>
+                </form>
+                <script>
+                    document.getElementById("btn-book").onclick = function() { 
+                     document.getElementById("reservation").style.display = "block";
+
+        } 
+                    document.getElementById("close").onclick = function() { 
+                     document.getElementById("reservation").style.display = "none";
+
+        } 
+                    </script>
+            </div>
+
+      </div>
+ </div>
+      
+      </div>
+
+      
+      
+    </div>
+
+    
   </div>
   
 </section>

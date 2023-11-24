@@ -202,7 +202,18 @@
 }
 .jjj{
     filter:blur(40);
-}@media screen and (max-width: 500px){
+}
+.main1 {
+  display: none;
+  grid-template-columns: 1fr 1fr; /* Two columns */
+  grid-gap: 20px; /* Gap between grid items */
+}
+
+.grid-item {
+  /* Add any styles you want for each grid item */
+}
+
+@media screen and (max-width: 500px){
    
         .navlink{
 display: block;
@@ -271,13 +282,16 @@ font-size: small;
         height: 200px;
         border-radius: 30px;
     }
-    .grid-section{
-        display: inline;
-
-    }
-
-    .rooms-cards{
-        display: inline;
-    }
+   .grid-container {
+     display: grid;
+     grid-template-columns: auto auto;
+     grid-gap: 10px;
+   }
+   
+   .grid-item {
+     padding: 20px;
+     text-align: center;
+     background-color: #f1f1f1;
+   }
 
 }
