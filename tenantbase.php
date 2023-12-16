@@ -46,90 +46,62 @@ mysqli_stmt_close($stmt);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Tenant UI</title>
 </head>
-<Style>
-    header{
-        padding-left: 30px;
-    }
-    .head-content{
+<style>
+    .room, .university, .course, .check, .amount, .amount-paid{
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        border-top: 1px solid black;
+        font-size: larger;
+        
     }
-    .head-content h2, p{
-        padding-top: 40px;
+    .amounts h5{
+        padding-left: 20px;
     }
-    .intro{
-        background-color: lightblue;
-        padding: 10px;
-        border-radius: 30px;
+    .amounts{
+        background-color: beige;
+       
+        box-shadow: 10px 10px;
     }
-    .grid{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+    .amounts button{
+        padding: 5px;
+        background-color: paleturquoise;
+        border-radius: 10px;
     }
-    .sec-2{
-        padding-left: 400px;
-    }
-   .button-flex{
-    text-align: center;
-    border-left: 2px solid black;
-   }
-   .button-flex,button{
-    padding: 10px;
-   }
-   
-</Style>
+    </style>
+
 <body>
-    <header>
-        <div class="head-content">
-        <img src="ecare-logo.png" width="200" alt="Logo">
+    <div class="dashboard">
+        <h1>Welcome, <?php echo $name   ?>  </h1>
 
-        <h2> Dashbord </h2>
+        <div class="credentials">
+            <h5>Here are your credentials</h5>
 
-        <div class="user">
-            <p><?php echo $name; ?></p>
-        </div>
-
-        </div>
-
-    </header>
-
-    <section class="intro">
-       <div class="grid">
-        <div class="sec-1">
-            <h3>Hi, <?php echo $name; ?></h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque, odio. Dicta, dolor! Eum earum quisquam fuga, 
-        </div>
-        <div class="sec-2">
-            <img width="300" src="student.png" alt="">
-        </div>
-       </div>
-
-
-        </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="overview">
-            <h1>Overview</h1>
-        </div>
-        <div class="tenant-info">
-            <div class="button-flex">
-                <span class="room"><button>RoomNo<br><?PHP echo $roomNo; ?></button></span>
-                <span class="room2"><button class="room">Balance<br><?PHP echo $amountPaid; ?></button></span>
-                <button class="room3">Total<br><?PHP echo $totalAmount; ?></button></span>
+            <div class="amounts">
+                <div class="room">
+               <h5> Room NO: <h5> <button> <?php echo $roomNo ?> </button>
+               </div>
+               <div class="university">
+               <h5>Univerity: <h5> <button> <?php echo $university ?> </button>
+               </div>
+               <div class="course">
+                <h5>Course:</h5> <h5> <button> <?php echo $course ?> </button>
+               </div>
+               <div class="check">
+                <h5> Check In:</h5> <h5> <button> <?php echo $checkin ?> </button>
+               </div>
+            <div class="amount">
+                <h5>Room Amount</h5> <h5> <button> <?php echo $totalAmount ?> </button>
+               </div>
+               <div class="amount-paid">
+                <h5>Amount Paid</h5> <h5> <button> <?php echo $totalAmount ?> </button>
+               </div>
             </div>
-            <h4>Name: <?php echo $name; ?></h4> 
-            <h4>RoomNo: <?php echo $roomNo; ?></h4>
-            <h4>University: <?php echo $university; ?></h4>
-            <h4>Course: <?php echo $course; ?></h4>
-            
-
+            </div>
+           
         </div>
-    </section>
-    
+    </div>
+
 </body>
 </html>

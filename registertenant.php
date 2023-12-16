@@ -65,14 +65,14 @@ if (isset($_POST['submit'])) {
         <form method="post" action="">
             <label>ROOM NO<input name="roomno" type="text">
             <label>Full Name<input name="name" type="text">
-            <label>Username<input name="username" type="text">
-            <label>Password<input name="password" type="text">
+            <label>Username<input name="username" required type="text">
+            <label>Password<input name="password" required type="password">
             <label>University<input name="university" type="text">
             <label>Course<input name="course" type="text">
             <label>CheckIn<input name="checkin" type="number">
             <label>Amount Paid<input name="paid" type="int">
 
-            <label>Total Amount<input name="total" type="text" placeholder="15,000">
+            <label>Total Amount<input name="total" type="int" placeholder="15000">
             <div class="submit">
             <input type="submit" value="Submit" name="submit">
             </div>

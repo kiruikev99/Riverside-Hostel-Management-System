@@ -75,7 +75,7 @@ input{
       <nav>
       <div class="navlink">
        <button><img width="100px" src="riverside-logo.png"></button> 
-      <li class="current"><a href="Riverside.html">HOME</a></li>
+      <li class="current"><a href="Riverside.php">HOME</a></li>
       <li><a>ABOUT US</a></li>
       <li><a>ROOMS</a></li>
       <li><a>IMAGES</a></li>
