@@ -29,13 +29,17 @@
 .navlink li{
     font-family: 'Oxygen', sans-serif;
     padding-top: 60px;
-    
+   
     list-style: none;
 }
 .navlink li:hover{
     border-top: 2px solid gray;
     cursor: pointer;
     color: cadetblue;
+}
+.navlink a{
+    color: darkred;
+    text-decoration: none;
 }
 .text{
     font-family: 'Kanit', sans-serif;
@@ -159,6 +163,9 @@
 .grid-section{
     display: grid;
     grid-template-columns: auto auto auto;
+}
+.image, img {
+    display: none;
 }
 .contact-us, .contact-form{
     padding-top: 90px;

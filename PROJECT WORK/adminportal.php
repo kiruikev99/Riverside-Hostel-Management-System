@@ -19,25 +19,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 
-.BOX {
-    height: 60vh;
-    width: 50vh;
-    text-align: center;
-    display: block;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid blue;
-    margin: 0 auto; /* Center horizontally */
-    margin-top: 3vh; /* Adjust the top margin as needed */
-    filter: blur(0%);
-    border-radius: 10px;
-    color: BLACK;
-    backdrop-filter: blur(5px);
-    background: transparent;
-    border: 2px solid rgb(255, 255, 255, .2);
-    
-    
-}
+
 
 .background-image{
    background-image:url(background-image2.png);
@@ -57,16 +39,8 @@
 .navlink{
     display: flex;
     color: rgb(255, 255, 255);
-    
+    justify-content: space-evenly;
 }
-.logo{
-    padding-left: 140px;
- }
- button img:hover{
-    cursor: pointer;
-    padding: 4px;
-    border: 2px solid green;
- }
 .navlink li{
     font-family: 'Oxygen', sans-serif;
     padding-top: 60px;
@@ -87,14 +61,7 @@
 .content{
     text-align: center;
     padding-top: 70px;
-    background-color: red;
-    
     font-size: large;
-    
-}
-.HEAD{
-    padding-top: 60PX;
-    padding-left: 290PX;
     
 }
 input{
@@ -107,19 +74,17 @@ input{
 <div  class="background-image">
       <nav>
       <div class="navlink">
-        <div class="logo">
-        <a href="riverside.php"><button> <img  width="140px" src="riverside-logo.png"></button> </a>
-       </div>
-       <div class="HEAD">
-        <H2>ADMIN LOGIN PAGE<H2>
-       </div>
-     
-
+       <button><img width="100px" src="riverside-logo.png"></button> 
+      <li class="current"><a href="Riverside.php">HOME</a></li>
+      <li><a>ABOUT US</a></li>
+      <li><a>ROOMS</a></li>
+      <li><a>IMAGES</a></li>
+      <li><a>ADMIN</a></li>
+      <li><a href="ecare.php">ECARE</a></li>
     </div>
 <div id="form">
     <div class="admin-grid">
-    <div class="border">
-        <div class="BOX">
+        <div class="content">
            
                 <h2>Welcome Admin</h2>
                 <button> <img width="100px" src="riverside-logo.png"></button>
@@ -129,13 +94,8 @@ input{
                     <input type="password" id="pass" name="pass" placeholder="Password"><br><br>
                      <input type="submit" id="btn" autocomplete="off" value="login" name="submit" placeholder="Password">
                 </form>
-                <div class="student">
-                    <p>Are you a student?<br>
-                Visit the <a href="ecare.php">StudentECARE</a>  </p>
-                </div>
             
         </div>
-    </div>
         
     </div>
 </div>

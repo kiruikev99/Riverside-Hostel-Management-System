@@ -69,6 +69,34 @@ mysqli_stmt_close($stmt);
         background-color: paleturquoise;
         border-radius: 10px;
     }
+    .plumber{
+        display: grid;
+        grid-template-columns: auto auto auto;
+       
+        text-align: center;
+       
+    }
+    .p1, .p2{
+        border: 1PX solid black;
+    }
+    .p2{
+        background-color: skyblue;
+    }
+    .p2:hover{
+        background-color: silver;
+        cursor: pointer ;
+    }
+    .p1{
+        background-color: red;
+        
+    }
+    .p3{
+        background-color: slateblue;
+    }
+    .details {
+        border-top: 2px solid black ;
+    
+    }
     </style>
 
 <body>
@@ -76,7 +104,7 @@ mysqli_stmt_close($stmt);
         <h1>Welcome, <?php echo $name   ?>  </h1>
 
         <div class="credentials">
-            <h5>Here are your credentials</h5>
+            <h5>Here are your Details.</h5>
 
             <div class="amounts">
                 <div class="room">
@@ -100,6 +128,70 @@ mysqli_stmt_close($stmt);
             </div>
             </div>
            
+        </div>
+    </div>
+
+
+    <div style="padding-top: 100px" class="room-issue">
+        <h2>ROOM ISSSUE</h2>
+        <p>Room Issues details</p>
+        <p>Each Service is <b> 3,000/=</b></p>
+
+    </div>
+
+    <div class="plumber">
+        <div id="p2" class="p2">
+        <img id="img" width="190" src="ICON.png">
+        <h2>NEED PLUMBER?</h2>
+
+        <div id="details" class="details">
+        <span style="float: right; cursor: pointer; height: 30px; size: 400px; "  id="close"  aria-hidden="true">&times;</span>
+            <form>
+             <label> ROOM NO </label> <button> <?php echo $roomNo ?></button><br><br>
+             <label> MPESA PAYMENT</label><br><input placeholder="Number" style="padding: 5px;" type="number"><br><br>
+             <label>ISSSUE DETAIL</label><br> <input style="padding: 30px;" type="text"><BR><BR>
+
+             <button type="submit">SEND</button>
+            </form>
+           
+        </div>
+
+        </div>
+
+        <div class="p1">
+        <img width="190" src="ICON.png">
+        <h2>NEED ELECTRICIAN?</h2>
+
+        <div id="" class="">
+        <span style="float: right; cursor: pointer; height: 30px; size: 400px; "  id="close"  aria-hidden="true">&times;</span>
+            <form>
+             <label> ROOM NO </label> <button> <?php echo $roomNo ?></button><br><br>
+             <label> MPESA PAYMENT</label><br><input placeholder="Number" style="padding: 5px;" type="number"><br><br>
+             <label>ISSSUE DETAIL</label><br> <input style="padding: 30px;" type="text"><BR><BR>
+
+             <button type="submit">SEND</button>
+            </form>
+          
+        </div>
+
+
+        </div>
+        <div class="p3">
+        <img width="190" src="ICON.png">
+        <h2>OTHER ISSUES?</h2>
+
+        <div id="other" class="other">
+        <span style="float: right; cursor: pointer; height: 30px; size: 400px; "  id="close"  aria-hidden="true">&times;</span>
+            <form>
+             <label> ROOM NO </label> <button> <?php echo $roomNo ?></button><br><br>
+             <label> MPESA PAYMENT</label><br><input placeholder="Number" style="padding: 5px;" type="number"><br><br>
+             <label>ISSSUE DETAIL</label><br> <input style="padding: 30px;" type="text"><BR><BR>
+
+             <button type="submit">SEND</button>
+            </form>
+          
+                    </script>
+        </div>
         </div>
     </div>
 

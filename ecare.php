@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
     $result = mysqli_stmt_get_result($stmt);
 
     if ($result && mysqli_num_rows($result) > 0) {
-       echo "<script>alert('Welcome " . $_SESSION['username'] . "')</script>";
+       echo "<script> alert('Welcome " . $_SESSION['username'] . "')</script>";
 
        
         header("Location: tenantbase.php");
@@ -63,7 +63,7 @@ if (isset($_POST['submit'])) {
     align-items: center;
     border: 3px solid blue;
     margin: 0 auto; /* Center horizontally */
-    margin-top: 10vh; /* Adjust the top margin as needed */
+    margin-top: 3vh; /* Adjust the top margin as needed */
     filter: blur(0%);
     border-radius: 10px;
     color: white;
@@ -97,15 +97,28 @@ if (isset($_POST['submit'])) {
 .navlink{
     display: flex;
     color: rgb(255, 255, 255);
-    justify-content: space-evenly;
-    
 }
+ .logo{
+    padding-left: 140px;
+ }
+ .ecare{
+    font-size: large;
+    padding-left: 250px;
+    padding-top: 50px;
+ }
+    
+
 .navlink li{
     font-family: 'Oxygen', sans-serif;
     padding-top: 60px;
     
     list-style: none;
 }
+button img:hover{
+    cursor: pointer;
+    padding: 4px;
+    border: 2px solid green;
+ }
 .navlink li:hover{
     border-top: 2px solid gray;
     cursor: pointer;
@@ -144,6 +157,15 @@ label{
     color: skyblue;
     
 }
+.ecare h2{
+    border: 2px solid black;
+    padding: 20px;
+    background-color: green;
+    color: white;
+    
+   
+
+}
 .info{
     font-family: 'Playfair Display', serif;
 
@@ -178,19 +200,19 @@ label{
 <div class="background-image">
       <nav>
       <div class="navlink">
-      <a href="riverside.html"> <button><img width="100px" src="riverside-logo.png"></button></a>
-      <li class="current"><a href="Riverside.php">HOME</a></li>
-      <li><a>ABOUT US</a></li>
-      <li><a>ROOMS</a></li>
-      <li><a>IMAGES</a></li>
-      <li><a href="adminportal.php">ADMIN</a></li>
-      <li><a href="ecare.php">ECARE</a></li>
+            <div class="logo">
+            <a href="riverside.php"> <button><img  width="140px" src="riverside-logo.png"></button></a>
+            </div>
+            <div class="ecare">
+               <h2> STUDENT ECARE LOGIN </h2> 
+            </div>
+      
     </div>
       </nav>
 
     <div class="BOX">
         <div class="header">
-            <h2>STUDENT ECARE</h2>
+            <h5>STUDENT ECARE</h5>
         </div>
         <div class="welcome">
           <h3>  WELCOME</h3>

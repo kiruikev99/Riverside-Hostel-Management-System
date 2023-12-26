@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <style>
-    body{
+     body{
         background-color:  rgb(143, 179, 197);
     }
     header{
@@ -61,52 +62,38 @@
     #current{
         border-bottom: 4px solid red;
     }
+    .main{
+        text-align: center;
+    }
+    .title{
+        padding-top: 60px;
+    }
     table{
-        padding-left: 5%;
-    }
-   
-    table td{
-        padding-top: 40px;
-        padding-left: 30px;
-   
-    }
-    .lol{
-        text-align: left;
-        border-bottom: 2px solid black;
-    }
-    table td{
-       padding-left: 90px;
-      
-    }
-    .outertable{
-        padding-top: 10px;
         background-color: white;
-        font-size: 16px;
-    }
-    .head{
-        padding-left: 10px;
-    }
-    .outertable button{
-        font-size: small;
+        padding: 20px;
         
     }
-    td{
-        border-bottom: 1px solid black;
+    .add-btn{
+        padding-top: 20px;
     }
-    th{
-        font-size: large;
-        padding-left: 70px;
+    table td, th{
+        padding-left: 32px;
     }
-    .reply .delete{
-        text-decoration: none;
-        display: none;
+    table th{
+        border-bottom: 2px solid black;
+        border-top: 2px solid black;
+    }
+    table td{
+        padding-top: 20px;
+        border-right: 2px solid blue;
+        
     }
 
     
     
     </style>
 <body>
-<header>
+    <header>
         <div class="header">
         <div class="name">
             Welcome Kevin
@@ -119,8 +106,8 @@
     <nav>
     <div class="mainsection">
         <div class="navsection">
-            <div style="display: flex;" class="tenantadd">
-                <img width="50" src="sleeping.png" alt=""><a href="addtenant.php"><h4 style="padding-left: 10px;">Add Tenant</h4></a>
+            <div id="current" style="display: flex;" class="tenantadd">
+                <img width="50" src="sleeping.png" alt=""><a href="#"><h4 style="padding-left: 10px;">Add Tenant</h4></a>
             </div>
 
             <div style="display: flex;" class="adminadd">
@@ -131,12 +118,12 @@
                 <img width="50" src="repairing-service.png" alt=""><a href="#"><h4 style="padding-left: 10px;">Tenant Issue</h4></a>
             </div>
 
-            <div id="current" style="display: flex;" class="Inquiries">
+            <div style="display: flex;" class="Inquiries">
                 <img width="50" src="contract.png" alt=""><a href="inquiries.php"><h4 style="padding-left: 10px;">Inquiries</h4></a>
             </div>
 
             <div style="display: flex;" class="allTenant">
-                <img width="50" src="tenants.png" alt=""><h4 style="padding-left: 10px;">All Tenant</h4></a>
+                <img width="50" src="tenants.png" alt=""><a href="#"><h4 style="padding-left: 10px;">All Tenant</h4></a>
             </div>
 
             <div style="display: flex;" class="freeroom">
@@ -144,58 +131,61 @@
             </div>
 
             
-            
         </div>
     </div>
     </nav>
-    <div class="lol">
-        <h2>CONTACT INQUIRIES</h2>
+    <section>
+    <div class="main">
+        <div class="add-btn">
+            <button><a href="registertenant.php">Add Student</a></button>
+        </div>
+    <div class="title">
+        <h3>LOGIN CREDENTIALS TENANTS</h3>
     </div>
-    <div class="outertable">
-        <table>
-        <div class="head">
-           <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Number</th>
-            <th>Message</th>
-            <th>Action</th>
-           </tr>
-        </div>
-            <?php
-            include("connection.php");
+    <div class="table">
 
-
-            // Query to retrieve data from the database
-           
-            $query = "SELECT * FROM contact";
-            $result = mysqli_query($conn, $query);
-
-            if (mysqli_num_rows($result) > 0) {
-                // Loop through the database results
-                while ($row = mysqli_fetch_assoc($result)) {
-                    $ID = $row["ID"];
-                    
-                    echo "<tr>";
-                   
-                    echo "<td>" .$row["Name"]. "</td>";
-                    echo "<td>" .$row["Email"]. "</td>";
-                    echo "<td>" .$row["Number"]. "</td>";
-                    echo "<td>" .$row["Message"]. "</td>";
-                    echo "<td><button class='reply'><a href = mailto:".$row["Email"].">REPLY</a></button>
-                    <button class='delete'><a href ='delete.php? deleteid=".$ID."'>DELETE</a></button></td>";
-                    echo "<tr>" ;
-                  
-                }
-                
-            } else {
-                echo "<tr><td colspan='6'>No records found in the database.</td></tr>";
-            }
-
-            mysqli_close($conn);
-            ?>
-        </table>
-        </div>
+    <table>
     
+        <tr>
+            <th>Room No</th>
+            <th> Name</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Fee Paid</th>
+            <th>Out of</th>
+            <th>Balance</th>
+            <th>University<th>
+            <th>Course</th>
+        </tr>
+
+        <?php
+        include("connection.php");
+
+        $query = "SELECT * FROM tenantregister";
+        $result = mysqli_query($conn, $query);
+
+        if (mysqli_num_rows($result) > 0) {
+            // Loop through the database results
+            while ($row = mysqli_fetch_assoc($result)) {
+                $balance = $row["TotalAmount"] - $row["AmountPaid"];
+                echo "<tr>";
+                    echo "<td>" .$row["RoomNo"]. "</td>";
+                    echo "<td>" .$row["Name"]. "</td>";
+                    echo "<td>" .$row["Username"]. "</td>";
+                    echo "<td>" .$row["Password"]. "</td>";
+                    echo "<td>" .$row["AmountPaid"]. "</td>";
+                    echo "<td>" .$row["TotalAmount"]. "</td>";
+                    echo "<td>" .$balance. "</td>";
+                    echo "<td>" .$row["University"]. "</td>";
+                    echo "<td>" .$row["Course"]. "</td>";
+                    echo "<td>" .$row["CheckIn"]. "</td>";
+
+                    echo "</tr>";
+            }
+        }
+
+        ?>
+    </div>
+    </table>
 </body>
 </html>
