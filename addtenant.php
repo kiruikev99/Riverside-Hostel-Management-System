@@ -123,7 +123,7 @@
             </div>
 
             <div style="display: flex;" class="allTenant">
-                <img width="50" src="tenants.png" alt=""><a href="#"><h4 style="padding-left: 10px;">All Tenant</h4></a>
+                <img width="50" src="tenants.png" alt=""><a href="booking.php"><h4 style="padding-left: 10px;">Bookings</h4></a>
             </div>
 
             <div style="display: flex;" class="freeroom">

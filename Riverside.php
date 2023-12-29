@@ -8,19 +8,240 @@
 
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="stylesheet" href="Riverside.css"> 
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RIVERSIDE</title>
 </head>
 <body>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 
+
+
+.background-image{
+   background-image:url(background-image.png);
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   height: 100%;
+  
+    
+}
+.navlink button{
+    background-color: rgb(255, 255, 255);
+    
+    
+}
+.navlink{
+    display: flex;
+    color: rgb(255, 255, 255);
+    justify-content: space-evenly;
+}
+.navlink li{
+    font-family: 'Oxygen', sans-serif;
+    padding-top: 60px;
+   
+    list-style: none;
+}
+.navlink a:hover{
+    border-bottom: 2px solid black;
+    cursor: pointer;
+    color: greenyellow;
+}
+.navlink a{
+    color: white;
+    text-decoration: none;
+}
+.text{
+    font-family: 'Kanit', sans-serif;
+    color: aliceblue;
+    text-align: center;
+    padding-top: 14%;
+    font-size: 40px
+}
+.text h2{
+    font-size: 50px
+}
+.text p{
+    font-family: 'Kanit', sans-serif;
+}
+.header{
+    color: rgba(0, 0, 0, 0.486);
+}
+.about-tittle{
+    font-family: 'Kanit', sans-serif;
+    padding-top: 14%;
+    float: right;
+    clear: left;
+    
+}
+.about-tittle p{
+    font-family: 'Playfair Display', serif;
+    font-size: large;
+    padding-top: 20px;
+}
+.background-image2{
+    background-image:url(gray-abstract-wireframe-technology-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 8%;
+    height: 100%;
+}
+.SERVICES .image{
+    text-align: center;
+    font-family: 'Titillium Web', sans-serif;
+}
+.card{
+    
+}
+.rooms-cards{
+    display: grid;
+    grid-template-columns: auto auto;
+    text-align: center;
+    padding-left: 200px;
+    padding-top: 100px;
+}
+.background{
+    background-image:url(/basss.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 3%;
+    height: 100%;
+
+}
+
+.facility{
+    text-align: left;
+    font-family: 'Kanit', sans-serif;
+    
+} 
+.facility h6{
+    font-family: 'Playfair Display', serif;
+
+}
+.btn-about{
+    background-color: rgb(255, 255, 255);
+    border-color: greenyellow;
+    color: green;
+    padding: 1%;
+    border-radius: 30px;
+
+}
+.parapgraphy button:hover{
+    color: white;
+    background-color: green;
+}
+.images img{
+    
+   
+}
+
+.background3{
+    
+    background-color: rgb(77, 63, 63);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 3%;
+    height: 100%;
+}
+.grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.maps .contact-us{
+    padding-top: 400px;
+}
+.background-faculty{
+    padding: 8%;
+}
+.facitity-info{
+    padding-top: 50px;
+    font-family: 'Abel', sans-serif;
+    font-size: larger;
+}
+.icons{
+    flex-wrap: wrap;
+    padding-top: 50px;
+    padding-left: 20px;
+}
+.icons {
+    
+    padding-left: 10px ;
+}
+.grid-section{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.contact-us, .contact-form{
+    padding-top: 90px;
+    padding-right: 40px;
+}
+.contact-form{
+    color: aliceblue;
+}
+.contact-us li{
+    list-style: none;
+    color: aliceblue;
+    
+}
+.contact-form input{
+    display: block;
+    
+}
+.logo button{
+    background-color: aliceblue;
+}
+.logo a{
+    display: block;
+    padding-top: 5%;
+    filter: grayscale(50%);
+    padding-left: 30%;
+}
+.logo a:hover{
+    filter: grayscale(0);
+}
+.gridsecction{
+    color: aliceblue;
+}
+.terms input{
+    display: block;
+    
+    padding: 3%;
+}
+.name {
+    padding-bottom: 30px;
+    padding-left: 25px;
+}
+.jjj{
+    filter:blur(40);
+}
+.main1 {
+  display: none;
+  grid-template-columns: 1fr 1fr; /* Two columns */
+  grid-gap: 20px; /* Gap between grid items */
+}
+
+.grid-item {
+  /* Add any styles you want for each grid item */
+}
+
+
+  </style>
 
     <!-- NAVBAR -->
 <div  class="background-image">
       <nav>
       <div class="navlink">
-       <button><img style="width: 180px;" src="/riverside-logo.png"></button> 
+       <button><img style="width: 180px;" src="riverside-logo.png"></button> 
       <li class="current"><a>HOME</a></li>
       <li><a class="about-nav">ABOUT US</a></li>
       <li><a class="room-nav">ROOMS</a></li>
@@ -76,7 +297,7 @@
 
 <!-- FACILITIES -->
 <section style="padding-top: 200px;">
-  <div style="background-color: rgba(222, 248, 237, 0.489);" class="background-faculty">
+  <div style="background-color: rgba(222, 248, 237, 0.489); border-radius: 120px;" class="background-faculty">
   <div class="container">
     <div class="facility">
       <h2 style="font-size: 50px;">Facilities</h2>
@@ -88,7 +309,7 @@
       <div class="facitity-info">
        <p> Our hostel boasts a range of facilities designed to enhance your living experience,<br> including a common room, kitchen, dining area, study room, gym, and rooftop terrace. Whether <br>you're looking tosocialize with  other residents or simply relax after a long day, our facilities have got you covered.</b></p>
         <div class="icons">
-        <img width="80" src=".png" alt="">Hot Shower</button>
+        <img width="80" src="shower.png" alt="">Hot Shower</button>
         <img width="80" src="wifi.png" alt="">Free WIFI</button>
         <img width="70" src="store.png" alt="">Shops</button>
         <img width="80" src="reception-bell.png" alt="">Reception</button>
@@ -116,7 +337,7 @@
     </div>
 
     <div style="display: grid; grid-template-columns: auto 600px; padding-top: 50px;   " class="grid-container">
-      <div style="padding: 10px;" class="grid-item"><img style="border-radius: 30px" width="500" src="small-bedroom.jpeg" alt="sss"></div>
+      <div style="padding: 10px;" class="grid-item"><img style="border-radius: 30px" width="500" src="small-bedroom.jpeg" alt=""></div>
       <div style="padding-left:20px; border-left: 2px solid ; border-color:black;" class="grid-item">
         <h3 style="@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');font-family: 'Bebas Neue', sans-serif;" >SINGLE ROOM</h3>
         <button style="border-radius: 30px; background-color: aliceblue; border-color: aliceblue;"><img width="40" src="businessman.png" alt=""> 1 person</button>
@@ -134,43 +355,62 @@ font-family: 'PT Serif', serif;">10,000/=</h2>
     
       </div>
 <div id="reservation" style="padding: 10px; display:none" class="center">
-      <div style="border-colour: aliceblue; border-radius: 20px; border: 2px solid ; border-color:black; padding-left: 50px" class="booking">
+      <div style="border-colour: green; border-right: 2px solid green; border-left: 2px solid #4CAF50;; padding-left: 50px" class="booking">
             <div class="header-1">
             <span style="float: right; cursor: pointer; height: 30px" id="close"  aria-hidden="true">&times;</span>
-                <H3 style="text-align: center;"> <b>Join our booking and save your spot.</b></H3>
+                <H3 style="text-align: center; border-bottom: 2px solid green;"> <b>SINGLE RESERVATION BOOKING</b></H3>
+                <br><br>
                 
             </div>
             <div class="details">
-                <form action="roombook.php" method="post">
-                  <style>
-                    .details, input{
-                      border: none;
-                      border-bottom: 2px solid blue;
-                    }
-                    </style>
-                    
-                        <input type="text" name="fname" id="fname" placeholder="First Name" required>
-                    
-                        <input style="padding-left: 20px;" type="text" name="lname" id="lname" placeholder="Last Name" required></nbsp>
-                       
-                    
+                <form action="stkpush.php" method="post">
 
-                    <br><br>
-                        <input type="email" name="email" id="email" placeholder="Email" required>
-                    
+                <style>
+                  .details input{
+                    border: none;
+                    border-bottom: 2px solid black;
+                  }
+                  .details label{
+                    padding-left: 130px;
+                  }
 
-                    
-                    
-                        <input type="number" name="number" id="number" placeholder="Phone number" required>
-                    
-                    <br><br>
-                   <img src="mpesa.png" alt="">
-                    <label style="padding-left: 50px;" for="fname">Checkin Date
-                        <input type="date" name="lname" id="lname" placeholder="" required>
+
+                  </style>
+                    <label for="fname">First Name
+                        <input type="text" name="fname" id="fname" placeholder="" required>
                     </label>
-                    <div style="padding-top: 50px; padding-bottom: 30px; text-align: center;" class="BUTTON">
-                    <button type="submit">SUBMIT </button>
+                       <br><br>
+                    <label  for="fname">Last Name
+                        <input type="text" name="lname" id="lname" placeholder="" required>
+                    </label>
+                    <br><br>
+                    <label  for="fname"> Number
+                        <input type="number" name="number" id="lname" placeholder="" required>
+                    </label>
+                    <br><br>
+                    <label  for="fname"> CheckIn Date
+                        <input type="date" name="date" id="lname" placeholder="" required>
+                    </label>
+
+                    <div class="line">
+                      <span style="border-bottom: 2px solid black;"></span>
                     </div>
+                    <br><br>
+                    <div style="text-align: center;" class="MPESA">
+                    <h3 style="color: green;">LIPA NA MPESA</h3>
+                  <img width="300" src="mpesa.png">
+                  <BR>
+                  <h4 style="color: red;">ENTER THE NUMBER THAT WILL PAY</h4>
+                  <input style="border-bottom: 2px solid green;" type="number" name="mpesanum" id="number" placeholder="Phone Number" required><br><br>
+                  <input style="border-bottom: 2px solid green;" type="number" name="amount" id="number" placeholder="Amount" required>
+                  <br><br>
+                  <div class="note">
+                    <h5>Please Note<h5><p  style="font-size: 13px" >If you do not pay the full amount now you can deposit the amount you have to secure room.<br>Once student moves in he/she is required to pay the  remaining balance! </p>
+                  </div>
+                  <input style="background-colour: green;" type="submit">
+                  <br><br>
+                  
+                  </div>
                 </form>
                 <script>
                     document.getElementById("btn-book").onclick = function() { 
@@ -206,12 +446,12 @@ font-family: 'PT Serif', serif;">10,000/=</h2>
   </div>
 
   <div class="images">
-    <img width="500" src="double-room.jpg">
-    <img width="500" src="Tt.jpg">
-    <img width="500" src="img3.jpg">
-    <img width="500" src="img-4.jpg">
-    <img width="500" src="slider2.jpg">
-    <img width="500" src="small-bedroom.jpeg">
+    <img width="300" src="double-room.jpg">
+    <img width="300" src="Tt.jpg">
+    <img width="300" src="img3.jpg">
+    <img width="300" src="img-4.jpg">
+    <img width="300" src="slider2.jpg">
+    <img width="300" src="small-bedroom.jpeg">
   </div>
    
     <br>

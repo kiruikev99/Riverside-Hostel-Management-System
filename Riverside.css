@@ -38,7 +38,7 @@
     color: cadetblue;
 }
 .navlink a{
-    color: darkred;
+    color: rgb(0, 0, 0);
     text-decoration: none;
 }
 .text{
@@ -124,7 +124,8 @@
     background-color: green;
 }
 .images img{
-    padding-left: 300px;
+    display: block;
+    
    
 }
 
@@ -164,9 +165,7 @@
     display: grid;
     grid-template-columns: auto auto auto;
 }
-.image, img {
-    display: none;
-}
+
 .contact-us, .contact-form{
     padding-top: 90px;
     padding-right: 40px;
@@ -241,9 +240,7 @@ font-size: small;
         .text p{
             font-size: 15px;
         }
-        .about-img{
-            display: none;
-        }
+        
         .header{
             padding-top: 80px;
             text-align: center

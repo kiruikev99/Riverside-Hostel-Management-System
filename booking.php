@@ -131,11 +131,11 @@
                 <img width="50" src="repairing-service.png" alt=""><a href="#"><h4 style="padding-left: 10px;">Tenant Issue</h4></a>
             </div>
 
-            <div id="current" style="display: flex;" class="Inquiries">
+            <div  style="display: flex;" class="Inquiries">
                 <img width="50" src="contract.png" alt=""><a href="inquiries.php"><h4 style="padding-left: 10px;">Inquiries</h4></a>
             </div>
 
-            <div style="display: flex;" class="allTenant">
+            <div id="current" style="display: flex;" class="allTenant">
                 <img width="50" src="tenants.png" alt=""><a href="booking.php"><h4 style="padding-left: 10px;">Bookings</h4></a>
             </div>
             <div style="display: flex;" class="freeroom">
@@ -148,51 +148,21 @@
     </div>
     </nav>
     <div class="lol">
-        <h2>CONTACT INQUIRIES</h2>
+        <h2 style="text-align:center;">ONLINE BOOKING</h2>
     </div>
     <div class="outertable">
         <table>
         <div class="head">
            <tr>
-            <th>Name</th>
-            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
             <th>Number</th>
-            <th>Message</th>
-            <th>Action</th>
+            <th>CheckIn Date</th>
+            <th>Amount Paid </th>
+            <th>Remaining Balance </th>
            </tr>
         </div>
-            <?php
-            include("connection.php");
-
-
-            // Query to retrieve data from the database
-           
-            $query = "SELECT * FROM contact";
-            $result = mysqli_query($conn, $query);
-
-            if (mysqli_num_rows($result) > 0) {
-                // Loop through the database results
-                while ($row = mysqli_fetch_assoc($result)) {
-                    $ID = $row["ID"];
-                    
-                    echo "<tr>";
-                   
-                    echo "<td>" .$row["Name"]. "</td>";
-                    echo "<td>" .$row["Email"]. "</td>";
-                    echo "<td>" .$row["Number"]. "</td>";
-                    echo "<td>" .$row["Message"]. "</td>";
-                    echo "<td><button class='reply'><a href = mailto:".$row["Email"].">REPLY</a></button>
-                    <button class='delete'><a href ='delete.php? deleteid=".$ID."'>DELETE</a></button></td>";
-                    echo "<tr>" ;
-                  
-                }
-                
-            } else {
-                echo "<tr><td colspan='6'>No records found in the database.</td></tr>";
-            }
-
-            mysqli_close($conn);
-            ?>
+         
         </table>
         </div>
     
