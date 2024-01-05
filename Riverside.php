@@ -234,14 +234,104 @@
   /* Add any styles you want for each grid item */
 }
 
+@media screen and (max-width: 600px){
+
+.navlink{
+display: block;
+ font-size: small;
+height: 200px;
+border-radius: 30px;
+padding-left: 50%;
+}
+.gridsecction {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .newsletter, .about, .terms {
+    margin-bottom: 20px;
+  }
+  .termo{
+    display: none;
+  }
+  /* Images  */
+  .images > img{
+    padding-right: 10px;
+    width: 400px;
+  }
+  /* Rooms */
+  .grid-item > img {
+    width: 350px;
+  }
+ 
+  .grid-item2{
+    font-size: xx-small;
+    padding-top: 390px;
+    padding-right: 200px;
+  }
+
+  .grid-item {
+    width: 100%; /* Adjust the width as needed for each grid item */
+    padding-left: 0; /* Optionally adjust padding for each grid item */
+    border-left: none; /* Optionally remove the left border */
+  }
+
+  /* Facilities */
+  .grid-section{
+    display: block;
+  }
+  .image > img{
+    width: 400px;
+    border-radius: none;
+  }
+  .icons>img{
+    width: 26px;
+  }
+  .icons{
+    font-size: small;
+    border-bottom: 2px solid black;
+  }
+  /* about us */
+  .about{
+    padding-bottom: 300px;
+    
+  }
+  .about-img {
+    width: 100%; /* Set the image width to 100% to make it responsive */
+    max-width: 400px; /* Optionally set a maximum width for the image */
+    padding-top: 40px; /* Adjust the padding as needed */
+  }
+  .about-tittle {
+    text-align: center;
+  }
+  .text{
+    padding-top: 500px;
+  }
+  .navlink > button{
+    padding-right: 40px;
+  }
+  nav > .navlink > button {
+    width: 20px;
+  }
+  
+
+  /* Styling for hamburger icon */
+
+}
+
 
   </style>
 
-    <!-- NAVBAR -->
+
+
+<!-- NAVBAR -->
+
 <div  class="background-image">
       <nav>
       <div class="navlink">
-       <button><img style="width: 180px;" src="riverside-logo.png"></button> 
+        <button><img style="width: 180px;" src="riverside-logo.png"></button> 
       <li class="current"><a>HOME</a></li>
       <li><a class="about-nav">ABOUT US</a></li>
       <li><a class="room-nav">ROOMS</a></li>
@@ -302,7 +392,7 @@
     <div class="facility">
       <h2 style="font-size: 50px;">Facilities</h2>
       <h6>WHAT WE OFFER FOR FREE</h6>
-    <div class="grid-section">
+    <div class="c">
       <div class="image">
         <img style="border-radius: 70px; padding-right: 100px" width="500" height="500px" src="facility.jpg" alt="">
       </div>
@@ -328,7 +418,7 @@
 
 
 <!-- ROOMS -->
-<section  style="padding-top: 100px;">
+<section class="oomm"  style="padding-top: 100px;">
   <div class="background-image2">
 
     <div class="SERVICES">
@@ -336,9 +426,10 @@
       <P style="text-align: center;">In Riverside we offer this categories of Rooms:</P>
     </div>
 
-    <div style="display: grid; grid-template-columns: auto 600px; padding-top: 50px;   " class="grid-container">
+    <div class="kk" style="display: grid; grid-template-columns: auto 600px; padding-top: 50px;" >
       <div style="padding: 10px;" class="grid-item"><img style="border-radius: 30px" width="500" src="small-bedroom.jpeg" alt=""></div>
-      <div style="padding-left:20px; border-left: 2px solid ; border-color:black;" class="grid-item">
+      <div style="padding-left:20px; border-left: 2px solid ; border-color:black;" class="grid-item2">
+      <div class="conyet">
         <h3 style="@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');font-family: 'Bebas Neue', sans-serif;" >SINGLE ROOM</h3>
         <button style="border-radius: 30px; background-color: aliceblue; border-color: aliceblue;"><img width="40" src="businessman.png" alt=""> 1 person</button>
       
@@ -346,6 +437,32 @@
 
         <div style="padding-top: 60px;" class="text-11">
           <ps style="@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap'); font-family: 'Rajdhani', sans-serif;" >Experience the freedom and tranquility of having your own space. Booking a single room allows you to create a personal sanctuary where you can study, relax, and recharge. Enjoy uninterrupted privacy and focus on your goals without any distractions. Treat yourself to the comfort and convenience of a single room booking today!</p>
+  <div>  </div>      
+          <?php
+
+include("connection.php");
+
+// Query to retrieve the last record from the database
+$query = "SELECT * FROM riversidebookings ORDER BY No DESC LIMIT 1";
+$result = mysqli_query($conn, $query);
+
+if (mysqli_num_rows($result) > 0) {
+    // Fetch the last record
+    $row = mysqli_fetch_assoc($result);
+
+    // Get the last auto-incremented value
+    $lastInsertNo = $row['No'];
+
+    // Subtract 37 from the last auto-incremented value
+    $balance = (37 - $lastInsertNo);
+
+    // Echo the result
+    echo "Free Rooms: " . $balance;
+} else {
+    echo "No records found.";
+}
+?>
+            
           <h2 style="@import url('https://fonts.googleapis.com/css2?family=Abel&family=PT+Serif&display=swap'); font-family: 'Abel', sans-serif;
 font-family: 'PT Serif', serif;">10,000/=</h2>
         </div>
@@ -363,7 +480,7 @@ font-family: 'PT Serif', serif;">10,000/=</h2>
                 
             </div>
             <div class="details">
-                <form action="stkpush.php" method="post">
+                <form action="MPESA/stkpush.php" method="post">
 
                 <style>
                   .details input{
@@ -384,13 +501,11 @@ font-family: 'PT Serif', serif;">10,000/=</h2>
                         <input type="text" name="lname" id="lname" placeholder="" required>
                     </label>
                     <br><br>
-                    <label  for="fname"> Number
-                        <input type="number" name="number" id="lname" placeholder="" required>
+                    <label  for="fname"> ID
+                        <input type="number" name="id" id="lname" placeholder="" required>
                     </label>
                     <br><br>
-                    <label  for="fname"> CheckIn Date
-                        <input type="date" name="date" id="lname" placeholder="" required>
-                    </label>
+                
 
                     <div class="line">
                       <span style="border-bottom: 2px solid black;"></span>
@@ -481,7 +596,7 @@ font-family: 'PT Serif', serif;">10,000/=</h2>
       </div>
       </div>
 
-      <div class="terms">
+      <div class="term0">
         <h1  style="color: #4CAF50; padding-bottom: 20px;"><b>ABOUT</b></h1>
         <p>Warranty</p>
         <p>Order & Shipping</p>

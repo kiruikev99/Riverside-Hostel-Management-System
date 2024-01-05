@@ -154,15 +154,43 @@
         <table>
         <div class="head">
            <tr>
+           <th>NO</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Number</th>
-            <th>CheckIn Date</th>
+            <th>ID</th>
+            <th>NumberPaid</th>
             <th>Amount Paid </th>
             <th>Remaining Balance </th>
+            
            </tr>
         </div>
-         
+        <?php
+            include("connection.php");
+
+
+            // Query to retrieve data from the database
+           
+            $query = "SELECT * FROM riversidebookings";
+            $result = mysqli_query($conn, $query);
+
+            if (mysqli_num_rows($result) > 0) {
+                // Loop through the database results
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $ID = $row["ID"];
+                    $balance = (1000 - $row["AmountPaid"] );
+                    
+                    echo "<tr>";
+                    echo "<td>" .$row["No"]. "</td>";
+                    echo "<td>" .$row["First Name"]. "</td>";
+                    echo "<td>" .$row["Last Name"]. "</td>";
+                    echo "<td>" .$row["ID"]. "</td>";
+                    echo "<td>" .$row["NumberPaid"]. "</td>";
+                    echo "<td>" .$row["AmountPaid"]. "</td>";
+                    echo "<td>" .$balance. "</td>";
+                    
+                }
+            }
+            ?>
         </table>
         </div>
     
