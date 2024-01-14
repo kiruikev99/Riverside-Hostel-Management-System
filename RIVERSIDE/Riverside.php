@@ -480,7 +480,7 @@ font-family: 'PT Serif', serif;">10,000/=</h2>
                 
             </div>
             <div class="details">
-                <form action="MPESA/stkpush.php" method="post">
+                <form action="/Admin-RIVERSIDE/PROJECT%20WORK/MPESA/stkpush.php" method="post">
 
                 <style>
                   .details input{

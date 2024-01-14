@@ -46,154 +46,70 @@ mysqli_stmt_close($stmt);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Tenant UI</title>
-</head>
-<style>
-    .room, .university, .course, .check, .amount, .amount-paid{
-        display: flex;
-        border-top: 1px solid black;
-        font-size: larger;
-        
-    }
-    .amounts h5{
-        padding-left: 20px;
-    }
-    .amounts{
-        background-color: beige;
-       
-        box-shadow: 10px 10px;
-    }
-    .amounts button{
-        padding: 5px;
-        background-color: paleturquoise;
-        border-radius: 10px;
-    }
-    .plumber{
-        display: grid;
-        grid-template-columns: auto auto auto;
-       
-        text-align: center;
-       
-    }
-    .p1, .p2{
-        border: 1PX solid black;
-    }
-    .p2{
-        background-color: skyblue;
-    }
-    .p2:hover{
-        background-color: silver;
-        cursor: pointer ;
-    }
-    .p1{
-        background-color: red;
-        
-    }
-    .p3{
-        background-color: slateblue;
-    }
-    .details {
-        border-top: 2px solid black ;
-    
-    }
+    <title>Student Page</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .student-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .student-details {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .detail-label {
+            color: #555;
+            font-weight: bold;
+        }
+
+        .detail-value {
+            color: #333;
+        }
+
+        .balance {
+            font-size: 20px;
+            color: #4caf50;
+        }
     </style>
-
+</head>
 <body>
-    <div class="dashboard">
-        <h1>Welcome, <?php echo $name   ?>  </h1>
 
-        <div class="credentials">
-            <h5>Here are your Details.</h5>
+<div class="student-container">
+    <h2>Welcome, John Doe!</h2>
+    <div class="student-details">
+        <p class="detail-label">University:</p>
+        <p class="detail-value">University of Example</p>
 
-            <div class="amounts">
-                <div class="room">
-               <h5> Room NO: <h5> <button> <?php echo $roomNo ?> </button>
-               </div>
-               <div class="university">
-               <h5>Univerity: <h5> <button> <?php echo $university ?> </button>
-               </div>
-               <div class="course">
-                <h5>Course:</h5> <h5> <button> <?php echo $course ?> </button>
-               </div>
-               <div class="check">
-                <h5> Check In:</h5> <h5> <button> <?php echo $checkin ?> </button>
-               </div>
-            <div class="amount">
-                <h5>Room Amount</h5> <h5> <button> <?php echo $totalAmount ?> </button>
-               </div>
-               <div class="amount-paid">
-                <h5>Amount Paid</h5> <h5> <button> <?php echo $totalAmount ?> </button>
-               </div>
-            </div>
-            </div>
-           
-        </div>
+        <p class="detail-label">First Name:</p>
+        <p class="detail-value">John</p>
+
+        <p class="detail-label">Last Name:</p>
+        <p class="detail-value">Doe</p>
+
+        <p class="detail-label">Balance:</p>
+        <p class="balance">$500.00</p>
     </div>
-
-
-    <div style="padding-top: 100px" class="room-issue">
-        <h2>ROOM ISSSUE</h2>
-        <p>Room Issues details</p>
-        <p>Each Service is <b> 3,000/=</b></p>
-
-    </div>
-
-    <div class="plumber">
-        <div id="p2" class="p2">
-        <img id="img" width="190" src="images/ICON.png">
-        <h2>NEED PLUMBER?</h2>
-
-        <div id="details" class="details">
-        <span style="float: right; cursor: pointer; height: 30px; size: 400px; "  id="close"  aria-hidden="true">&times;</span>
-            <form>
-             <label> ROOM NO </label> <button> <?php echo $roomNo ?></button><br><br>
-             <label> MPESA PAYMENT</label><br><input placeholder="Number" style="padding: 5px;" type="number"><br><br>
-             <label>ISSSUE DETAIL</label><br> <input style="padding: 30px;" type="text"><BR><BR>
-
-             <button type="submit">SEND</button>
-            </form>
-           
-        </div>
-
-        </div>
-
-        <div class="p1">
-        <img width="190" src="images/ICON.png">
-        <h2>NEED ELECTRICIAN?</h2>
-
-        <div id="" class="">
-        <span style="float: right; cursor: pointer; height: 30px; size: 400px; "  id="close"  aria-hidden="true">&times;</span>
-            <form>
-             <label> ROOM NO </label> <button> <?php echo $roomNo ?></button><br><br>
-             <label> MPESA PAYMENT</label><br><input placeholder="Number" style="padding: 5px;" type="number"><br><br>
-             <label>ISSSUE DETAIL</label><br> <input style="padding: 30px;" type="text"><BR><BR>
-
-             <button type="submit">SEND</button>
-            </form>
-          
-        </div>
-
-
-        </div>
-        <div class="p3">
-        <img width="190" src="images/ICON.png">
-        <h2>OTHER ISSUES?</h2>
-
-        <div id="other" class="other">
-        <span style="float: right; cursor: pointer; height: 30px; size: 400px; "  id="close"  aria-hidden="true">&times;</span>
-            <form>
-             <label> ROOM NO </label> <button> <?php echo $roomNo ?></button><br><br>
-             <label> MPESA PAYMENT</label><br><input placeholder="Number" style="padding: 5px;" type="number"><br><br>
-             <label>ISSSUE DETAIL</label><br> <input style="padding: 30px;" type="text"><BR><BR>
-
-             <button type="submit">SEND</button>
-            </form>
-          
-                    </script>
-        </div>
-        </div>
-    </div>
+</div>
 
 </body>
 </html>
