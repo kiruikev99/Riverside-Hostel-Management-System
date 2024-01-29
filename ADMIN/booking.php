@@ -50,11 +50,12 @@ session_start();
             margin: 20px auto;
             border-collapse: collapse;
             background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            table-layout: fixed;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
         }
 
         th, td {
-            padding: 12px;
+            padding: 20px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
@@ -63,21 +64,49 @@ session_start();
             background-color: #3498db;
             color: #fff;
         }
+        tbody::-webkit-scrollbar {
+            width: 10px;
+        }
+        tbody::-webkit-scrollbar-track, tbody::-webkit-scrollbar-thumb {
+            background: black;
+            box-shadow: inset 30 0 5px rgba(0, 0, 0, 0.2);
+            
+        }
+        
     </style>
 </head>
 <body>
-
 <header>
+<div style="float: center" id="datetime">
+      <h5>Date & Time: </h5> <span style="" class="date"><?php echo date("Y-m-d H:i:s"); ?> </span> 
+    </div>
+    
+    <script>
+        function updateDateTime() {
+            var datetimeElement = document.getElementById('datetime');
+            var currentTime = new Date();
+            var formattedDateTime = currentTime.getFullYear() + '-' + (currentTime.getMonth() + 1) + '-' + currentTime.getDate() +
+                ' ' + currentTime.getHours() + ':' + currentTime.getMinutes() + ':' + currentTime.getSeconds();
+
+            datetimeElement.innerHTML = currentTime.getHours();
+        }
+
+        // Update every second (1000 milliseconds)
+        setInterval(updateDateTime, 1000);
+
+        // Initial update
+        updateDateTime();
+    </script>
 <button><img  width="140px" src="images/riverside-logo.png"></button>
     <h1>RIVESIDE ADMIN</h1>
 </header>
 
 <nav>
-    <a href="#">Bookings</a>
-    <a href="#">Tenants</a>
+<a href="booking.php">Bookings</a>
+    <a href="addtenant.php">Tenants</a>
     <a href="#">Issues</a>
     <a href="inquiries.php">Inquiries</a>
-    <a href="#">Add Admin</a>
+    <a href="newadmin.php">Add Admin</a>
 </nav>
 
 <table>
@@ -89,6 +118,8 @@ session_start();
             <th>AMOUNT PAID</th>
             <th>BALANCE</th>
             <th>ACTION</th>
+            <th>DELETE</th>
+            
         </tr>
     </thead>
     <tbody>
@@ -105,7 +136,7 @@ session_start();
                 // Loop through the database results
                 while ($row = mysqli_fetch_assoc($result)) {
                     $ID = $row["ID"];
-                    $balance = (1000 - $row["AmountPaid"] );
+                    $balance = (10 - $row["AmountPaid"] );
                     
                     echo '<tr>;
                      <td> '.$row["No"].' </td>
@@ -114,7 +145,8 @@ session_start();
                      <td> '.$row["NumberPaid"].' </td>
                      <td> '.$row["AmountPaid"].' </td>
                      <td> '.$balance.'  </td>;
-                     <td> <button><a href="tenantss.php? tenantid='.$row["No"].'">Make Account</a></button>  </td>';
+                     <td> <button><a href="tenantss.php? tenantid='.$row["No"].'">Make Account</a></button>  </td>
+                     <td> <button><a href="deletebooking.php? tenantid='.$row["No"].'">Delete</a></button>  </td>';
                     
                 }
             }

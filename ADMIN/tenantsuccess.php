@@ -5,6 +5,8 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve data from the form
+
+    $no = $_SESSION["no"];
     
     $room = $_POST["room"];
     $username = $_POST["Username"];
@@ -18,25 +20,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $balance =  $_SESSION["balance"];
     
 
-    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+    // $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
     // Insert data into the "tenantaccount" table
-    $insertQuery = "INSERT INTO tenantaccount (RoomNo, FirstName, LastName, Username, Password, University, Checkin, AmountPaid, Balance) VALUES ('$room', '$fname', '$lname', '$username', '$hashedPassword', '$university', '$checkinDate', '$paid', '$balance')";
+
+   
+
+    $insertQuery = "INSERT INTO tenantaccount (RoomNo, FirstName, LastName, Username, Password, University, Checkin, AmountPaid, Balance) VALUES ('$room', '$fname', '$lname', '$username', '$password', '$university', '$checkinDate', '$paid', '$balance')";
 
     if ($conn->query($insertQuery) === TRUE) {
-        echo '<script>alert('.$fname.'s Account is made )</script>';
-        header("Location: booking.php");
-        echo "<p>Data has been inserted into the tenantaccount table.</p>";
-    } else {
-        echo "Error: " . $insertQuery . "<br>" . $conn->error;
+        $sql = "DELETE FROM riversidebooking WHERE No = $no";
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            echo '<script>
+            alert("Success")
+            window.location.href = "booking.php";
+
+            </script>';
+           }
+
+    }
+     else {
+        if ($conn->errno == 1062) {
+            echo '<script>
+        alert("'.$room.' Has already been assigned to a tenant")
+        </script>';
+        } 
+        echo '<script>
+        window.location.href = "booking.php";
+
+        </script>';
     }
 
     // Close the database connection
     $conn->close();
-} else {
-    // If someone tries to access this page directly without submitting the form, you can redirect them.
-    header("Location: index.php"); // Replace index.php with the actual name of your main page.
-    exit();
-}
+} 
+
 ?>
-?>
+

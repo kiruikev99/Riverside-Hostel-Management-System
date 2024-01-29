@@ -1,8 +1,15 @@
 <?php
 include 'connection.php';
+session_start();
 
 if (isset($_GET['tenantid'])) {
+    $no = $_SESSION["no"] == $_GET['tenantid'];
     $no = $_GET['tenantid'];
+
+
+
+   
+
 
     $sql = "SELECT * FROM riversidebookings WHERE No = $no";
     $result = $conn->query($sql);
@@ -13,14 +20,17 @@ if (isset($_GET['tenantid'])) {
             $firstName = $row["First Name"];
             $lastName = $row["Last Name"];
             $paid = $row["AmountPaid"];
-            $balance = (1000 - $row["AmountPaid"]);
+            $balance = (10 - $row["AmountPaid"]);
             // Add more lines for other columns as needed
 
-            session_start();
+            
             $_SESSION["fname"] = $firstName;
             $_SESSION["lname"] = $lastName;
             $_SESSION["paid"] = $paid;
             $_SESSION["balance"] = $balance;
+
+
+           
 
         }
     }
@@ -109,7 +119,7 @@ if (isset($_GET['tenantid'])) {
                 <h3><?php echo $paid; ?></h3>
                 <br><br>
                 <label for="password"><?php echo $firstName; ?>'s Balance</label>
-                <h3><?php echo $balance; ?></h3>
+                <h3 id="balance"><?php echo $balance; ?></h3>
             
         </div>
 
@@ -132,7 +142,7 @@ if (isset($_GET['tenantid'])) {
                 <label for="password">Checkin Date</label>
                 <input required name="Date" type="date">
 
-                <input type="submit" value="Register">
+                <input onclick="date()" type="submit" value="Register">
             </form>
 
         </div>

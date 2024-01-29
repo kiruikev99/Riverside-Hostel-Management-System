@@ -44,7 +44,6 @@ mysqli_stmt_close($stmt);
 
 
 ?> 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,8 +71,7 @@ mysqli_stmt_close($stmt);
         }
         .sidebar{
             background-image: linear-gradient(green, blue);
-            width: 420px;
-            height: 100%;
+            width: 300px;
             
         }
         a{
@@ -86,81 +84,22 @@ mysqli_stmt_close($stmt);
         .current{
             border-bottom: 2px solid blue;
         }
-        .name, .roomno{
-            font-size: x-large;
-            padding-left: 30px;;
-        }
-        .date-booking, .balance, .credentials{
-            background-image: url("images/bg.jpg");
-            color: white;
-            width: 170px;
-            border-radius: 10px;
-            padding: 10px;
-        }
-        .notices-border{
-            background-image: url("images/ll.jpg");
-            border-radius: 10px;
-            
-            padding: 70px;
-            width: 60%;
-
-        }
-        .boxes{
-            padding-top: 50px;
-            display: flex;
-            gap: 70px;
-            
-        }
         </style>
-</head>
-<body style=" margin-left: 10px">
 
+
+</head>
+<body>
 <div class="main">
     <div class="sidebar">
         <img width="210" src="images/ecare-logo.png" alt="">
         <ul>
-            <li><a class="current" href="tenantbase.php">Home</a></li>
-            <li><a href="fiancebase.php">Finance</a></li>
+            <li><a href="tenantbase.php">Home</a></li>
+            <li><a class="current" href="fiancebase.php">Finance</a></li>
             <li><a href="tenantbase.php">Transaction PDF</a></li>
             <li><a href="tenantbase.php">Maintainance</a></li>
             <li><a href="tenantbase.php">Notices</a></li>
 
         </ul>
     </div>
-
-    <div class="content-section">
-        <div class="header">
-            <h1>Welcome</h1>
-            <span class="name"><?php echo $name; ?> <?php echo $lastName; ?></span><span class="roomno">Room No: <?php echo $roomNo; ?></span>
-        </div>
-        <div class="boxes">
-            <div class="date-booking">
-                <h2>Checkin-Date</h2>
-                <p><?php echo $checkin; ?></p>
-            </div>
-
-            <div class="balance">
-                <h2>Amount-due</h2>
-                <p><?php echo $balance; ?></p>
-            </div>
-
-            <div class="credentials">
-                <h2>Login Credentials</h2>
-                <p>Username: <?php echo $Username; ?></p>
-                <p>Password: <?php echo $Password; ?></p>
-            </div>
-        </div>
-        <div class="notices">
-            <h2>Notices</h2>
-                <div class="notices-border">
-                     <p>Notices will be displayed here</p>
-                </div>
-            
-        </div>
-    </div>
 </div>
-    
-
-
-</body>
-</html>
+</body

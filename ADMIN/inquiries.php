@@ -54,7 +54,7 @@
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
-
+       
         th {
             background-color: #3498db;
             color: #fff;
@@ -64,13 +64,13 @@
 <body>
 
 <header>
-<button><img  width="140px" src="images/riverside-logo.png"></button>
+<button><a href="adminportal.php"><img  width="140px" src="images/riverside-logo.png"></a></button>
     <h1>RIVESIDE ADMIN</h1>
 </header>
 
 <nav>
     <a href="booking.php">Bookings</a>
-    <a href="#">Tenants</a>
+    <a href="addtenant.php">Tenants</a>
     <a href="#">Issues</a>
     <a href="inquiries.php">Inquiries</a>
     <a href="newadmin.php">Add Admin</a>
@@ -81,7 +81,7 @@
         <tr>
             <th> Name</th>
             <th>Gmail</th>
-            <th>Number</th>
+           
             <th>Message</th>
             <th>Action</th>
             
@@ -106,7 +106,6 @@
                    
                     echo "<td>" .$row["Name"]. "</td>";
                     echo "<td>" .$row["Email"]. "</td>";
-                    echo "<td>" .$row["Number"]. "</td>";
                     echo "<td>" .$row["Message"]. "</td>";
                     echo "<td><button class='reply'><a href = mailto:".$row["Email"].">REPLY</a></button>
                     <button class='delete'><a href ='delete.php? deleteid=".$ID."'>DELETE</a></button></td>";

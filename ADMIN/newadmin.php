@@ -139,17 +139,18 @@ $result = $conn->query($sql);
 </header>
 
 <nav>
-    <a href="booking.php">Bookings</a>
-    <a href="#">Tenants</a>
+<a href="booking.php">Bookings</a>
+    <a href="addtenant.php">Tenants</a>
     <a href="#">Issues</a>
     <a href="inquiries.php">Inquiries</a>
     <a href="newadmin.php">Add Admin</a>
 </nav>
 <main>
+    
 <div class="section">
     <div class="display">
-   <H4>CURRENT ADMIN:
-    <?php
+   <H4>CURRENT ADMIN: 
+    <?php 
    echo  $_SESSION["username"]  ?>
 
    </H4>
@@ -159,7 +160,6 @@ $result = $conn->query($sql);
 
    <H4>Current of Admins:</H4>
    <?php
-if ($result->num_rows > 0) {
     // Output the data in an HTML table
     echo "<table>";
     echo "<tr><th>ID</th><th>ADMIN Name</th><th>Username</th></tr>"; // Adjust headers based on your table columns
@@ -170,17 +170,15 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row['Name'] . "</td>";
         echo "<td>" . $row['Username'] . "</td>";
 
+
+
         // Add more cells for other columns as needed
         echo "</tr>";
     }
 
     echo "</table>";
-} else {
-    echo "No data found";
-}
 
-// Close the connection
-$conn->close();
+
 ?>
 
     </div>
@@ -204,4 +202,29 @@ $conn->close();
        
     </div>
 
-    </main>
+    <div style="padding-left: 150px" class="adminrecords">
+        <button id="adminrecords">Admin Login Records</button>
+    </div>
+        <?php
+    $sql = "SELECT * FROM adminloginrecords";
+    $result = $conn->query($sql);
+    // Output the data in an HTML table
+    echo "<table>";
+    echo "<tr><<th>ADMINName</th><th>Login Date&Time</th></tr>"; // Adjust headers based on your table columns
+
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . $row['AdminName'] . "</td>";
+        echo "<td>" . $row['RecordTime'] . "</td>";
+       
+
+
+
+        // Add more cells for other columns as needed
+        echo "</tr>";
+    }
+
+    echo "</table>";
+    ?>
+    </div>
+</div>

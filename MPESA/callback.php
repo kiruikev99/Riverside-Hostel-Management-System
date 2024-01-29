@@ -25,8 +25,7 @@ $TransactionId = $_SESSION["transaction"];
 $ResultCode =  $_SESSION["result"]; 
 
 
-=======
-<?php
+
 include 'dbconnection.php';
 header("Content-Type: application/json");
 $stkCallbackResponse = file_get_contents('php://input');

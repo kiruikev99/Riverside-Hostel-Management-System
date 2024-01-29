@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,11 +50,12 @@
             margin: 20px auto;
             border-collapse: collapse;
             background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            table-layout: fixed;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
         }
 
         th, td {
-            padding: 12px;
+            padding: 20px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
@@ -58,6 +63,14 @@
         th {
             background-color: #3498db;
             color: #fff;
+        }
+        tbody::-webkit-scrollbar {
+            width: 10px;
+        }
+        tbody::-webkit-scrollbar-track, tbody::-webkit-scrollbar-thumb {
+            background: black;
+            box-shadow: inset 30 0 5px rgba(0, 0, 0, 0.2);
+            
         }
     </style>
 </head>
@@ -69,8 +82,8 @@
 </header>
 
 <nav>
-    <a href="#">Bookings</a>
-    <a href="#">Tenants</a>
+<a href="booking.php">Bookings</a>
+    <a href="addtenant.php">Tenants</a>
     <a href="#">Issues</a>
     <a href="inquiries.php">Inquiries</a>
     <a href="newadmin.php">Add Admin</a>
@@ -79,55 +92,47 @@
 <table>
     <thead>
         <tr>
-            <th>Student Name</th>
-            <th>Room No</th>
-            <th>University</th>
-            <th>Number</th>
-            <th>Rent Paid</th>
-            <th>Rent Balance</th>
+            <th>ROOM-NO</th>
+            <th>TENANT</th>
+            <th>USERNAME</th>
+            <th>PASSWORD</th>
+            <th>UNIVESITY</th>
+            <th>CHECK-IN </th>
+            <th>AMOUNT PAID</th>
+            <th>BALANCE</th>
+            
         </tr>
     </thead>
     <tbody>
-        <!-- Sample data, replace with actual data from your database -->
-        <tr>
-            <td>John Doe</td>
-            <td>C2</td>
-            <td>University of Example</td>
-            <td>123-456-7890</td>
-            <td>$400.00</td>
-            <td>$100.00</td>
-        </tr>
-        <!-- Add more rows as needed -->
-    </tbody>
-</table>
+        <?php
+            include("connection.php");
 
+
+            // Query to retrieve data from the database
+           
+            $query = "SELECT * FROM tenantaccount";
+            $result = mysqli_query($conn, $query);
+
+            if (mysqli_num_rows($result) > 0) {
+                // Loop through the database results
+                while ($row = mysqli_fetch_assoc($result)) {
+                    
+                    echo '<tr>;
+                     <td> '.$row["RoomNo"].' </td>
+                     <td> '.$row["FirstName"]. '  ' .$row["LastName"].'</td>
+
+                     <td> '.$row["Username"].' </td>
+                     <td> '.$row["Password"].' </td>
+                     <td> '.$row["University"].' </td>
+                     <td> '.$row["Checkin"].' </td>
+                     <td> '.$row["AmountPaid"].' </td>
+                     <td> '.$row["Balance"].' </td>';
+                    
+                }      
+            }
+            ?>
+        </table>
+        </div>
+    
 </body>
 </html>
-
-        <!-- <?php
-        include("connection.php");
-
-        $query = "SELECT * FROM tenantregister";
-        $result = mysqli_query($conn, $query);
-
-        if (mysqli_num_rows($result) > 0) {
-            // Loop through the database results
-            while ($row = mysqli_fetch_assoc($result)) {
-                $balance = $row["TotalAmount"] - $row["AmountPaid"];
-                echo "<tr>";
-                    echo "<td>" .$row["RoomNo"]. "</td>";
-                    echo "<td>" .$row["Name"]. "</td>";
-                    echo "<td>" .$row["Username"]. "</td>";
-                    echo "<td>" .$row["Password"]. "</td>";
-                    echo "<td>" .$row["AmountPaid"]. "</td>";
-                    echo "<td>" .$row["TotalAmount"]. "</td>";
-                    echo "<td>" .$balance. "</td>";
-                    echo "<td>" .$row["University"]. "</td>";
-                    echo "<td>" .$row["Course"]. "</td>";
-                    echo "<td>" .$row["CheckIn"]. "</td>";
-
-                    echo "</tr>";
-            }
-        }
-
-        ?> -->

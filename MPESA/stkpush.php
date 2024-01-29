@@ -52,9 +52,10 @@ $CheckoutRequestID = $data->CheckoutRequestID;
 $ResponseCode = $data->ResponseCode;
 
 if ($ResponseCode == "0") {
-    header("Location: /Admin-RIVERSIDE/PROJECT%20WORK/Riverside.php");
-    echo 'echo <script>alert("Welcome to Geeks for Geeks")</script>';;
-
+    echo  '<script>
+    window.location.href = "/Admin-RIVERSIDE/PROJECT%20WORK/RIVERSIDE/Riverside.php";
+    alert("Prompt Payment Successful")
+    </script>';
     // Replace with your database credentials
     $conn = new mysqli($servername, $username, $password, $dbname);
     if ($conn->connect_error) {

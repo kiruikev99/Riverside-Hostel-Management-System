@@ -25,7 +25,7 @@
 
 
 .background-image{
-   background-image:url(  background-image.png);
+   background-image:url(images/background-image.png);
    background-size: cover;
    background-repeat: no-repeat;
    background-position: center;
@@ -331,7 +331,7 @@ padding-left: 50%;
 <div  class="background-image">
       <nav>
       <div class="navlink">
-        <button><img style="width: 180px;" src="riverside-logo.png"></button> 
+        <button><img style="width: 180px;" src="images/riverside-logo.png"></button> 
       <li class="current"><a>HOME</a></li>
       <li><a class="about-nav">ABOUT US</a></li>
       <li><a class="room-nav">ROOMS</a></li>
@@ -370,7 +370,7 @@ padding-left: 50%;
 
 <section class="about">
   <div class="container">
-  <img class="about-img" style="width: 500px; padding-top: 80px;" src="riverside-logo.png">
+  <img class="about-img" style="width: 500px; padding-top: 80px;" src="images/riverside-logo.png">
   <div class="about-tittle" id="about-tittle">
     
     <div class="header">
@@ -386,35 +386,34 @@ padding-left: 50%;
 </section>
 
 <!-- FACILITIES -->
-<section style="padding-top: 200px;">
+<section style="padding-top: 100px;">
   <div style="background-color: rgba(222, 248, 237, 0.489); border-radius: 120px;" class="background-faculty">
-  <div class="container">
-    <div class="facility">
-      <h2 style="font-size: 50px;">Facilities</h2>
-      <h6>WHAT WE OFFER FOR FREE</h6>
-    <div class="c">
-      <div class="image">
-        <img style="border-radius: 70px; padding-right: 100px" width="500" height="500px" src="facility.jpg" alt="">
-      </div>
-      <div class="facitity-info">
-       <p> Our hostel boasts a range of facilities designed to enhance your living experience,<br> including a common room, kitchen, dining area, study room, gym, and rooftop terrace. Whether <br>you're looking tosocialize with  other residents or simply relax after a long day, our facilities have got you covered.</b></p>
-        <div class="icons">
-        <img width="80" src="shower.png" alt="">Hot Shower</button>
-        <img width="80" src="wifi.png" alt="">Free WIFI</button>
-        <img width="70" src="store.png" alt="">Shops</button>
-        <img width="80" src="reception-bell.png" alt="">Reception</button>
+    <div class="container">
+      <div class="facility">
+        <h2 style="font-size: 50px;">Facilities</h2>
+        <h6>WHAT WE OFFER FOR FREE</h6>
+        <div style="display: flex;" class="c">
+          <div class="image">
+            <img style="border-radius: 70px; padding-right: 100px" width="500" height="500px" src="images/facility.jpg" alt="">
+          </div>
+          <div class="facitity-info" style="flex: 1;">
+            <h4><b> Our hostel boasts a range of facilities designed to enhance your living experience,
+              including a common room, kitchen, dining area, study room, gym, and rooftop terrace.
+              Whether you're looking to socialize with other residents or simply relax after a long day,
+              our facilities have got you covered.</b></h4>
+            <div class="icons">
+              <img width="80" src="images/shower.png" alt="">Hot Shower</button>
+              <img width="80" src="images/wifi.png" alt="">Free WIFI</button>
+              <img width="70" src="images/store.png" alt="">Shops</button>
+              <img width="80" src="images/reception-bell.png" alt="">Reception</button>
+            </div>
+          </div>
         </div>
       </div>
-      
-       
-      
-    
-</div>      
     </div>
   </div>
-  </div>
-
 </section>
+
 
 
 <!-- ROOMS -->
@@ -427,13 +426,14 @@ padding-left: 50%;
     </div>
 
     <div class="kk" style="display: grid; grid-template-columns: auto 600px; padding-top: 50px;" >
-      <div style="padding: 10px;" class="grid-item"><img style="border-radius: 30px" width="500" src="small-bedroom.jpeg" alt=""></div>
+      <div style="padding: 10px;" class="grid-item"><img style="border-radius: 30px" width="500" src="images/small-bedroom.jpeg" alt="">
+</div>
       <div style="padding-left:20px; border-left: 2px solid ; border-color:black;" class="grid-item2">
       <div class="conyet">
         <h3 style="@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');font-family: 'Bebas Neue', sans-serif;" >SINGLE ROOM</h3>
-        <button style="border-radius: 30px; background-color: aliceblue; border-color: aliceblue;"><img width="40" src="businessman.png" alt=""> 1 person</button>
+        <button style="border-radius: 30px; background-color: aliceblue; border-color: aliceblue;"><img width="40" src="images/businessman.png" alt=""> 1 person</button>
       
-        <button style="border-radius: 30px; background-color: aliceblue; border-color: aliceblue;"><img width="40" src="plans.png" alt=""> 20 sf</button>
+        <button style="border-radius: 30px; background-color: aliceblue; border-color: aliceblue;"><img width="40" src="images/plans.png" alt=""> 20 sf</button>
 
         <div style="padding-top: 60px;" class="text-11">
           <ps style="@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap'); font-family: 'Rajdhani', sans-serif;" >Experience the freedom and tranquility of having your own space. Booking a single room allows you to create a personal sanctuary where you can study, relax, and recharge. Enjoy uninterrupted privacy and focus on your goals without any distractions. Treat yourself to the comfort and convenience of a single room booking today!</p>
@@ -471,71 +471,8 @@ font-family: 'PT Serif', serif;">10,000/=</h2>
         </div>
     
       </div>
-<div id="reservation" style="padding: 10px; display:none" class="center">
-      <div style="border-colour: green; border-right: 2px solid green; border-left: 2px solid #4CAF50;; padding-left: 50px" class="booking">
-            <div class="header-1">
-            <span style="float: right; cursor: pointer; height: 30px" id="close"  aria-hidden="true">&times;</span>
-                <H3 style="text-align: center; border-bottom: 2px solid green;"> <b>SINGLE RESERVATION BOOKING</b></H3>
-                <br><br>
+  
                 
-            </div>
-            <div class="details">
-                <form action="/Admin-RIVERSIDE/PROJECT%20WORK/MPESA/stkpush.php" method="post">
-
-                <style>
-                  .details input{
-                    border: none;
-                    border-bottom: 2px solid black;
-                  }
-                  .details label{
-                    padding-left: 130px;
-                  }
-
-
-                  </style>
-                    <label for="fname">First Name
-                        <input type="text" name="fname" id="fname" placeholder="" required>
-                    </label>
-                       <br><br>
-                    <label  for="fname">Last Name
-                        <input type="text" name="lname" id="lname" placeholder="" required>
-                    </label>
-                    <br><br>
-                    <label  for="fname"> ID
-                        <input type="number" name="id" id="lname" placeholder="" required>
-                    </label>
-                    <br><br>
-                
-
-                    <div class="line">
-                      <span style="border-bottom: 2px solid black;"></span>
-                    </div>
-                    <br><br>
-                    <div style="text-align: center;" class="MPESA">
-                    <h3 style="color: green;">LIPA NA MPESA</h3>
-                  <img width="300" src="mpesa.png">
-                  <BR>
-                  <h4 style="color: red;">ENTER THE NUMBER THAT WILL PAY</h4>
-                  <input style="border-bottom: 2px solid green;" type="number" name="mpesanum" id="number" placeholder="Phone Number" required><br><br>
-                  <input style="border-bottom: 2px solid green;" type="number" name="amount" id="number" placeholder="Amount" required>
-                  <br><br>
-                  <div class="note">
-                    <h5>Please Note<h5><p  style="font-size: 13px" >If you do not pay the full amount now you can deposit the amount you have to secure room.<br>Once student moves in he/she is required to pay the  remaining balance! </p>
-                  </div>
-                  <input style="background-colour: green;" type="submit">
-                  <br><br>
-                  
-                  </div>
-                </form>
-                <script>
-                    document.getElementById("btn-book").onclick = function() { 
-                     document.getElementById("reservation").style.display = "block";
-
-        } 
-                    document.getElementById("close").onclick = function() { 
-                     document.getElementById("reservation").style.display = "none";
-
-        } 
                     </script>
             </div>
 
@@ -553,6 +490,68 @@ font-family: 'PT Serif', serif;">10,000/=</h2>
   
 </section>
 
+<!-- MPESA SECTION -->
+ 
+
+      
+      <form class="reservation" style="background-color: rgb(255, 99, 71);; display: none;  border: 3px solid black;box-shadow: 10px 10px green; border-radius: 20px; padding: 60px; text-align: center; max-width: 400px;
+            margin: auto;" action="/Admin-RIVERSIDE/PROJECT%20WORK/MPESA/stkpush.php" method="post" id="reservation">
+
+            <span style="float: right; padding-bottom: 10px; cursor: pointer;" id="close">&times;</span>
+        <label for="name">First Name:</label>
+        <input style=" width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;" type="text" id="name" name="fname" required>
+           <label for="name">Last Name:</label>
+        <input style=" width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;" type="text" id="name" name="lname" required>
+
+        <label style="display: block;
+            margin-bottom: 8px;" for="id">ID:</label>
+        <input style=" width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;" type="text" id="id" name="id" required>
+
+            <img style="padding-left: 20px" width="300px" src="images/mpesa.png">
+
+            <h3 style="text-align: center; color: #4CAF50; padding-bottom: 50px;">LIPA NA MPESA</h3>
+
+        <label style="display: block;
+            margin-bottom: 8px; text-align: center;" for="mpesaNumber">Mpesa Number:</label>
+        <input style=" width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box; border-top: white; border-left: white;border-right: white; border-bottom: 2px solid green;" type="text" placeholder="Start with 254! " id="mpesaNumber" name="mpesanum" required>
+
+        <label style="display: block;
+            margin-bottom: 8px; text-align: center;" for="amount">Amount:</label>
+        <input style=" width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;border-top: white; border-left: white;border-right: white; border-bottom: 2px solid green;" type="number" id="amount" name="amount" required>
+
+        <button style=" background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;" type="submit" onclick="submitForm()">Book Room</button>
+    </form>
+    <script>
+                    document.getElementById("btn-book").onclick = function() { 
+                     document.getElementById("reservation").style.display = "block";
+
+        } 
+                    document.getElementById("close").onclick = function() { 
+                     document.getElementById("reservation").style.display = "none";
+
+        } 
+        </script>
+
 <!-- IMAGES -->
 <section>
   <div class="background">
@@ -561,13 +560,13 @@ font-family: 'PT Serif', serif;">10,000/=</h2>
   </div>
 
   <div class="images">
-    <img width="300" src="double-room.jpg">
-    <img width="300" src="Tt.jpg">
-    <img width="300" src="img3.jpg">
-    <img width="300" src="img-4.jpg">
-    <img width="300" src="slider2.jpg">
-    <img width="300" src="small-bedroom.jpeg">
-    <img width="300" src="facilites.jpeg">
+    <img width="300" src="images/double-room.jpg">
+    <img width="300" src="images/Tt.jpg">
+    <img width="300" src="images/img3.jpg">
+    <img width="300" src="images/img-4.jpg">
+    <img width="300" src="images/slider2.jpg">
+    <img width="300" src="images/small-bedroom.jpeg">
+    <img width="300" src="images/facilites.jpeg">
   </div>
    
     <br>
@@ -578,7 +577,7 @@ font-family: 'PT Serif', serif;">10,000/=</h2>
 
 </section>
 <!-- FOOTER -->
-<footer class="footer" style="background-image: url(last.jpg); background-repeat:round;  padding: 4%;">
+<footer class="footer" style="background-image: url(images/last.jpg); background-repeat:round;  padding: 4%;">
   <div style="display: flex; justify-content: space-evenly;" class="gridsecction">
     <div class="newsletter">
       <h1  style="color: #4CAF50; padding-bottom: 20px"><b>NewsLetter</b></h1>
@@ -607,23 +606,53 @@ font-family: 'PT Serif', serif;">10,000/=</h2>
 
       <div class="terms">
         <h1  style="color: #4CAF50; padding-bottom: 20px;"><b>CONTACT US</b></h1>
-        <form method="post" action="contact.php">
-          <div class="name">
-        <input name="name" type="text" placeholder="Name">
-        </div>
-        <div class="name">
-          <input name="tel" type="tel" placeholder="number">
-          </div>
-        <div class="name">
-        <input name="email" type="text" placeholder="Email">
-        </div>
-        <div class="name">
-        <input name="message" class="mess" style="padding-bottom: 100px;" type="text" placeholder="Message">
-      </div>
-      <div style="padding-left: 80px;" class="name">
-        <input name="submit" type="submit" value="submit">
-        </div>
-        </form>
+
+        <form action="contact.php" method="post" style="   max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" id="contactForm">
+        <label style="  display: block;
+            margin-bottom: 8px;
+            color: #333;" for="name">Name:</label>
+        <input style=" width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;" type="text" id="name" name="name" required>
+
+        
+        
+            <label  style="  display: block;
+            margin-bottom: 8px;
+            color: #333;" for="number">Email:</label>
+        <input style=" width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;" type="email" id="number" name="email" required>
+
+        <label  style="  display: block;
+            margin-bottom: 8px;
+            color: #333;" for="message">Message:</label>
+        <textarea style=" width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;" id="message" name="message" required></textarea>
+
+        <button style="            background-color: blue;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+" type="submit">Send Message</button>
+    </form>
       </div>
 
     
