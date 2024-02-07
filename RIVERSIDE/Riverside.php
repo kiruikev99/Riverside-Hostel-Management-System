@@ -41,13 +41,15 @@
 .navlink{
     display: flex;
     color: rgb(255, 255, 255);
-    justify-content: space-evenly;
+    justify-content: space-around;
+    position: fixed;
 }
 .navlink li{
     font-family: 'Oxygen', sans-serif;
     padding-top: 60px;
-   
+   padding-left: 120px;
     list-style: none;
+    
 }
 .navlink a:hover{
     border-bottom: 2px solid black;
@@ -55,7 +57,7 @@
     color: greenyellow;
 }
 .navlink a{
-    color: white;
+    color: black;
     text-decoration: none;
 }
 .text{
@@ -332,12 +334,12 @@ padding-left: 50%;
       <nav>
       <div class="navlink">
         <button><img style="width: 180px;" src="images/riverside-logo.png"></button> 
-      <li class="current"><a>HOME</a></li>
+      <li style="color: black;" class="current"><a>HOME</a></li>
       <li><a class="about-nav">ABOUT US</a></li>
       <li><a class="room-nav">ROOMS</a></li>
       <li><a class="img-nav">IMAGES</a></li>
-      <li><a style="text-decoration: none; color: white;" href="http://localhost/Admin-RIVERSIDE/PROJECT%20WORK/ADMIN/adminportal.php">ADMIN</a></li>
-      <li class="end"><a style="text-decoration: none; color: white;"  href="http://localhost/Admin-RIVERSIDE/PROJECT%20WORK/ECARE/ecare.php">ECARE</a></li>
+      <li><a style="text-decoration: none; color: black;" href="http://localhost/Admin-RIVERSIDE/PROJECT%20WORK/ADMIN/adminportal.php">ADMIN</a></li>
+      <li class="end"><a style="text-decoration: none; color: black;"  href="http://localhost/Admin-RIVERSIDE/PROJECT%20WORK/ECARE/ecare.php">ECARE</a></li>
     </div>
 
       </nav>
@@ -454,7 +456,7 @@ if (mysqli_num_rows($result) > 0) {
     $lastInsertNo = $row['No'];
 
     // Subtract 37 from the last auto-incremented value
-    $balance = (37 - $lastInsertNo);
+    $balance = (30 - $lastInsertNo);
 
     // Echo the result
     echo "Free Rooms: " . $balance;
@@ -527,12 +529,8 @@ font-family: 'PT Serif', serif;">10,000/=</h2>
             margin-bottom: 16px;
             box-sizing: border-box; border-top: white; border-left: white;border-right: white; border-bottom: 2px solid green;" type="text" placeholder="Start with 254! " id="mpesaNumber" name="mpesanum" required>
 
-        <label style="display: block;
-            margin-bottom: 8px; text-align: center;" for="amount">Amount:</label>
-        <input style=" width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
-            box-sizing: border-box;border-top: white; border-left: white;border-right: white; border-bottom: 2px solid green;" type="number" id="amount" name="amount" required>
+        <h4>Total: 10,000</h4>
+        
 
         <button style=" background-color: #4CAF50;
             color: white;

@@ -86,6 +86,7 @@ session_start();
     <a href="addtenant.php">Tenants</a>
     <a href="#">Issues</a>
     <a href="inquiries.php">Inquiries</a>
+    <a href="notices.php">Tenant Notices</a>
     <a href="newadmin.php">Add Admin</a>
 </nav>
 
@@ -98,8 +99,8 @@ session_start();
             <th>PASSWORD</th>
             <th>UNIVESITY</th>
             <th>CHECK-IN </th>
-            <th>AMOUNT PAID</th>
-            <th>BALANCE</th>
+            <th>D-O-B</th>
+            <th>MONTH BALANCE</th>
             
         </tr>
     </thead>
@@ -125,8 +126,8 @@ session_start();
                      <td> '.$row["Password"].' </td>
                      <td> '.$row["University"].' </td>
                      <td> '.$row["Checkin"].' </td>
-                     <td> '.$row["AmountPaid"].' </td>
-                     <td> '.$row["Balance"].' </td>';
+                     <td> '.$row["D-O-B"].' </td>
+                     <td> '.$row["MonthBalance"].' </td>';
                     
                 }      
             }

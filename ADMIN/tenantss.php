@@ -20,7 +20,7 @@ if (isset($_GET['tenantid'])) {
             $firstName = $row["First Name"];
             $lastName = $row["Last Name"];
             $paid = $row["AmountPaid"];
-            $balance = (10 - $row["AmountPaid"]);
+            $balance = (50 - $row["AmountPaid"]);
             // Add more lines for other columns as needed
 
             
@@ -115,11 +115,10 @@ if (isset($_GET['tenantid'])) {
                 <label for="lastName">Last Name</label>
                 <h3><?php echo $lastName; ?></h3>
                 <br><br>
-                <label for="email"><?php echo $firstName; ?>'s Amount Paid </label>
-                <h3><?php echo $paid; ?></h3>
+                <label for="email"><?php echo $firstName; ?> Room Fee </label>
+                <h3>10,000/per Month</h3>
                 <br><br>
-                <label for="password"><?php echo $firstName; ?>'s Balance</label>
-                <h3 id="balance"><?php echo $balance; ?></h3>
+               
             
         </div>
 
@@ -129,6 +128,9 @@ if (isset($_GET['tenantid'])) {
         <h2> <?php echo $firstName; ?>'s Credentials</h2>
                 <label for="firstName">ROOM NO</label>
                 <input required name="room" placeholder="e.g C3, C5" type="text">
+
+                <label for="firstName">Date-of-Birth</label>
+                <input required name="D-O-B" placeholder="e.g C3, C5" type="date">
 
                 <label for="lastName">Username</label>
                 <input required name="Username" type="text">

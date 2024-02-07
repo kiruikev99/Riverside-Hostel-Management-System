@@ -26,11 +26,15 @@ if ($result && mysqli_num_rows($result) > 0) {
     $roomNo = $row['RoomNo'];
     $Username = $row['Username'];
     $Password = $row['Password'];
-    $balance = $row['Balance'];
-    $totalAmount = $row['AmountPaid'];
+    $balance = $row['MonthBalance'];
     $university = $row['University'];
-
+    $dateofbirth = $row['D-O-B'];
     $checkin = $row['Checkin'];
+
+
+    $date = date("Y-m-d");
+
+    $formattedDate = date("M", strtotime($date));
 
 
     // Add other fields as needed
@@ -72,7 +76,7 @@ mysqli_stmt_close($stmt);
         }
         .sidebar{
             background-image: linear-gradient(green, blue);
-            width: 420px;
+            width: 300px;
             height: 100%;
             
         }
@@ -88,7 +92,7 @@ mysqli_stmt_close($stmt);
         }
         .name, .roomno{
             font-size: x-large;
-            padding-left: 30px;;
+            padding-left: 5px;;
         }
         .date-booking, .balance, .credentials{
             background-image: url("images/bg.jpg");
@@ -121,8 +125,8 @@ mysqli_stmt_close($stmt);
         <ul>
             <li><a class="current" href="tenantbase.php">Home</a></li>
             <li><a href="fiancebase.php">Finance</a></li>
-            <li><a href="tenantbase.php">Transaction PDF</a></li>
-            <li><a href="tenantbase.php">Maintainance</a></li>
+            <li><a href="transactionpdf.php">Transaction PDF</a></li>
+            <li><a href="maintainance.php">Maintainance</a></li>
             <li><a href="tenantbase.php">Notices</a></li>
 
         </ul>
@@ -130,8 +134,8 @@ mysqli_stmt_close($stmt);
 
     <div class="content-section">
         <div class="header">
-            <h1>Welcome</h1>
-            <span class="name"><?php echo $name; ?> <?php echo $lastName; ?></span><span class="roomno">Room No: <?php echo $roomNo; ?></span>
+            <h1>Welcome, <?php echo $name; ?></h1>
+            <span class="name"> </span><span class="roomno">Room No: <?php echo $roomNo; ?></span>
         </div>
         <div class="boxes">
             <div class="date-booking">
@@ -140,14 +144,17 @@ mysqli_stmt_close($stmt);
             </div>
 
             <div class="balance">
-                <h2>Amount-due</h2>
+                <h2><?php echo $formattedDate ?> Balance</h2>
                 <p><?php echo $balance; ?></p>
             </div>
 
             <div class="credentials">
-                <h2>Login Credentials</h2>
-                <p>Username: <?php echo $Username; ?></p>
-                <p>Password: <?php echo $Password; ?></p>
+                <h2>Tenant Details</h2>
+                <p>First Name: <?php echo $name; ?></p>
+                <p>Last Name: <?php echo $lastName; ?></p>
+                <p>D-O-B: <?php echo  $dateofbirth; ?></p>
+                <p>University: <?php echo $university; ?></p>
+                
             </div>
         </div>
         <div class="notices">

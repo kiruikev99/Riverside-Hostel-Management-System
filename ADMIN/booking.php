@@ -78,7 +78,7 @@ session_start();
 <body>
 <header>
 <div style="float: center" id="datetime">
-      <h5>Date & Time: </h5> <span style="" class="date"><?php echo date("Y-m-d H:i:s"); ?> </span> 
+      <h5>Date & Time: </h5> <span style="" id="date"> </span> 
     </div>
     
     <script>
@@ -88,7 +88,7 @@ session_start();
             var formattedDateTime = currentTime.getFullYear() + '-' + (currentTime.getMonth() + 1) + '-' + currentTime.getDate() +
                 ' ' + currentTime.getHours() + ':' + currentTime.getMinutes() + ':' + currentTime.getSeconds();
 
-            datetimeElement.innerHTML = currentTime.getHours();
+            datetimeElement.innerHTML = formattedDateTime;
         }
 
         // Update every second (1000 milliseconds)
@@ -106,6 +106,7 @@ session_start();
     <a href="addtenant.php">Tenants</a>
     <a href="#">Issues</a>
     <a href="inquiries.php">Inquiries</a>
+    <a href="notices.php">Tenant Notices</a>
     <a href="newadmin.php">Add Admin</a>
 </nav>
 
@@ -115,8 +116,7 @@ session_start();
             <th>ID</th>
             <th>NAME</th>
             <th>NUMBER PAID</th>
-            <th>AMOUNT PAID</th>
-            <th>BALANCE</th>
+            <th>ID</th>
             <th>ACTION</th>
             <th>DELETE</th>
             
@@ -136,15 +136,14 @@ session_start();
                 // Loop through the database results
                 while ($row = mysqli_fetch_assoc($result)) {
                     $ID = $row["ID"];
-                    $balance = (10 - $row["AmountPaid"] );
+                    $balance = (50 - $row["AmountPaid"] );
                     
                     echo '<tr>;
                      <td> '.$row["No"].' </td>
                      <td> '.$row["First Name"]. '  ' .$row["Last Name"].'</td>
 
                      <td> '.$row["NumberPaid"].' </td>
-                     <td> '.$row["AmountPaid"].' </td>
-                     <td> '.$balance.'  </td>;
+                     <td> '.$row["ID"].' </td>;
                      <td> <button><a href="tenantss.php? tenantid='.$row["No"].'">Make Account</a></button>  </td>
                      <td> <button><a href="deletebooking.php? tenantid='.$row["No"].'">Delete</a></button>  </td>';
                     

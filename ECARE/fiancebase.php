@@ -26,11 +26,18 @@ if ($result && mysqli_num_rows($result) > 0) {
     $roomNo = $row['RoomNo'];
     $Username = $row['Username'];
     $Password = $row['Password'];
-    $balance = $row['Balance'];
-    $totalAmount = $row['AmountPaid'];
+    $balance = $row['MonthBalance'];
+    
     $university = $row['University'];
 
     $checkin = $row['Checkin'];
+
+
+
+    $date = date("Y-m-d");
+
+    $formattedDate = date("M", strtotime($date));
+
 
 
     // Add other fields as needed
@@ -54,7 +61,7 @@ mysqli_stmt_close($stmt);
     <style>
         .main {
             display: grid;
-            grid-template-columns: 1fr 70%;
+            grid-template-columns: 25% 1fr 1fr;
 
         }
        
@@ -72,6 +79,7 @@ mysqli_stmt_close($stmt);
         .sidebar{
             background-image: linear-gradient(green, blue);
             width: 300px;
+            height: 100%;
             
         }
         a{
@@ -84,6 +92,12 @@ mysqli_stmt_close($stmt);
         .current{
             border-bottom: 2px solid blue;
         }
+        table{
+            padding-left: 100px;
+            font-size: x-large;
+        }
+        
+        
         </style>
 
 
@@ -95,11 +109,72 @@ mysqli_stmt_close($stmt);
         <ul>
             <li><a href="tenantbase.php">Home</a></li>
             <li><a class="current" href="fiancebase.php">Finance</a></li>
-            <li><a href="tenantbase.php">Transaction PDF</a></li>
-            <li><a href="tenantbase.php">Maintainance</a></li>
+            <li><a href="transactionpdf.php">Transaction PDF</a></li>
+            <li><a href="maintainance.php">Maintainance</a></li>
             <li><a href="tenantbase.php">Notices</a></li>
 
         </ul>
+    </div>
+
+    <!-- <div style="text-align: center" class="dd">
+        <h1> <span id='Date'><?php echo date("H:i:s Y--d "); ?></span></h1>
+        <script>
+        function updateDateTime() {
+            var datetimeElement = document.getElementById('Date');
+            var currentTime = new Date();
+            var formattedDateTime =  
+                ' ' + currentTime.getHours() + ':' + currentTime.getMinutes() + ':' + currentTime.getSeconds() + '<br> ' + ' ' + ' ' +  currentTime.getFullYear() + '-' + (currentTime.getMonth() + 1) + '-' + currentTime.getDate();
+
+            datetimeElement.innerHTML = formattedDateTime;
+        }
+
+        // Update every second (1000 milliseconds)
+        setInterval(updateDateTime, 1000);
+
+        // Initial update
+        updateDateTime();
+        </script>
+    </div> -->
+    
+    <div style="padding-top: 30px"v class="mm">
+    <div class="head">
+        <h1><?php echo $name; ?>,  Finacial Record</h1>
+    </div>
+        <div style="background-color: aliceblue;padding-top: 10px" class="box">
+            <h2><?php echo $formattedDate ?> Balance: <?php echo $balance ?> </h2>
+            <hr>
+          
+            <div style="text-align: center; padding-bottom: 100px;" class="lipa">
+                <h3 style="text-align: center" ><span >Make <?php echo $formattedDate ?> </span> Payment With <span>MPESA</span><img style="padding-left: 50px" width="200" src="images/mpesa.png" alt=""></h3>
+                <form style="text-align: center">
+                    <label for="phone">Phone Number  </label><input style="padding: 3px;" type="number" name="phone" id="phone" placeholder="Enter your phone number" required><br><br>
+                    <label for="phone">Amount </label><input style="padding: 3px;" type="number" name="phone" id="phone" placeholder="Amount" required><br><br>
+                    <button type="submit">Pay</button>
+
+                </form>
+            </div>
+            
+        </div>
+    </div>
+    <div style="padding-top: 70px" class="transaction-record">
+        <h2 style="text-align: center">Last Transaction Record</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th   style="padding-left: 60px ">Amount</th>
+                <th style="padding-left: 60px ">Date</th>
+            </tr>
+            <tr style="padding-left: 10px ">
+                <td ><?php echo $name; ?></td>
+                <td style="padding-left: 60px "></td>
+                <td style="padding-left: 60px ">2024-01-05</td>
+            </tr>
+
+        </table>
+        <div style="text-align: center; padding-top: 20px" class="button">
+            <button>View All Transation</button>
+        </div>
+
     </div>
 </div>
 </body

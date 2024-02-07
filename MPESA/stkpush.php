@@ -12,7 +12,7 @@ $Timestamp = date('YmdHis');
 // ENCRYPT DATA TO GET PASSWORD
 $Password = base64_encode($BusinessShortCode . $passkey . $Timestamp);
 $phone = $_POST['mpesanum']; // Phone number to receive the stk push
-$money = $_POST['amount'];
+$money = "5";
 
 $PartyA = $phone;
 $PartyB = '254722388926';
@@ -66,14 +66,14 @@ if ($ResponseCode == "0") {
     $lname = $_POST['lname'];
     $ID = $_POST['id'];
     $numpaid = $_POST['mpesanum'];
-    $Amount = $_POST['amount'];
+    
 
     // Using prepared statements to prevent SQL injection
     $sql = "INSERT INTO `riversidebookings` (`First Name`, `Last Name`, ID, NumberPaid, TransactionID, AmountPaid)
           VALUES (?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssssd", $fname, $lname, $ID, $numpaid, $CheckoutRequestID, $Amount);
+    $stmt->bind_param("sssssd", $fname, $lname, $ID, $numpaid, $CheckoutRequestID, $money);
 
     if ($stmt->execute()) {
         echo "alert('New record created successfully')";
