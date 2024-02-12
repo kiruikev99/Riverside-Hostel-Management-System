@@ -1,6 +1,7 @@
 <?php
 
 include("connection.php");
+
 session_start();
 
 if (!isset($_SESSION['username'])) {
@@ -26,11 +27,11 @@ if ($result && mysqli_num_rows($result) > 0) {
     $roomNo = $row['RoomNo'];
     $Username = $row['Username'];
     $Password = $row['Password'];
-    $balance = $row['Balance'];
-    $totalAmount = $row['AmountPaid'];
     $university = $row['University'];
 
     $checkin = $row['Checkin'];
+
+    $_SESSION['RRRR'] = $row['RoomNo'];
 
 
     // Add other fields as needed
@@ -47,6 +48,7 @@ mysqli_stmt_close($stmt);
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECARE</title>
@@ -88,7 +90,15 @@ mysqli_stmt_close($stmt);
             padding-left: 100px;
             font-size: x-large;
         }
-        
+        .plumberhide{
+            display: none;
+        }
+        .electichide{
+            display: none;
+        }
+        .wallhide{
+            display: none;
+        }
         
         </style>
 
@@ -131,13 +141,21 @@ mysqli_stmt_close($stmt);
     <div style="padding-top: 60px;"  class="MAIN">
         <h2>Having Room Issues,</h2>
         <div style="display: flex; gap: 100px" class="servives">
+
+
+
+
             <div style="background-color: orangered; padding: 40px" class="PLUMBER">
-                <img width="200" src="images/plumber.png" alt="">
-                <h4>Is it Plumbing Related?</h4>
-                <button>Inquire</button>
-                <div class="electichide">
+                <img width="100" src="images/plumber.png" alt="">
+                <h3>Is it Plumbing Related?</h4>
+                <button onclick="plumberdisplay()">Inquire</button>
+                <div id="plumberhide" class="plumberhide">
+                <i class="fa-solid fa-xmark"></i>
                     <h4 style="text-align: center;">RoomNo: <?php echo $roomNo; ?></h4>
-                    <form>
+
+
+
+                    <form method="post" action="/Admin-RIVERSIDE/PROJECT%20WORK/ECARE/MaintainanceDB/plumbingdb.php">
                     <label  style="  display: block;
                                                     margin-bottom: 8px;
                                                     color: #333;" for="message"><b>Explain Issue:</b></label>
@@ -149,15 +167,23 @@ mysqli_stmt_close($stmt);
                                                     border-radius: 4px;" id="message" name="message" required></textarea>
                     <button value="Submit">Submit</button>
                     </form>
+                    <br>
+                    <button onclick="plumbercancel()">CANCEL</button>
                 </div>
             </div>
+
+            
             <div style="background-color: yellow; padding: 40px" class="ELECTRICIAN">
-                <img width="200" src="images/electian.png" alt="">
-                <h2>Is it Electricity Related?</h2>
-                <button>Inquire</button>
-                <div class="electichide">
+                <img width="100" src="images/electian.png" alt="">
+                <h3>Is it Electricity Related?</h2>
+                <button onclick='electicdisplay()'>Inquire</button>
+                <div id="electichide" class="electichide">
                     <h4 style="text-align: center;">RoomNo: <?php echo $roomNo; ?></h4>
-                    <form>
+
+
+
+
+                    <form method="post" action="/Admin-RIVERSIDE/PROJECT%20WORK/ECARE/MaintainanceDB/electricdb.php">
                     <label  style="  display: block;
                                                     margin-bottom: 8px;
                                                     color: #333;" for="message"><b>Explain Issue:</b></label>
@@ -169,15 +195,23 @@ mysqli_stmt_close($stmt);
                                                     border-radius: 4px;" id="message" name="message" required></textarea>
                     <button value="Submit">Submit</button>
                     </form>
+                    <br>
+                    <button onclick='electriccancel()'>CANCEL</button>
                 </div>
+
+               
             </div>
             <div style="background-color: green; padding: 40px" class="PAINTER">
-                <img width="200" src="images/painter.png" alt="">
-                <h4>Is it Wall Painting Related?</h4>
-                <button>Inquire</button>
-                <div class="electichide">
+                <img width="100" src="images/painter.png" alt="">
+                <h3>Is it Wall Painting Related?</h4>
+                <button onclick="walldisplay()">Inquire</button>
+                <div id="wallhide" class="wallhide">
+                    
                     <h4 style="text-align: center;">RoomNo: <?php echo $roomNo; ?></h4>
-                    <form>
+
+
+
+                    <form method="post" action="/Admin-RIVERSIDE/PROJECT%20WORK/ECARE/MaintainanceDB/walldb.php">
                     <label  style="  display: block;
                                                     margin-bottom: 8px;
                                                     color: #333;" for="message"><b>Explain Issue:</b></label>
@@ -187,14 +221,46 @@ mysqli_stmt_close($stmt);
                                                     box-sizing: border-box;
                                                     border: 1px solid #ccc;
                                                     border-radius: 4px;" id="message" name="message" required></textarea>
-                    <button value="Submit">Submit</button>
+                    <button  value="Submit">Submit</button>
                     </form>
+                    <button onclick='wallcancel()'>CANCEL</button>
                 </div>
             </div>
 
     </div>
     </div>
+        <script>
 
+            function plumberdisplay() {
+
+                var plumber = document.getElementById('plumberhide');
+                plumber.style.display = 'block';
+            }
+            function plumbercancel(){
+                var cancel = document.getElementById('plumberhide');
+                cancel.style.display = 'none';
+            }
+
+            function electicdisplay(){
+                var electric = document.getElementById('electichide');
+                electric.style.display = 'block';
+            }
+
+            function electriccancel(){
+                var cancel = document.getElementById('electichide');
+                cancel.style.display = 'none';
+            }
+
+            function walldisplay(){
+
+                var wall = document.getElementById('wallhide');
+                wall.style.display = 'block';
+            }
+            function wallcancel(){
+                var cancel = document.getElementById('wallhide');
+                cancel.style.display = 'none';
+            }
+            </script>
     
 
 </body>

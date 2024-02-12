@@ -27,7 +27,9 @@ if ($result && mysqli_num_rows($result) > 0) {
     $Username = $row['Username'];
     $Password = $row['Password'];
     $balance = $row['MonthBalance'];
-    
+
+
+   
     $university = $row['University'];
 
     $checkin = $row['Checkin'];
@@ -37,6 +39,9 @@ if ($result && mysqli_num_rows($result) > 0) {
     $date = date("Y-m-d");
 
     $formattedDate = date("M", strtotime($date));
+
+
+    $_SESSION["wame"] = $row['FirstName'];;
 
 
 
@@ -146,9 +151,12 @@ mysqli_stmt_close($stmt);
           
             <div style="text-align: center; padding-bottom: 100px;" class="lipa">
                 <h3 style="text-align: center" ><span >Make <?php echo $formattedDate ?> </span> Payment With <span>MPESA</span><img style="padding-left: 50px" width="200" src="images/mpesa.png" alt=""></h3>
-                <form style="text-align: center">
+
+
+
+                <form action="/Admin-RIVERSIDE/PROJECT%20WORK/MPESA/Tenant-payment/stkpush.php" method="post" style="text-align: center">
                     <label for="phone">Phone Number  </label><input style="padding: 3px;" type="number" name="phone" id="phone" placeholder="Enter your phone number" required><br><br>
-                    <label for="phone">Amount </label><input style="padding: 3px;" type="number" name="phone" id="phone" placeholder="Amount" required><br><br>
+                    <label for="phone">Amount </label><input style="padding: 3px;" type="number" name="amount" id="phone" placeholder="Amount" required><br><br>
                     <button type="submit">Pay</button>
 
                 </form>

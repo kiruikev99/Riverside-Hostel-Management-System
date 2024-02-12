@@ -23,14 +23,20 @@ if ($result && mysqli_num_rows($result) > 0) {
     
     $name = $row['FirstName'];
     $lastName = $row['LastName'];
-    $roomNo = $row['RoomNo'];
+    $_SESSION['RoomNo'] = $row['RoomNo'];
     $Username = $row['Username'];
     $Password = $row['Password'];
     $balance = $row['MonthBalance'];
     $university = $row['University'];
     $dateofbirth = $row['D-O-B'];
     $checkin = $row['Checkin'];
+    $_SESSION['Num'] = $row["PhoneNumber"];
 
+   
+    
+
+   
+    session_abort();
 
     $date = date("Y-m-d");
 
@@ -115,6 +121,9 @@ mysqli_stmt_close($stmt);
             gap: 70px;
             
         }
+        body{
+            background-image: url(images/bg-2.jpg);
+        }
         </style>
 </head>
 <body style=" margin-left: 10px">
@@ -135,7 +144,7 @@ mysqli_stmt_close($stmt);
     <div class="content-section">
         <div class="header">
             <h1>Welcome, <?php echo $name; ?></h1>
-            <span class="name"> </span><span class="roomno">Room No: <?php echo $roomNo; ?></span>
+            <span class="name"> </span><span class="roomno">Room No: <?php echo $_SESSION['RoomNo']; ?></span>
         </div>
         <div class="boxes">
             <div class="date-booking">
@@ -154,6 +163,9 @@ mysqli_stmt_close($stmt);
                 <p>Last Name: <?php echo $lastName; ?></p>
                 <p>D-O-B: <?php echo  $dateofbirth; ?></p>
                 <p>University: <?php echo $university; ?></p>
+                <p>Phone Number: <?php echo   $_SESSION['Num']; ?></p>
+
+               
                 
             </div>
         </div>

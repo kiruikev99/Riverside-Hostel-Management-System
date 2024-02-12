@@ -3,8 +3,10 @@ include 'connection.php';
 session_start();
 
 if (isset($_GET['tenantid'])) {
-    $no = $_SESSION["no"] == $_GET['tenantid'];
     $no = $_GET['tenantid'];
+    $no = $_GET['tenantid'];
+
+    $_SESSION["no"] =   $_GET['tenantid'];
 
 
 
@@ -131,6 +133,9 @@ if (isset($_GET['tenantid'])) {
 
                 <label for="firstName">Date-of-Birth</label>
                 <input required name="D-O-B" placeholder="e.g C3, C5" type="date">
+
+                <label for="number">Phone Number</label>
+                <input required name="phoneNumber" placeholder="07...." type="number">
 
                 <label for="lastName">Username</label>
                 <input required name="Username" type="text">

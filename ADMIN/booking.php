@@ -104,7 +104,7 @@ session_start();
 <nav>
 <a href="booking.php">Bookings</a>
     <a href="addtenant.php">Tenants</a>
-    <a href="#">Issues</a>
+    <a href="issues.php">Issues</a>
     <a href="inquiries.php">Inquiries</a>
     <a href="notices.php">Tenant Notices</a>
     <a href="newadmin.php">Add Admin</a>

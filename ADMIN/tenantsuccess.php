@@ -22,20 +22,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare and bind statement
-    $insertQuery = "INSERT INTO tenantaccount (RoomNo, FirstName, LastName, Username, Password, University, Checkin, `D-O-B`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($insertQuery);
-    $stmt->bind_param("ssssssss", $room, $fname, $lname, $username, $password, $university, $checkinDate, $dateofbirth);
+    
 
     // Retrieve data from the form
     $no = $_SESSION["no"];
     $dateofbirth = $_POST["D-O-B"];
     $room = $_POST["room"];
-    $username = $_POST["Username"];
+    $user= $_POST["Username"];
     $password = $_POST["Password"];
     $university = $_POST["University"];
     $checkinDate = $_POST["Date"];
+
+    $number = $_POST["phoneNumber"];
     $fname =  $_SESSION["fname"];
     $lname =  $_SESSION["lname"];
+
+    $insertQuery = "INSERT INTO tenantaccount (RoomNo, FirstName, LastName, PhoneNumber, Username, Password, University, Checkin, `D-O-B`) VALUES ('$room', '$fname', '$lname', '$number', '$user', '$password', '$university', '$checkinDate', '$dateofbirth')";
+    $stmt = $conn->prepare($insertQuery);
 
     // Execute the statement
     if ($stmt->execute()) {
@@ -52,7 +55,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Error
         if ($conn->errno == 1062) {
-            echo '<script>alert("'.$room.' has already been assigned to a tenant")</script>';
+            echo '<script>alert("'.$room.' has already been assigned to a tenant")
+            window.location.href = "addtenant.php";</script>';
         } else {
             echo "Error: " . $stmt->error;
         }

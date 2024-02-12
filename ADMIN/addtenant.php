@@ -84,7 +84,7 @@ session_start();
 <nav>
 <a href="booking.php">Bookings</a>
     <a href="addtenant.php">Tenants</a>
-    <a href="#">Issues</a>
+    <a href="issues.php">Issues</a>
     <a href="inquiries.php">Inquiries</a>
     <a href="notices.php">Tenant Notices</a>
     <a href="newadmin.php">Add Admin</a>
@@ -96,7 +96,7 @@ session_start();
             <th>ROOM-NO</th>
             <th>TENANT</th>
             <th>USERNAME</th>
-            <th>PASSWORD</th>
+            <th>PHONE NUMBER</th>
             <th>UNIVESITY</th>
             <th>CHECK-IN </th>
             <th>D-O-B</th>
@@ -123,7 +123,7 @@ session_start();
                      <td> '.$row["FirstName"]. '  ' .$row["LastName"].'</td>
 
                      <td> '.$row["Username"].' </td>
-                     <td> '.$row["Password"].' </td>
+                     <td> '.$row["PhoneNumber"].' </td>
                      <td> '.$row["University"].' </td>
                      <td> '.$row["Checkin"].' </td>
                      <td> '.$row["D-O-B"].' </td>
