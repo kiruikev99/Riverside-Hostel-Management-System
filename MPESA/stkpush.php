@@ -12,7 +12,7 @@ $Timestamp = date('YmdHis');
 // ENCRYPT DATA TO GET PASSWORD
 $Password = base64_encode($BusinessShortCode . $passkey . $Timestamp);
 $phone = $_POST['mpesanum']; // Phone number to receive the stk push
-$money = "5";
+$money = "1";
 
 $PartyA = $phone;
 $PartyB = '254722388926';
@@ -51,7 +51,8 @@ $data = json_decode($curl_response);
 $CheckoutRequestID = $data->CheckoutRequestID;
 $ResponseCode = $data->ResponseCode;
 
-if ($ResponseCode == "0") {
+
+if ($ResponseCode == 0) {
     echo  '<script>
     window.location.href = "/Admin-RIVERSIDE/PROJECT%20WORK/RIVERSIDE/Riverside.php";
     alert("Prompt Payment Successful")
@@ -64,16 +65,16 @@ if ($ResponseCode == "0") {
 
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
-    $ID = $_POST['id'];
+    $gender = $_POST['gender'];
     $numpaid = $_POST['mpesanum'];
     
 
     // Using prepared statements to prevent SQL injection
-    $sql = "INSERT INTO `riversidebookings` (`First Name`, `Last Name`, ID, NumberPaid, TransactionID, AmountPaid)
+    $sql = "INSERT INTO `riversidebookings` (`First Name`, `Last Name`, Gender, NumberPaid, TransactionID, AmountPaid)
           VALUES (?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssssd", $fname, $lname, $ID, $numpaid, $CheckoutRequestID, $money);
+    $stmt->bind_param("sssssd", $fname, $lname, $gender, $numpaid, $CheckoutRequestID, $money);
 
     if ($stmt->execute()) {
         echo "alert('New record created successfully')";
@@ -84,4 +85,5 @@ if ($ResponseCode == "0") {
     $stmt->close();
     $conn->close();
 }
+
 ?>

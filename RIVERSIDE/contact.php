@@ -16,7 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_stmt_bind_param($stmt, 'sss', $name, $email,  $message);
 
         if (mysqli_stmt_execute($stmt)) {
-            echo "Data inserted successfully!";
+            echo  '<script>
+            window.location.href = "Riverside.php";
+            alert("Thank You For Contacting Us. We will Reach Out To You Soon");
+          </script>';
         } else {
             echo "Error: " . mysqli_error($conn);
         }

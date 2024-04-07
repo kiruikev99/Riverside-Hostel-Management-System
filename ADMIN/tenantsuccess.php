@@ -33,13 +33,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $university = $_POST["University"];
     $checkinDate = $_POST["Date"];
 
-    $number = $_POST["phoneNumber"];
+
+    //new
+    $gender = $_SESSION["gender"];
+    $fathername = $_POST["father"];
+    $fathernumber = $_POST["fatherno"];
+    $disease = $_POST["disease"];
+    $doctor = $_POST["doctor"];
+    $blood = $_POST["blood"];
+    $email = $_POST["useremail"];
+    
+
+    
+
+    $number = $_POST["userphone"];
     $fname =  $_SESSION["fname"];
     $lname =  $_SESSION["lname"];
 
-    $insertQuery = "INSERT INTO tenantaccount (RoomNo, FirstName, LastName, PhoneNumber, Username, Password, University, Checkin, `D-O-B`) VALUES ('$room', '$fname', '$lname', '$number', '$user', '$password', '$university', '$checkinDate', '$dateofbirth')";
+    $insertQuery = "INSERT INTO tenantaccount (RoomNo, FirstName, LastName, PhoneNumber, Username, Password, University, Checkin, `D-O-B`, Gender, FatherName, FatherNumber, Disease, Doctor, BloodGroup, Email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($insertQuery);
-
+    $stmt->bind_param("ssssssssssssssss", $room, $fname, $lname, $number, $user, $password, $university, $checkinDate, $dateofbirth, $gender, $fathername, $fathernumber, $disease, $doctor, $blood, $email);
+    
+                                                               
     // Execute the statement
     if ($stmt->execute()) {
         // Success
@@ -53,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Error deleting record: " . $conn->error;
         }
     } else {
-        // Error
+        // Error"
         if ($conn->errno == 1062) {
             echo '<script>alert("'.$room.' has already been assigned to a tenant")
             window.location.href = "addtenant.php";</script>';

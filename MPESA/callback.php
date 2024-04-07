@@ -25,12 +25,3 @@ $TransactionId = $_SESSION["transaction"];
 $ResultCode =  $_SESSION["result"]; 
 
 
-
-include 'dbconnection.php';
-header("Content-Type: application/json");
-$stkCallbackResponse = file_get_contents('php://input');
-$logFile = "Mpesastkresponse.json";
-$log = fopen($logFile, "a");
-fwrite($log, $stkCallbackResponse);
-fclose($log);
->>>>>>> cfb68b5dc27779ca21624530515e932444c9d196

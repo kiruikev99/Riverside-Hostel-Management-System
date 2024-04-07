@@ -8,103 +8,40 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <style>
-        body {
-            background-color: #ecf0f1;
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
 
-        header {
-            background-color: #3498db;
-            padding: 20px;
-            text-align: center;
-            color: #fff;
-        }
-
-        nav {
-            background-color: #2c3e50;
-            overflow: hidden;
-            display: flex;
-            justify-content: space-around;
-        }
-
-        nav a {
-            float: left;
-            display: block;
-            color: #fff;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 16px;
-        }
-
-        nav a:hover {
-            background-color: #555;
-            color: #fff;
-        }
-
-        table {
-            width: 80%;
-            margin: 20px auto;
-            border-collapse: collapse;
-            background-color: #fff;
-            table-layout: fixed;
-            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        th, td {
-            padding: 20px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #3498db;
-            color: #fff;
-        }
-        tbody::-webkit-scrollbar {
-            width: 10px;
-        }
-        tbody::-webkit-scrollbar-track, tbody::-webkit-scrollbar-thumb {
-            background: black;
-            box-shadow: inset 30 0 5px rgba(0, 0, 0, 0.2);
-            
-        }
-    </style>
-</head>
-<body>
-
-<header>
-<button><img  width="140px" src="images/riverside-logo.png"></button>
-    <h1>RIVESIDE ADMIN</h1>
-</header>
-
-<nav>
-<a href="booking.php">Bookings</a>
-    <a href="addtenant.php">Tenants</a>
-    <a href="issues.php">Issues</a>
-    <a href="inquiries.php">Inquiries</a>
-    <a href="notices.php">Tenant Notices</a>
-    <a href="newadmin.php">Add Admin</a>
-</nav>
-
+    <?php include('base.php'); ?>
 <table>
     <thead>
         <tr>
             <th>ROOM-NO</th>
             <th>TENANT</th>
-            <th>USERNAME</th>
+            <th>GENDER</th>
             <th>PHONE NUMBER</th>
-            <th>UNIVESITY</th>
             <th>CHECK-IN </th>
-            <th>D-O-B</th>
             <th>MONTH BALANCE</th>
+            <th>ACTION</th>
             
         </tr>
     </thead>
     <tbody>
+    <style>
+    /* CSS for drop-in content */
+    .drop-in-content {
+        display: none;
+        transition: max-height 0.5s ease-out;
+        overflow: hidden;
+    }
+
+    /* Button style */
+    .drop-in-button {
+        cursor: pointer;
+    }
+
+    /* Expanded drop-in content */
+    .expanded {
+        max-height: 1000px; /* Adjust as needed */
+    }
+</style>
         <?php
             include("connection.php");
 
@@ -114,23 +51,40 @@ session_start();
             $query = "SELECT * FROM tenantaccount";
             $result = mysqli_query($conn, $query);
 
-            if (mysqli_num_rows($result) > 0) {
-                // Loop through the database results
-                while ($row = mysqli_fetch_assoc($result)) {
-                    
-                    echo '<tr>;
-                     <td> '.$row["RoomNo"].' </td>
-                     <td> '.$row["FirstName"]. '  ' .$row["LastName"].'</td>
-
-                     <td> '.$row["Username"].' </td>
-                     <td> '.$row["PhoneNumber"].' </td>
-                     <td> '.$row["University"].' </td>
-                     <td> '.$row["Checkin"].' </td>
-                     <td> '.$row["D-O-B"].' </td>
-                     <td> '.$row["MonthBalance"].' </td>';
-                    
-                }      
+if (mysqli_num_rows($result) > 0) {
+    // Loop through the database results
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo '<tr>
+                <td>'.$row["RoomNo"].'</td>
+                <td>'.$row["FirstName"].' '.$row["LastName"].'</td>
+                <td>'.$row["Gender"].'</td>
+                <td>'.$row["PhoneNumber"].'</td>
+                <td>'.$row["Checkin"].'</td>
+                <td>'.$row["MonthBalance"].'</td>
+                
+                <td>
+                    <button class="drop-in-button"><a href="viewtenant.php? roomno='.$row["RoomNo"].'">View More</button>
+                    </div>
+                </td>
+            </tr>';
+    }      
+}
+?>
+<script>
+    // JavaScript to handle drop-in effect
+    document.querySelectorAll('.drop-in-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            content.classList.toggle('expanded');
+            if (content.classList.contains('expanded')) {
+                content.style.display = 'block';
+            } else {
+                content.style.display = 'none';
             }
+        });
+    });
+</script>
+
             ?>
         </table>
         </div>
