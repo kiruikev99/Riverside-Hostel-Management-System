@@ -1,7 +1,6 @@
 <?php
 include ('connection.php');
 
-$conn = new mysqli($servername, $username, $password, $database);
 
 $male_count = 0; // Initialize male_count variable
 
