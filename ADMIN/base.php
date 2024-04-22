@@ -154,6 +154,7 @@
 </header>
 
 <nav>
+    <a href="summary.php">Summary</a>
     <a href="booking.php">Bookings</a>
     <a href="addtenant.php">Tenants</a>
     <a href="issues.php">Issues</a>

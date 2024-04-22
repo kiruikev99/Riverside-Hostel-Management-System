@@ -26,20 +26,18 @@ session_start();
     <tbody>
     <style>
     /* CSS for drop-in content */
-    .drop-in-content {
-        display: none;
-        transition: max-height 0.5s ease-out;
-        overflow: hidden;
+    button{
+        border-radius: 6px;
+        border: none;
+        padding: 8px;
+        background-color: blue;
     }
-
-    /* Button style */
-    .drop-in-button {
-        cursor: pointer;
+    button > a{
+        text-decoration: none;
+        color: white;
     }
-
-    /* Expanded drop-in content */
-    .expanded {
-        max-height: 1000px; /* Adjust as needed */
+    button:hover{
+        background-color: black;
     }
 </style>
         <?php
@@ -63,7 +61,7 @@ if (mysqli_num_rows($result) > 0) {
                 <td>'.$row["MonthBalance"].'</td>
                 
                 <td>
-                    <button class="drop-in-button"><a href="viewtenant.php? roomno='.$row["RoomNo"].'">View More</button>
+                   <span class view-more> <button class="drop-in-button"><a href="viewtenant.php? roomno='.$row["RoomNo"].'">View More</button></span>
                     </div>
                 </td>
             </tr>';
