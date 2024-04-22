@@ -31,9 +31,9 @@
         <li><a class="room-nav">ROOMS</a></li>
         <li><a class="img-nav">IMAGES</a></li>
         <li><a style="text-decoration: none; color: white;"
-            href="/Admin-RIVERSIDE/PROJECT%20WORK/ADMIN/adminportal.php">ADMIN</a></li>
+            href="https://localhost/Admin-RIVERSIDE/PROJECT%20WORK/ADMIN/adminportal.php">ADMIN</a></li>
         <li class="end"><a style="text-decoration: none; color: white;"
-            href=" https://1fd8-105-163-1-171.ngrok-free.app/Admin-RIVERSIDE/PROJECT%20WORK/ECARE/ecare.php">ECARE</a></li>
+            href="https://localhost/Admin-RIVERSIDE/PROJECT%20WORK/ECARE/ecare.php">ECARE</a></li>
       </div>
 
     </nav>

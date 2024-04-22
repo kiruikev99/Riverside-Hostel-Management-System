@@ -17,7 +17,7 @@ include("connection.php");
     <nav>
         <div class="navlink">
             <div class="logo">
-                <a href="https://1fd8-105-163-1-171.ngrok-free.app/Admin-RIVERSIDE/PROJECT%20WORK/RIVERSIDE/RIVERSIDE.php"><button> <img
+                <a href="https://localhost/Admin-RIVERSIDE/PROJECT%20WORK/RIVERSIDE/RIVERSIDE.php"><button> <img
                             width="140px" src="images/riverside-logo.png"></button> </a>
             </div>
 
@@ -42,7 +42,7 @@ include("connection.php");
                         <div class="student">
                             <p>Are you a student?<br>
                                 Visit the <a
-                                    href="https://1fd8-105-163-1-171.ngrok-free.app/Admin-RIVERSIDE/PROJECT%20WORK/ECARE/ecare.php"><b>StudentECARE</b></a>
+                                    href="https://localhost/Admin-RIVERSIDE/PROJECT%20WORK/ECARE/ecare.php"><b>StudentECARE</b></a>
                             </p>
                         </div>
 
