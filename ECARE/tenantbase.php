@@ -3,8 +3,10 @@
 include("connection.php");
 session_start();
 
-include('set.php');
+if(!isset($_SESSION['username'])){
 
+	header('location: ecare.php');
+}
 
 $user = $_SESSION['username'];
 

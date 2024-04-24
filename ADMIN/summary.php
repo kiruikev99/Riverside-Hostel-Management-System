@@ -13,14 +13,17 @@ $sql = "SELECT COUNT(*) AS male_count FROM tenantaccount WHERE Gender = 'Male'";
 // Execute query
 $result = $conn->query($sql);
 
-if ($result> 0) {
-    // Output data of each row
-    while($row = $result->fetch_assoc()) {
-        $male_count = $row["male_count"];
-    }
-} else {
-    echo "0 results";
-}
+
+        // Output data of each row
+        while($row = $result->fetch_assoc()) {
+            $male_count = $row["male_count"];
+        }
+
+
+
+
+
+
 
 // Close connection
 $conn->close();

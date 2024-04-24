@@ -18,32 +18,66 @@
 <body>
 
   <!-- NAVBAR -->
+  <header class="head">
+      <div id="navbarFlex" class="navbar-flex">
+        <div style="padding-top: 20px"  class="harmburg">
+          <span  class="hamburg2" style="font-size:40px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        </div>
+        <div class="image1">
+          <img style="padding-left: 90px;" width="300" height="150" src="./images/riverside-logo.png">
+        </div>
+     </div>
 
-  <div class="background-image">
-    <nav>
+      <div id="myNav" class="overlay">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="overlay-content">
+
+        <a href="#">Admin Portal</a>
+        <a href="#">Ecare Portal</a>
+      </div>
+    </div>
+</header>
+
+
+<script>
+function openNav() {
+  document.getElementById("myNav").style.width = "50%";
+  document.getElementById("navbarFlex").style.zIndex = "0"; // Set z-index to 0
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+  document.getElementById("navbarFlex").style.zIndex = "1000";
+}
+</script>
+
+  <div style="postition: ;" class="background-image">
+    <nav id="navbar">
       <div class="navlink">
-        <button><img style="width: 180px;" src="images/riverside-logo.png"></button>
+        <img style="width: 180px;" src="images/riverside-logo.png">
         <div class="small-image">
         <img style="width: 300px;" src="images/riverside-logo.png">
         </div>
-        <li style="color: white;" class="current"><a>HOME</a></li>
+        <li style="color: black;" class="current"><a>HOME</a></li>
         <li><a class="about-nav">ABOUT US</a></li>
         <li><a class="room-nav">ROOMS</a></li>
         <li><a class="img-nav">IMAGES</a></li>
-        <li><a style="text-decoration: none; color: white;"
+        <li><a style="text-decoration: none; color: black;"
             href="https://localhost/Admin-RIVERSIDE/PROJECT%20WORK/ADMIN/adminportal.php">ADMIN</a></li>
-        <li class="end"><a style="text-decoration: none; color: white;"
+        <li class="end"><a style="text-decoration: none; color: black;"
             href="https://localhost/Admin-RIVERSIDE/PROJECT%20WORK/ECARE/ecare.php">ECARE</a></li>
       </div>
 
     </nav>
-
+    <div style="padding-top: 55px; font-size: 60px" class="style">
+      
+    </div>
     <!-- MIDDLE TEXT -->
 
-    <section>
+    <section class="middle">
       <div class="text">
         <h2>We Bring Students Lifestyle To Reality</h2>
-        <p>Conact us Today</p>
+        <p>Contact us Today</p>
         <button type="button" class="btn btn-outline-info"><span class="contact">CONTACT US</span> </button>
       </div>
 
@@ -70,11 +104,11 @@
       <div class="about-image">
         <img width="400" src="images/riverside-logo.png">
       </div>
-      <div style="padding-top: 100px" class="about-content">
+      <div style="padding-top: 70px" class="about-content">
       <div style="text-align: LEFT; color: green; font-family: 'Rajdhani', sans-serif" class="about-head">
         <h2 style="font-size: 29px;"><b>ABOUT RIVERSIDE HOSTEL</b></h2>
       </div>
-        <p style="font-size: 19px;">Riverside Hostel, nestled in the serene town of Kapkatet, Kericho, offers a warm and
+        <p class="p" style="font-size: px;">Riverside Hostel, nestled in the serene town of Kapkatet, Kericho, offers a warm and
           welcoming home away from home. With comfortable accommodations, friendly staff, and a picturesque setting, we
           ensure a tranquil stay for travelers exploring the beauty of Kapkatet and its surroundings. Discover comfort
           and hospitality at Riverside Hostel.</p>
@@ -83,8 +117,25 @@
 
   </div>
 
+<br><br><br>
+  <!-- CORE VALUES -->
+
+  <section style="display: flex; " class="core-values">
+    <div class="core-text">
+      <h2>Our Core Values</h2>
+      <br>
+      <ol>
+        <li><p><b>Integrity</b>-We demonstrate honesty, fairness and openness in all our practices and interactions within the organization and the community at large.</p><br>
+        <li><p><b>Respect</b>- We acknowledge and respect diversity in each other, and provide an inclusive and safe supportive environment in which all individuals and staff are valued, and encouraged to engage in open two-way communication.</p>
+        <button style="border: none; padding:10px;  border-radius: 4px; background-color: skyblue;"><a style="text-decoration: none; color: white" href="#">Read More</a></button>
+    </div>
+    <div class="img">
+      <img height="400" width="300" style="border-radius: 20px'"  src="images/values.png">
+    </div>
+  </section>
+
   <!-- FACILITIES -->
-  <section style="padding-top: 100px;">
+  <section style="padding-top: 30px;">
     <div style="background-color: rgba(222, 248, 237, 0.489); border-radius: 120px;" class="background-faculty">
       <div class="container">
         <div class="facility">
@@ -101,9 +152,9 @@
                 Whether you're looking to socialize with other residents or simply relax after a long day,
                 our facilities have got you covered.</h4>
               <div class="icons">
-                <img width="80" src="images/shower.png" alt="">Hot Shower</button>
-                <img width="80" src="images/wifi.png" alt="">Free WIFI</button>
-                <img width="70" src="images/store.png" alt="">Shops</button>
+                </button>
+                </button>
+              </button>
                 <img width="80" src="images/reception-bell.png" alt="">Reception</button>
               </div>
             </div>
@@ -111,6 +162,52 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="service">
+    <div class="head-service">
+      <h2>Services</h2>
+      <h5>Click To View More Information</h5>
+    </div>
+
+    <div style="display: flex; justify-content: center;" class="box-sections">
+  <div class="hot-shower">
+    <div class="hot-shower-img">
+      <img width="80" src="images/shower2.png" alt=""><br>Hot Shower
+    </div>
+    <div class="hot-shower-content">
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium rem eos eveniet incidunt amet accusamus sapiente, atque eius nihil saepe, corporis accusantium, voluptatibus hic quisquam laboriosam. Eum ex minus possimus!</p>
+    </div>
+  </div>
+
+  <div class="wifi">
+    <div class="wifi-img">
+      <img width="80" src="images/wifi2.png" alt=""><br>Free WIFI
+    </div>
+    <div class="wifi-content">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam omnis repellat delectus, suscipit cumque eaque laborum distinctio laboriosam recusandae nemo harum enim nihil neque minima facere quia cupiditate est reprehenderit.</p>
+    </div>
+  </div>
+
+  <div class="shop">
+    <div class="shop-img">
+      <img width="80" src="images/store2.png" alt=""><br>Store
+    </div>
+    <div class="shop-content">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis eaque sunt earum maiores soluta doloribus sed quam in voluptatum! Ullam dicta esse quasi nulla incidunt nostrum veritatis ipsam. Sint, quisquam!</p>
+    </div>
+  </div>
+
+  <div class="police">
+    <div class="police-img">
+      <img width="80" src="images/police.png" alt=""><br>Security
+    </div>
+    <div class="shop-content">
+    </div>
+  </div>
+</div>
+
   </section>
 
 
@@ -241,7 +338,7 @@ font-family: 'PT Serif', serif;">10,000/=</h2>
 
 
   <!-- DOUBLE ROOM -->
-
+<!-- 
       <div class="room-booking" style="display:flex; padding-top: 50px; padding-left: 120px;">
         <div style="padding: 10px;" class="grid-item"><img style="border-radius: 30px" width="500"
             src="images/double-room.jpg" alt="">
@@ -279,7 +376,7 @@ font-family: 'PT Serif', serif;">12,000/per person</h2>
           </div>
         </div>
       </div>
-
+ -->
 
 
   
@@ -433,6 +530,10 @@ font-family: 'PT Serif', serif;">12,000/per person</h2>
       aboutSection.scrollIntoView({ behavior: "smooth" });
     });
   });
+
+
+
+
 
 </script>
 

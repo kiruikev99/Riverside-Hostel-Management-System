@@ -7,13 +7,20 @@
 
 
 .background-image{
-    background-image:url(images/background-image.png);
+    background-image:url(images/landingpage.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     height: 100%;
    
+   
      
+ }
+ #navbar{
+    background-color: rgb(178, 215, 216);
+    position: fixed;
+    width: 100%;
+    
  }
  .navlink button{
      background-color: rgb(255, 255, 255);
@@ -39,15 +46,21 @@
      color: greenyellow;
  }
  .navlink a{
-     color: rgb(212, 212, 212);
+     color: rgb(0, 0, 0);
      text-decoration: none;
  }
+ .text{
+
+    
+ }
+
  
  .text h2{
      font-size: 50px
  }
  .text p{
      font-family: 'Kanit', sans-serif;
+     color: rgb(0, 255, 136);
  }
  .header{
      color: rgba(255, 255, 255, 0.486);
@@ -219,6 +232,10 @@
  .small-image{
     display: none;
  }
+ .head{
+    display: none;
+ }
+
  
  @media screen and (min-width: 600px){
 
@@ -229,19 +246,98 @@
         padding-top: 14%;
         font-size: 40px
     }
+    .about-flex > .p {
+        font-size: 12px;
+     }
+     .core-values{
+        justify-content: center;
+        padding: 140px 100px
+     }
+     .core-values > button{
+        width:18%;
+     }
+    
+
+
 
  }
 
 
 
- @media screen and (max-width: 600px){
+ @media screen and (max-width: 800px){
+    .core-text {
+        font-size: 10px;
+    }
+    .img > img {
+        width: 90%;
+        height: 70%;
+    }
+   
+    .head{
+        display: contents;
+    }
+    .overlay {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: rgb(211, 244, 248);
+        overflow-x: hidden;
+        transition: 0.5s;
+      }
+      
+      .overlay-content {
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+      }
+      
+      .overlay a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 36px;
+        color: #383f35;
+        display: block;
+        transition: 0.3s;
+      }
+      
+      .overlay a:hover, .overlay a:focus {
+        color: #f1f1f1;
+      }
+      
+      .overlay .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 60px;
+      }
+      .navbar-flex{
+        display: flex;
+        gap: 50px;
+        position: fixed;
+        background: white;
+        width: 100%;
+        height: 20%;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000; /* Set a high z-index value */
+       
+      }
 
-    .text{
+    .text {
         font-family: 'Kanit', sans-serif;
         color: aliceblue;
-        text-align: center;
+        text-align: center;  
         
 
+    }
+    .text > p {
+        font-size: 19px;
     }
  
  .navlink{
@@ -250,7 +346,8 @@
   font-size: large;
  padding-left: 15%;
 background-color: cornflowerblue;
-padding-bottom: 4dvb;
+
+display: none;
  }
  .navlink > button{
      display: none;
@@ -263,6 +360,13 @@ padding-bottom: 4dvb;
  
  .about-flex{
      flex-direction: column;
+     justify-content: center;
+ }
+ .about-flex > .p {
+    font-size: 9px;
+ }
+ .about-image{
+    padding-left: 100px;
  }
  .facility-info{
     flex-direction: column;
