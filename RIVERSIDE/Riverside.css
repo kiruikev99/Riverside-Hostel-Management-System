@@ -236,6 +236,7 @@
     display: none;
  }
 
+
  
  @media screen and (min-width: 600px){
 
@@ -256,15 +257,30 @@
      .core-values > button{
         width:18%;
      }
-    
+     .hot-shower {
+        border-right: 4px solid purple;
+        padding: 10px;
 
+      }
 
+      .wifi {
+        border-right: 4px solid yellow;
+        padding: 20px;
+      }
+
+      .shop {
+        border-right: 4px solid blue;
+        padding: 20px;
+      }
+     
 
  }
 
 
-
  @media screen and (max-width: 800px){
+   .wifi-content, .hot-shower-content, .shop-content {
+         font-size: small;
+        }
     .core-text {
         font-size: 10px;
     }
