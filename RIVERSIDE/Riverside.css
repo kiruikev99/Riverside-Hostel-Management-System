@@ -5,7 +5,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 
+.bg-2{
+  background-image:url(images/core2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100
 
+}
 .background-image{
     background-image:url(images/landingpage.jpg);
     background-size: cover;
@@ -108,6 +115,19 @@
      height: 100%;
  
  }
+ .background-karibu{
+  background-image:url(images/karibu.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 3%;
+  height: 100%;
+  display: flex;
+  gap: 30px;
+  padding:80px;
+
+}
+
  
  .facility{
      text-align: left;
@@ -233,7 +253,15 @@
     display: none;
  }
  .head{
-    display: none;
+ }
+   
+ .service{
+  background-image: url(images/service.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 6%;
+  height: 100%;
  }
 
 
@@ -248,7 +276,7 @@
         font-size: 40px
     }
     .about-flex > .p {
-        font-size: 12px;
+        font-size: 18px;
      }
      .core-values{
         justify-content: center;
@@ -272,22 +300,58 @@
         border-right: 4px solid blue;
         padding: 20px;
       }
+      .background-karibu{
+    
+      }
+      #sections{
+        display: flex;
+      }
+      .head{
+        display: none;
+      }
+      .Riverside-about, .core-values {
+        padding-bottom: 80px;
+      }
      
 
  }
 
 
  @media screen and (max-width: 800px){
+  .book-btn > button{
+    width: 90%;
+
+  }
+  
+  .Riverside-about, .core-values {
+    padding-bottom: 80px;
+  }
+
+  .img{
+    display: none;
+  }
+ 
    .wifi-content, .hot-shower-content, .shop-content {
-         font-size: small;
+         font-size: 11px;
         }
     .core-text {
-        font-size: 10px;
+        font-size: 15px;
+    }
+    .core-values{
+      padding: 40px;
     }
     .img > img {
         width: 90%;
         height: 70%;
     }
+    .background-karibu{
+      display: block;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .s
+
    
     .head{
         display: contents;
@@ -382,7 +446,7 @@ display: none;
     font-size: 9px;
  }
  .about-image{
-    padding-left: 100px;
+    padding-left: 20px;
  }
  .facility-info{
     flex-direction: column;

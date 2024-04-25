@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+<link rel="icon" href="images/logo.png" type="image/icon type">
   <link rel="stylesheet" href="Riverside.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +25,7 @@
         <span class="hamburg2" style="font-size:40px;cursor:pointer" onclick="openNav()">&#9776;</span>
       </div>
       <div class="image1">
-        <img style="padding-left: 90px;" width="300" height="150" src="./images/riverside-logo.png">
+        <img style="padding-left: 10px;" width="300" height="150" src="./images/riverside-logo.png">
       </div>
     </div>
 
@@ -88,10 +89,7 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    
 
   </div>
 
@@ -118,31 +116,32 @@
 
   </div>
 
-  <br><br><br>
+  
   <!-- CORE VALUES -->
-
-  <section style="display: flex; " class="core-values">
-    <div class="core-text">
-      <h2>Our Core Values</h2>
-      <br>
-      <ol>
-        <li>
-          <p><b>Integrity</b>-We demonstrate honesty, fairness and openness in all our practices and interactions within
-            the organization and the community at large.</p><br>
-        <li>
-          <p><b>Respect</b>- We acknowledge and respect diversity in each other, and provide an inclusive and safe
-            supportive environment in which all individuals and staff are valued, and encouraged to engage in open
-            two-way communication.</p>
-          <button style="border: none; padding:10px;  border-radius: 4px; background-color: skyblue;"><a
-              style="text-decoration: none; color: white" href="#">Read More</a></button>
-    </div>
-    <div class="img">
-      <img height="400" width="300" style="border-radius: 20px'" src="images/values.png">
-    </div>
+  <section class="bg-2">
+    <div style="display: flex; color: white; " class="core-values">
+      <div class="core-text">
+        <h1>Our Core Values</h1>
+        <br>
+        <ol>
+          <li>
+            <p><b>Integrity</b>-We demonstrate honesty, fairness and openness in all our practices and interactions within
+              the organization and the community at large.</p><br>
+          <li>
+            <p><b>Respect</b>- We acknowledge and respect diversity in each other, and provide an inclusive and safe
+              supportive environment in which all individuals and staff are valued, and encouraged to engage in open
+              two-way communication.</p>
+            <button style="border: none; padding:10px;  border-radius: 4px; background-color: skyblue;"><a
+                style="text-decoration: none; color: white" href="#">Read More</a></button>
+      </div>
+      <div class="img">
+        <img height="400" width="300" style="border-radius: 20px'" src="images/values.png">
+      </div>
+  </div>
   </section>
 
   <!-- FACILITIES -->
-  <section style="padding-top: 30px;">
+  <!-- <section style="padding-top: 30px;">
     <div style="background-color: rgba(222, 248, 237, 0.489); border-radius: 120px;" class="background-faculty">
       <div class="container">
         <div class="facility">
@@ -169,14 +168,14 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
 
-  <br><br><br><br><br>
+  <br><br><br>
 
   <!-- SERVICES -->
   <section class="service">
-    <div style="display: flex; justify-content: center;" class="box-sections">
+    <div style="" id="sections">
       <div class="hot-shower">
         <div class="hot-shower-img">
           <img width="80" src="images/shower2.png" alt=""><br>
@@ -188,6 +187,7 @@
             ex minus possimus!</p>
         </div>
       </div>
+
 
       <div class="wifi">
         <div class="wifi-img">
@@ -216,6 +216,23 @@
     </div>
 
   </section>
+    <br><br><br><br>
+    <!-- KARIBU -->
+
+  <section style="padding:30px;" class="karibibu">
+<div style=" " class="background-karibu">
+      <div class="head-texte">
+        <h3>Karibu Riverside</h3>
+        <br><h5>Your New Community</h5>
+        <p>
+            Riverside Hostel, in collaboration with the University of Kabianga, provides convenient and comfortable accommodation solutions for students. Situated amidst serene surroundings, Riverside Hostel offers a conducive environment for academic pursuits and personal growth. With modern amenities and a focus on student well-being, it's more than just a place to stay—it's a supportive community fostering success and belonging.
+          </p>
+      </div>
+      <div class="kabianga-img">
+        <img src="images/kabianga.jpg">
+      </div>
+    </div>
+  </section>
 
 
 
@@ -237,13 +254,8 @@
             <h3
               style="@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');font-family: 'Bebas Neue', sans-serif; font-size: 40px;">
               SINGLE ROOM</h3>
-            <button style="border-radius: 30px; background-color: aliceblue; border-color: aliceblue;"><img width="40"
-                src="images/businessman.png" alt=""> 1 person</button>
 
-            <button style="border-radius: 30px; background-color: aliceblue; border-color: aliceblue;"><img width="40"
-                src="images/plans.png" alt=""> 20 sf</button>
-
-            <div style="padding-top: 60px;" class="text-11">
+            <div style="padding-top: 30px;" class="text-11">
               <ps
                 style="@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap'); font-family: 'Rajdhani', sans-serif;">
                 Experience the freedom and tranquility of having your own space. Booking a single room allows you to
@@ -253,12 +265,12 @@
 
 
                 <h2 style="@import url('https://fonts.googleapis.com/css2?family=Abel&family=PT+Serif&display=swap'); font-family: 'Abel', sans-serif;
-font-family: 'PT Serif', serif;">10,000/=</h2>
+font-family: 'PT Serif', serif;">6,000/=</h2>
             </div>
             <div class="book-btn">
               <button id="btn-book"
-                style="text-align: center; border-color: aliceblue; box-shadow: 2px 2px 4px #000000; border-radius: 30px; padding: 10px; color: white; background-color : lightblue;"
-                class="btn-book">BOOK NOW</button>
+                style="text-align: center; width: 24%; box-shadow: 2px 2px 4px #000000; border-radius: 10px; border: none; padding: 10px; color: white; background-color : rgb(50,205,50);"
+                class="btn-book"><a style="text-decoration: none; color: white;" href=" https://2348-105-163-157-25.ngrok-free.app/Admin-RIVERSIDE/PROJECT%20WORK/RIVERSIDE/payment-form.php"> BOOK NOW</a></button>
             </div>
             <div>
             </div>
@@ -287,59 +299,6 @@ font-family: 'PT Serif', serif;">10,000/=</h2>
   </section>
 
   <!-- MPESA SECTION -->
-
-
-
-  <form class="reservation" style="background-color: rgb(255, 99, 71);; display: none;  border: 3px solid black;box-shadow: 10px 10px green; border-radius: 20px; padding: 60px; text-align: center; max-width: 400px;
-            margin: auto;" action="/Admin-RIVERSIDE/PROJECT%20WORK/MPESA/stkpush.php" method="post" id="reservation">
-
-    <span style="float: right; padding-bottom: 10px; cursor: pointer;" id="close">&times;</span>
-    <label for="name">First Name:</label>
-    <input style=" width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
-            box-sizing: border-box;" type="text" id="name" name="fname" required>
-    <label for="name">Last Name:</label>
-    <input style=" width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
-            box-sizing: border-box;" type="text" id="name" name="lname" required>
-
-    <label style="display: block;
-            margin-bottom: 8px;" for="id">Gender:</label>
-
-
-    <select style="width: 100%;" name="gender">
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
-    </select>
-
-
-    <img style="padding-left: 20px" width="300px" src="images/mpesa.png">
-
-    <h3 style="text-align: center; color: #4CAF50; padding-bottom: 50px;">LIPA NA MPESA</h3>
-
-    <label style="display: block;
-            margin-bottom: 8px; text-align: center;" for="mpesaNumber">Mpesa Number:</label>
-    <input
-      style=" width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
-            box-sizing: border-box; border-top: white; border-left: white;border-right: white; border-bottom: 2px solid green;"
-      type="text" placeholder="Start with 254! " id="mpesaNumber" name="mpesanum" required>
-
-    <h4>Total: 10,000</h4>
-
-
-    <button style=" background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;" type="submit" onclick="submitForm()">Book Room</button>
-  </form>
-
-
 
 
 
@@ -387,16 +346,7 @@ font-family: 'PT Serif', serif;">12,000/per person</h2>
 
 
 
-  <script>
-    document.getElementById("btn-book").onclick = function () {
-      document.getElementById("reservation").style.display = "block";
 
-    }
-    document.getElementById("close").onclick = function () {
-      document.getElementById("reservation").style.display = "none";
-
-    } 
-  </script>
 
 
 
