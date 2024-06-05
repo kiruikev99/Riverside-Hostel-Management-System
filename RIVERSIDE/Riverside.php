@@ -3,7 +3,7 @@
 
 <head>
 <link rel="icon" href="images/logo.png" type="image/icon type">
-  <link rel="stylesheet" href="Riverside.css">
+  <link rel="stylesheet" href="Riverside1.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -33,8 +33,8 @@
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <div class="overlay-content">
 
-        <a href="#">Admin Portal</a>
-        <a href="#">Ecare Portal</a>
+        <a href="https://0127-105-163-1-153.ngrok-free.app/Admin-RIVERSIDE/PROJECT%20WORK/ADMIN/adminportal.php">Admin Portal</a>
+        <a href="https://0127-105-163-1-153.ngrok-free.app/Admin-RIVERSIDE/PROJECT%20WORK/ECARE/ecare.php">Ecare Portal</a>
       </div>
     </div>
   </header>
@@ -55,7 +55,7 @@
   <div style="postition: ;" class="background-image">
     <nav id="navbar">
       <div class="navlink">
-        <img style="width: 180px;" src="images/riverside-logo.png">
+        <img style="width: 150px; padding-left: 10px;" src="images/riverside-logo.png">
         <div class="small-image">
           <img style="width: 300px;" src="images/riverside-logo.png">
         </div>
@@ -64,9 +64,9 @@
         <li><a class="room-nav">ROOMS</a></li>
         <li><a class="img-nav">IMAGES</a></li>
         <li><a style="text-decoration: none; color: black;"
-            href="https://localhost/Admin-RIVERSIDE/PROJECT%20WORK/ADMIN/adminportal.php">ADMIN</a></li>
+            href=" https://0127-105-163-1-153.ngrok-free.app/Admin-RIVERSIDE/PROJECT%20WORK/ADMIN/adminportal.php">ADMIN</a></li>
         <li class="end"><a style="text-decoration: none; color: black;"
-            href="https://localhost/Admin-RIVERSIDE/PROJECT%20WORK/ECARE/ecare.php">ECARE</a></li>
+            href=" https://0127-105-163-1-153.ngrok-free.app/Admin-RIVERSIDE/PROJECT%20WORK/ECARE/ecare.php">ECARE</a></li>
       </div>
 
     </nav>
@@ -270,7 +270,7 @@ font-family: 'PT Serif', serif;">6,000/=</h2>
             <div class="book-btn">
               <button id="btn-book"
                 style="text-align: center; width: 24%; box-shadow: 2px 2px 4px #000000; border-radius: 10px; border: none; padding: 10px; color: white; background-color : rgb(50,205,50);"
-                class="btn-book"><a style="text-decoration: none; color: white;" href=" https://2348-105-163-157-25.ngrok-free.app/Admin-RIVERSIDE/PROJECT%20WORK/RIVERSIDE/payment-form.php"> BOOK NOW</a></button>
+                class="btn-book"><a style="text-decoration: none; color: white;" href=" http://localhost/Admin-RIVERSIDE/PROJECT%20WORK/RIVERSIDE/payment-form.php"> BOOK NOW</a></button>
             </div>
             <div>
             </div>

@@ -115,7 +115,7 @@
            <div class="img-book">
             <img width=300 src="images/BOOKING.png" alt="">
            </div>
-            <form action="/Admin-RIVERSIDE/PROJECT%20WORK/MPESA/stkpush.php" method="post">
+            <form action="../MPESA/payment.php" method="post">
                 <label for="fname">First Name</label>
                 <input required type="text" id="fname" name="fname">
 
@@ -138,7 +138,7 @@
                 <input required type="number" id="phone" name="mpesanum">
 
                 <label for="phone">Amount</label>
-                <h3>6,150<h3>
+                <input type="number" name="amount">
 
                 <div class="info">
                     <p>If you have any problem with the Payment or Want more inquiries Contact <b>0743928989</b><br>

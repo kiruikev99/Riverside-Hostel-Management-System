@@ -5,28 +5,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap');   
 .BOX {
-    height: 60vh;
-    width: 50vh;
+    height: 70vh;
+    width: 60vh;
+    padding: 20px;
     text-align: center;
     display: block;
     justify-content: center;
     align-items: center;
-    border: 3px solid blue;
+   
     margin: 0 auto; /* Center horizontally */
     margin-top: 3vh; /* Adjust the top margin as needed */
     filter: blur(0%);
-    border-radius: 10px;
+    border-radius: 3px;
     color: BLACK;
-    backdrop-filter: blur(5px);
-    background: transparent;
-    border: 2px solid rgb(255, 255, 255, .2);
+    background-color: rgb(255, 255, 255);
+    border: none;
+    box-shadow: 2px 1px 5px;
     
     
 }
 
 .background-image{
-   background-image:url(images/background-image2.png);
+   background-image:url(images/admin-back.jpg);
    background-size: cover;
    background-repeat: no-repeat;
    background-position: center;
@@ -34,6 +36,12 @@
   
   
     
+}
+h2{
+    font-family: "Assistant", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
 }
 .navlink button{
     background-color: rgb(255, 255, 255);
@@ -44,6 +52,12 @@
     display: flex;
     color: rgb(255, 255, 255);
     
+}
+label{
+    font-family: "Assistant", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
 }
 .logo{
     padding-left: 140px;
@@ -85,17 +99,29 @@
 }
 .username > input{
     padding: 10px;
+    width: 80%;
     border-radius: 10px;
-    background-color: aliceblue;
-    border: none;
+    border-top: none;
+    border-radius: 0%;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(162, 224, 121);
+    border-width: thin;
+    border-left: none;
+    border-right: 1px solid rgb(162, 224, 121);
+    
 }
 .submit > input{
-    padding: 10px;
+    padding: 16px;
     width: 50%;
-    border-radius: 10px;
-    border: none;
+    
+    cursor: pointer;
+    border-radius: 3px;
+    border: none    ;
     background-color: rgb(57, 216, 78);
     color: aliceblue;
+}
+.submit > input:hover{
+    background-color: rgb(43, 102, 57);
 }
 .welcome{
         font-family: "Black Ops One", system-ui;
@@ -104,7 +130,7 @@
         
         color: rgb(255, 255, 255);
         text-shadow: 5px 5px rgb(0, 0, 0);
-}
+}   
 
 a {
     text-decoration: none;
@@ -112,6 +138,13 @@ a {
 }
 .logo{
     padding-top: 20px;
+}
+@media screen and (max-width: 800px){
+
+    .BOX{
+        width: 84%;
+    }
+    
 }
 
 

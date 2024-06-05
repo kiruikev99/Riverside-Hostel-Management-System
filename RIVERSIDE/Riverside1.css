@@ -9,6 +9,7 @@
   background-image:url(images/core2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   background-position: center;
   height: 100
 
@@ -24,9 +25,11 @@
      
  }
  #navbar{
-    background-color: rgb(178, 215, 216);
+   height: 15%;
     position: fixed;
     width: 100%;
+    z-index: 999; /* Optional: ensure the navbar appears on top of other content */
+    background-color: rgba(255, 255, 255, 0.7); /* Adjust the alpha value for transparency */
     
  }
  .navlink button{
@@ -42,15 +45,15 @@
  }
  .navlink li{
      font-family: 'Oxygen', sans-serif;
-     padding-top: 60px;
+     padding-top: 40px;
     padding-left: 120px;
      list-style: none;
      
  }
  .navlink a:hover{
-     border-bottom: 2px solid black;
+     
      cursor: pointer;
-     color: greenyellow;
+     color: rgb(128, 188, 236);
  }
  .navlink a{
      color: rgb(0, 0, 0);
@@ -117,6 +120,7 @@
  }
  .background-karibu{
   background-image:url(images/karibu.jpg);
+  background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -318,9 +322,16 @@
 
 
  @media screen and (max-width: 800px){
+  body{
+    overflow-x: hidden;
+  }
   .book-btn > button{
     width: 90%;
 
+  }
+  .background-karibu{
+    background-image:url(images/karibu.jpg);
+    background-attachment:local;
   }
   
   .Riverside-about, .core-values {
@@ -348,6 +359,9 @@
       display: block;
       text-align: center;
       padding: 40px;
+    }
+    #navbar{
+      display: none;
     }
 
     .s
