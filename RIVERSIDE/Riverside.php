@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-<link rel="icon" href="images/logo.png" type="image/icon type">
-  <link rel="stylesheet" href="Riverside1.css">
+  <link rel="icon" href="images/logo.png" type="image/icon type">
+  <link rel="stylesheet" href="Riverside6.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -11,38 +11,54 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RIVERSIDE</title>
+  <!-- SweetAlert2 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <!-- SweetAlert2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
+
+
+
 
 <body>
 
   <!-- NAVBAR -->
   <header class="head">
     <div id="navbarFlex" class="navbar-flex">
-      <div style="padding-top: 20px" class="harmburg">
+      <div style="" class="harmburg">
         <span class="hamburg2" style="font-size:40px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        <div style="float: right; display: flex;  padding-top: 15px " class="logo">
+          <img style="" width="55 " src="images/logo.png">
+          <p style="color: green; padding-top: 10px"><span style="color: "><b>RIVERSIDE </b></span> <b>HOSTELS</b></p>
+        </div>
       </div>
-      <div class="image1">
-        <img style="padding-left: 10px;" width="300" height="150" src="./images/riverside-logo.png">
-      </div>
+
     </div>
 
     <div id="myNav" class="overlay">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <div class="overlay-content">
 
-        <a href="https://0127-105-163-1-153.ngrok-free.app/Admin-RIVERSIDE/PROJECT%20WORK/ADMIN/adminportal.php">Admin Portal</a>
-        <a href="https://0127-105-163-1-153.ngrok-free.app/Admin-RIVERSIDE/PROJECT%20WORK/ECARE/ecare.php">Ecare Portal</a>
+        <a href="http://localhost/RIVERSIDE-HOSTEL-MANAGMENT-SYSTEM/ADMIN/adminportal.php">Admin Portal</a>
+        <a href="http://localhost/RIVERSIDE-HOSTEL-MANAGMENT-SYSTEM/ECARE/ecare.php">Ecare Portal</a>
       </div>
     </div>
   </header>
 
 
   <script>
+
     function openNav() {
       document.getElementById("myNav").style.width = "50%";
+
+      document.getElementById('imgg').style.display = "none";
+      on
+
       document.getElementById("navbarFlex").style.zIndex = "0"; // Set z-index to 0
     }
 
@@ -53,22 +69,53 @@
   </script>
 
   <div style="postition: ;" class="background-image">
-    <nav id="navbar">
-      <div class="navlink">
-        <img style="width: 150px; padding-left: 10px;" src="images/riverside-logo.png">
-        <div class="small-image">
-          <img style="width: 300px;" src="images/riverside-logo.png">
-        </div>
-        <li style="color: black;" class="current"><a>HOME</a></li>
-        <li><a class="about-nav">ABOUT US</a></li>
-        <li><a class="room-nav">ROOMS</a></li>
-        <li><a class="img-nav">IMAGES</a></li>
-        <li><a style="text-decoration: none; color: black;"
-            href=" https://0127-105-163-1-153.ngrok-free.app/Admin-RIVERSIDE/PROJECT%20WORK/ADMIN/adminportal.php">ADMIN</a></li>
-        <li class="end"><a style="text-decoration: none; color: black;"
-            href=" https://0127-105-163-1-153.ngrok-free.app/Admin-RIVERSIDE/PROJECT%20WORK/ECARE/ecare.php">ECARE</a></li>
+
+    <nav id="nav">
+
+      <div id="imgg" class="image">
+        <img width="150" src="images/riverside-logo.png">
+      </div>
+      <div class="info">
+        <ul>
+          <li>HOME</li>
+          <li onclick="aboutus()">ABOUT US</li>
+          <script>
+            function aboutus() {
+              const aboutus = document.getElementById('Riverside-about');
+              aboutus.scrollIntoView();
+
+
+            }
+
+          </script>
+
+          <li onclick="rooms()" class="room-nav">ROOMS</li>
+          <script>
+            function rooms() {
+              const aboutus = document.getElementById('SERVICES');
+              aboutus.scrollIntoView();
+
+
+            }
+
+          </script>
+          <li onclick="image()" class="image-nav">IMAGES</li>
+          <script>
+            function image() {
+              const aboutus = document.getElementById('image');
+              aboutus.scrollIntoView();
+
+
+            }
+
+          </script>
+        </ul>
       </div>
 
+      <div class="buttons">
+        <button><a style="text-decoration: none; color: #fff"
+            href="http://localhost/Riverside-Hostel-Management-System/ECARE/ecare.php">STUDENT ECARE</a></button>
+      </div>
     </nav>
     <div style="padding-top: 55px; font-size: 60px" class="style">
 
@@ -79,7 +126,17 @@
       <div class="text">
         <h2>We Bring Students Lifestyle To Reality</h2>
         <p>Contact us Today</p>
-        <button type="button" class="btn btn-outline-info"><span class="contact">CONTACT US</span> </button>
+        <button onclick='rooms()' type="button" class="btn btn-outline-success text-white"><span class="contact">View Rooms</span>
+        <script>
+            function rooms() {
+              const aboutus = document.getElementById('SERVICES');
+              aboutus.scrollIntoView();
+
+
+            }
+
+          </script>
+        </button>
       </div>
 
     </section>
@@ -89,14 +146,14 @@
     <br>
     <br>
     <br>
-    
+
 
   </div>
 
   <!-- ABOUT US -->
 
 
-  <div class="Riverside-about">
+  <div id="Riverside-about">
 
     <div style="display: flex; " class="about-flex">
       <div class="about-image">
@@ -116,28 +173,49 @@
 
   </div>
 
-  
+
   <!-- CORE VALUES -->
   <section class="bg-2">
-    <div style="display: flex; color: white; " class="core-values">
+    <div style="display: flex; color: white;" class="core-values">
       <div class="core-text">
         <h1>Our Core Values</h1>
         <br>
         <ol>
           <li>
-            <p><b>Integrity</b>-We demonstrate honesty, fairness and openness in all our practices and interactions within
-              the organization and the community at large.</p><br>
+            <p><b>Integrity</b> - We demonstrate honesty, fairness, and openness in all our practices and interactions
+              within the organization and the community at large.</p>
+            <br>
+          </li>
           <li>
-            <p><b>Respect</b>- We acknowledge and respect diversity in each other, and provide an inclusive and safe
+            <p><b>Respect</b> - We acknowledge and respect diversity in each other, and provide an inclusive and safe
               supportive environment in which all individuals and staff are valued, and encouraged to engage in open
               two-way communication.</p>
-            <button style="border: none; padding:10px;  border-radius: 4px; background-color: skyblue;"><a
-                style="text-decoration: none; color: white" href="#">Read More</a></button>
+            <button id="myBtn" type="button" class="btn btn-success">Read More</button>
+            <script>
+              document.getElementById("myBtn").addEventListener("click", function () {
+                Swal.fire({
+                  title: 'Riverside Hostel Core Values',
+                  html: `
+            <div style="text-align: left; list-style-type: disc; padding-left: 20px;">
+              <li><b>Hospitality:</b> We are committed to creating a welcoming and inclusive environment where every guest feels at home.</li>
+              <li><b>Cleanliness:</b> We prioritize hygiene and cleanliness in all areas of the hostel.</li>
+              <li><b>Community:</b> We believe in fostering a sense of community among our guests.</li>
+              <li><b>Sustainability:</b> Riverside Hostel is dedicated to sustainable practices that minimize our environmental impact.</li>
+              <li><b>Safety:</b> The safety and security of our guests are of utmost importance.</li>
+            </div >
+          `,
+                  icon: 'info',
+                  confirmButtonText: 'Close'
+                });
+              });
+            </script>
+          </li>
+        </ol>
       </div>
       <div class="img">
-        <img height="400" width="300" style="border-radius: 20px'" src="images/values.png">
+        <img height="400" width="300" style="border-radius: 0px" src="images/values.png" alt="Core Values Image">
       </div>
-  </div>
+    </div>
   </section>
 
   <!-- FACILITIES -->
@@ -216,17 +294,21 @@
     </div>
 
   </section>
-    <br><br><br><br>
-    <!-- KARIBU -->
+  <br><br><br><br>
+  <!-- KARIBU -->
 
   <section style="padding:30px;" class="karibibu">
-<div style=" " class="background-karibu">
+    <div style=" " class="background-karibu">
       <div class="head-texte">
         <h3>Karibu Riverside</h3>
-        <br><h5>Your New Community</h5>
+        <br>
+        <h5>Your New Community</h5>
         <p>
-            Riverside Hostel, in collaboration with the University of Kabianga, provides convenient and comfortable accommodation solutions for students. Situated amidst serene surroundings, Riverside Hostel offers a conducive environment for academic pursuits and personal growth. With modern amenities and a focus on student well-being, it's more than just a place to stay—it's a supportive community fostering success and belonging.
-          </p>
+          Riverside Hostel, in collaboration with the University of Kabianga, provides convenient and comfortable
+          accommodation solutions for students. Situated amidst serene surroundings, Riverside Hostel offers a conducive
+          environment for academic pursuits and personal growth. With modern amenities and a focus on student
+          well-being, it's more than just a place to stay—it's a supportive community fostering success and belonging.
+        </p>
       </div>
       <div class="kabianga-img">
         <img src="images/kabianga.jpg">
@@ -240,7 +322,7 @@
   <section class="oomm" style="padding-top: 100px;">
     <div class="background-image2">
 
-      <div class="SERVICES">
+      <div id="SERVICES" class="SERVICES">
         <H3 style="text-align: center;"><b>OUR ROOMS</b></H3>
         <P style="text-align: center;">In Riverside we offer this categories of Rooms:</P>
       </div>
@@ -249,14 +331,14 @@
         <div style="padding: 10px;" class="grid-item"><img style="border-radius: 30px" width="500"
             src="images/small-bedroom.jpeg" alt="">
         </div>
-        <div style="padding-left:20px; border-left: 2px solid ; border-color:black;" class="grid-item2">
+        <div style="padding-left:20px; padding-top: 50px; border-color:black;" class="grid-item2">
           <div class="conyet">
             <h3
               style="@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');font-family: 'Bebas Neue', sans-serif; font-size: 40px;">
               SINGLE ROOM</h3>
 
             <div style="padding-top: 30px;" class="text-11">
-              <ps
+              <p
                 style="@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap'); font-family: 'Rajdhani', sans-serif;">
                 Experience the freedom and tranquility of having your own space. Booking a single room allows you to
                 create a personal sanctuary where you can study, relax, and recharge. Enjoy uninterrupted privacy and
@@ -269,11 +351,12 @@ font-family: 'PT Serif', serif;">6,000/=</h2>
             </div>
             <div class="book-btn">
               <button id="btn-book"
-                style="text-align: center; width: 24%; box-shadow: 2px 2px 4px #000000; border-radius: 10px; border: none; padding: 10px; color: white; background-color : rgb(50,205,50);"
-                class="btn-book"><a style="text-decoration: none; color: white;" href=" http://localhost/Admin-RIVERSIDE/PROJECT%20WORK/RIVERSIDE/payment-form.php"> BOOK NOW</a></button>
+                style="text-align: center; width: 24%; box-shadow: 2px 2px 4px #000000; border: none; padding: 10px; color: white; background-color : #00A36C"
+                class="btn-book"><a style="text-decoration: none; color: white;"
+                  href=" http://localhost/Riverside-Hostel-Management-System/RIVERSIDE/payment-form.php"> BOOK
+                  NOW</a></button>
             </div>
-            <div>
-            </div>
+           
           </div>
         </div>
 
@@ -297,6 +380,72 @@ font-family: 'PT Serif', serif;">6,000/=</h2>
     </div>
 
   </section>
+
+
+
+
+  <!-- TWO BEDROOM -->
+
+  <section class="oomm" style="">
+    <div style="text-align: left; padding: 8%" class="backgroun">
+
+     
+
+      <div class="room-booking" style="display:flex; ">
+        <div style="" class="grid-item"><img style="border-radius: 30px" width="500"
+            src="images/double-room.jpg" alt="">
+        </div>
+        <div style="padding-left:20px; padding-top: 50px; border-color:black;" class="grid-item2">
+          <div class="conyet">
+            <h3
+              style="@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');font-family: 'Bebas Neue', sans-serif; font-size: 40px;">
+              TWO BEDROOM</h3>
+
+            <div style="padding-top: 30px;" class="text-11">
+              <p
+                style="@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap'); font-family: 'Rajdhani', sans-serif;">
+                Experience the freedom and tranquility of having your own space. Booking a single room allows you to
+                create a personal sanctuary where you can study, relax, and recharge. Enjoy uninterrupted privacy and
+                focus on your goals without any distractions. Treat yourself to the comfort and convenience of a single
+                room booking today</p>
+
+
+                <h2 style="@import url('https://fonts.googleapis.com/css2?family=Abel&family=PT+Serif&display=swap'); font-family: 'Abel', sans-serif;
+font-family: 'PT Serif', serif;">4,000/= PER STUDENT</h2>
+            </div>
+            <div class="book-btn">
+              <button id="btn-book"
+                style="text-align: center; width: 24%; box-shadow: 2px 2px 4px #000000; border: none; padding: 10px; color: white; background-color : #00A36C"
+                class="btn-book"><a style="text-decoration: none; color: white;"
+                  href=" http://localhost/Riverside-Hostel-Management-System/RIVERSIDE/payment-form2.php"> BOOK
+                  NOW</a></button>
+            </div>
+           
+          </div>
+        </div>
+
+
+      </div>
+
+
+      </script>
+    </div>
+
+    </div>
+    </div>
+
+    </div>
+
+
+
+    </div>
+
+
+    </div>
+
+  </section>
+
+ 
 
   <!-- MPESA SECTION -->
 
@@ -353,7 +502,7 @@ font-family: 'PT Serif', serif;">12,000/per person</h2>
   <!-- IMAGES -->
   <section>
     <div class="background">
-      <div class="image">
+      <div id="image" class="image">
         <H3 style="text-align: center;"><b>IMAGES</b></H3>
       </div>
 
@@ -375,123 +524,51 @@ font-family: 'PT Serif', serif;">12,000/per person</h2>
 
   </section>
   <!-- FOOTER -->
-  <footer class="footer" style="background-image: url(images/footer.jpg); background-repeat:round;  padding: 4%;">
-    <div style="display: flex; justify-content: space-evenly;" class="gridsecction">
-      <div class="newsletter">
-        <h1 style="color: #4CAF50; padding-bottom: 20px"><b>NewsLetter</b></h1>
-
-        <p>SERVICE HOURS: Monday-Friday 9AM to 6PM</p>
-        <p>CUSTOMER SERVICE: +0721 899 999 </p>
-        <p>Whatsapp us on 0728 810 810 / 0797 288 388</p>
-      </div>
-
-
-
-      <div class="term0">
-
-        <div class="map">
-          <h1 style="color: #4CAF50;  padding-bottom: 20px;"><b> MAPS</b></h1>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2113.408025035143!2d35.19458902733922!3d-0.6222020766569699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182b080da6c24a7b%3A0xb97e8ab12406e952!2sRiverside%20Rentals%20Kapkatet!5e0!3m2!1sen!2ske!4v1708594603353!5m2!1sen!2ske"
-            width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </div>
-
-      <div class="terms">
-        <h1 style="color: #4CAF50; padding-bottom: 20px;"><b>CONTACT US</b></h1>
-
-        <form action="contact.php" method="post" style="   max-width: 400px;
-            margin: auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" id="contactForm">
-          <label style="  display: block;
-            margin-bottom: 8px;
-            color: #333;" for="name">Name:</label>
-          <input style=" width: 100%;
-            padding: 10px;
-            margin-bottom: 16px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;" type="text" id="name" name="name" required>
-
-
-
-          <label style="  display: block;
-            margin-bottom: 8px;
-            color: #333;" for="number">Email:</label>
-          <input style=" width: 100%;
-            padding: 10px;
-            margin-bottom: 16px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;" type="email" id="number" name="email" required>
-
-          <label style="  display: block;
-            margin-bottom: 8px;
-            color: #333;" for="message">Message:</label>
-          <textarea style=" width: 100%;
-            padding: 10px;
-            margin-bottom: 16px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;" id="message" name="message" required></textarea>
-
-          <button style="            background-color: blue;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-" type="submit">Send Message</button>
-        </form>
-      </div>
-
-
+  <footer class="footer" style=" background-color: #00001A;  padding: 4%;">
+    <div style="color: #fff; text-align: center;" class="center">
+      <br>
+      <h2>CONTACT US</h2>
+      <br>
     </div>
+
+    <div style="color: #fff; " class="flex-section">
+      <div style="display: flex; justify-content: center; gap:200px" class="flex">
+        <div style="text-align:center" class="inforamtion">
+          <h3>Address Information</h3>
+          <p>Kaplong-litein Rd<br>Opp Kapkatet University</p>
+        </div>
+
+        <div style="text-align:left" class="inforamtion">
+          <h3>Service Hours</h3>
+          <div style="text-align:center" class="inforamtion">
+            <p>Mon-Fri:10AM-7PM</p>
+            <p>Sat-Sun:1PM-5PM</p>
+          </div>
+
+        </div>
+
+        <div style="text-align:left" class="inforamtion">
+          <h3>Connect With Us</h3>
+          <div style="text-align: center" class="images3">
+            <img width="40" src="images/twitter.png">
+            <img width="40" src="images/facebook2.png">
+            <img width="40" src="images/instagram2.png">
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <iframe style="width: 100%"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1541.159217894267!2d35.19596006863973!3d-0.6225427125095646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182b080da6c24a7b%3A0xb97e8ab12406e952!2sRiverside%20Rentals%20Kapkatet!5e0!3m2!1sen!2ske!4v1719865452860!5m2!1sen!2ske"
+      height="450" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+
   </footer>
+  <div style="background-color: black; text-align: center;">
+    <img width="200" src="images/kk.jpg">
+
+  </div>
 </body>
-<script>
-  //CLICK HANDLERS
 
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const contactUs = document.querySelector(".contact");
-    const contactSection = document.querySelector(".footer");
-
-    contactUs.addEventListener("click", function () {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    })
-
-
-    const aboutNav = document.querySelector(".about-nav");
-    const aboutSection = document.querySelector(".Riverside-about");
-
-    const roomnav = document.querySelector(".room-nav");
-    const roomSection = document.querySelector(".background-image2");
-
-    const imageNav = document.querySelector(".img-nav");
-    const imageSection = document.querySelector(".background");
-
-    imageNav.addEventListener("click", function () {
-      imageSection.scrollIntoView({ behavior: "smooth" });
-    })
-    roomnav.addEventListener("click", function () {
-      roomSection.scrollIntoView({ behavior: "smooth" });
-    });
-
-
-    aboutNav.addEventListener("click", function () {
-      aboutSection.scrollIntoView({ behavior: "smooth" });
-    });
-  });
-
-
-
-
-
-</script>
 
 </html>

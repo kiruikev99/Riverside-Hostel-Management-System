@@ -1,150 +1,87 @@
-@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap');   
-.BOX {
-    height: 70vh;
-    width: 60vh;
-    padding: 20px;
-    text-align: center;
-    display: block;
+
+/* adminportal.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.background-image {
+    background-image: url('your-background-image-url.jpg'); /* Replace with your actual background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
     justify-content: center;
     align-items: center;
-   
-    margin: 0 auto; /* Center horizontally */
-    margin-top: 3vh; /* Adjust the top margin as needed */
-    filter: blur(0%);
-    border-radius: 3px;
-    color: BLACK;
-    background-color: rgb(255, 255, 255);
-    border: none;
-    box-shadow: 2px 1px 5px;
-    
-    
 }
 
-.background-image{
-   background-image:url(images/admin-back.jpg);
-   background-size: cover;
-   background-repeat: no-repeat;
-   background-position: center;
-   height: 100%;
-  
-  
-    
-}
-h2{
-    font-family: "Assistant", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
-}
-.navlink button{
-    background-color: rgb(255, 255, 255);
-    
-    
-}
-.navlink{
-    display: flex;
-    color: rgb(255, 255, 255);
-    
-}
-label{
-    font-family: "Assistant", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
-}
-.logo{
-    padding-left: 140px;
- }
- button img:hover{
-    cursor: pointer;
-    padding: 4px;
-    border: 2px solid green;
- }
-.navlink li{
-    font-family: 'Oxygen', sans-serif;
-    padding-top: 60px;
-    
-    list-style: none;
-}
-.navlink li:hover{
-    border-top: 2px solid gray;
-    cursor: pointer;
-    color: cadetblue;
-}
-.admin-grid{
-    text-align: center;
-    padding-bottom: 350px;
-    
-    
-}
-.content{
-    text-align: center;
-    padding-top: 70px;
-    background-color: red;
-    
-    font-size: large;
-    
-}
-.HEAD{
-    padding-top: 60PX;
-    padding-left: 290PX;
-    
-}
-.username > input{
-    padding: 10px;
-    width: 80%;
+nav {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 50px;
     border-radius: 10px;
-    border-top: none;
-    border-radius: 0%;
-    background-color: rgb(255, 255, 255);
-    border-bottom: 1px solid rgb(162, 224, 121);
-    border-width: thin;
-    border-left: none;
-    border-right: 1px solid rgb(162, 224, 121);
-    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+    text-align: center;
+    max-width: 400px; /* Adjust based on your design */
+    width: 100%;
 }
-.submit > input{
-    padding: 16px;
-    width: 50%;
-    
+
+.container {
+    text-align: center;
+}
+
+.container img {
+    margin-bottom: 20px;
+}
+
+.container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    border-radius: 3px;
-    border: none    ;
-    background-color: rgb(57, 216, 78);
-    color: aliceblue;
+    font-size: 16px;
 }
-.submit > input:hover{
-    background-color: rgb(43, 102, 57);
-}
-.welcome{
-        font-family: "Black Ops One", system-ui;
-        font-weight: 400;
-        font-style: normal;
-        
-        color: rgb(255, 255, 255);
-        text-shadow: 5px 5px rgb(0, 0, 0);
-}   
 
-a {
-    text-decoration: none;
-    color: rgb(11, 232, 228);
+input[type="submit"]:hover {
+    background-color: #45a049;
 }
-.logo{
-    padding-top: 20px;
-}
-@media screen and (max-width: 800px){
 
-    .BOX{
-        width: 84%;
+@media (max-width: 600px) {
+    /* Responsive adjustments if needed */
+    .container {
+        padding: 0 20px;
     }
-    
 }
 
 

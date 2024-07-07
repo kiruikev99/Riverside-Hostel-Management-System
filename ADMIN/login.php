@@ -1,3 +1,5 @@
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
+
 <?php
 include("connection.php");
 date_default_timezone_set('Africa/Nairobi');
@@ -33,14 +35,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
 
             // Redirect to booking.php
-            echo '<script>
-                    window.location.href = "booking.php";
-                    alert("Welcome ' . $username . '!");
+            echo '<script type="text/javascript">
+            Swal.fire({
+                title: "Welcome!",
+                text: "Welcome ' . $username . '!",
+                icon: "success",
+                confirmButtonText: "OK"
+            }).then(function() {
+                window.location.href = "booking.php";
+            });
                   </script>';
         } else {
-            echo '<script>
-                    alert("Wrong credentials");
-                  </script>';
+            echo '<script type="text/javascript">
+            Swal.fire({
+                title: "Error!",
+                text: "Incorrect Password or username.",
+                icon: "error",
+                confirmButtonText: "OK"
+            }).then(function() {
+                window.location.href = "adminportal.php";
+            });
+                </script>';
         }
 
         mysqli_stmt_close($stmt);

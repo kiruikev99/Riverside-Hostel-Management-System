@@ -1,0 +1,12 @@
+{
+  "Body": {
+    "stkCallback": {
+      "MerchantRequestID": "7071-4170-a0e4-8345632bad441440806",
+      "CheckoutRequestID": "ws_CO_06072024141849908743928989",
+      "ResultCode": 1037,
+      "ResultDesc": "DS timeout user cannot be reached"
+    }
+  }
+} 
+
+{"Body":{"stkCallback":{"MerchantRequestID":"f1e2-4b95-a71d-b30d3cdbb7a7730741","CheckoutRequestID":"ws_CO_06072024142334255743928989","ResultCode":1037,"ResultDesc":"DS timeout user cannot be reached"}}}

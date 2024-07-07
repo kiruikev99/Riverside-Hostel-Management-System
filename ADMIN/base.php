@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// If session variable is not set, redirect to login page
+if (!isset($_SESSION['username'])) {
+    header("Location: adminportal.php");
+    exit;
+}
+
+?>
+
 <style>
     body {
         background-color: #ecf0f1;
@@ -151,11 +162,19 @@
 </script>
 <button><a href="adminportal.php"><img width="140px" src="images/riverside-logo.png"></a></button>
 <h1>RIVESIDE ADMIN</h1>
+
+
+
+<button style="background-color: red; padding: 10px 20px; color: white; border-radius: 4px; border: none; "><a href="logout.php">Logout</a> </button>
+
+
+
 </header>
 
 <nav>
     <a href="summary.php">Summary</a>
-    <a href="booking.php">Bookings</a>
+    <a href="booking.php">Single Bed Bookings</a>
+    <a href="bookingtwobed.php">Two Bed Bookings</a>
     <a href="addtenant.php">Tenants</a>
     <a href="issues.php">Issues</a>
     <a href="inquiries.php">Inquiries</a>

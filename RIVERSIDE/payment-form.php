@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
     <title>BOOKING</title>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
          @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap');
         .order-summary{
             font-family: "Chakra Petch", sans-serif;
   font-weight: 600;
@@ -115,7 +116,7 @@
            <div class="img-book">
             <img width=300 src="images/BOOKING.png" alt="">
            </div>
-            <form action="../MPESA/payment.php" method="post">
+           <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <label for="fname">First Name</label>
                 <input required type="text" id="fname" name="fname">
 
@@ -134,10 +135,10 @@
                 <div style="text-align:center;" class="mpesa">
                     <img width="200" src="images/mpesa.png">
                 </div>
-                <label for="phone">Phone Number</label>
-                <input required type="number" id="phone" name="mpesanum">
+                <label for="mpesanum">Mpesa Number</label>
+                <input required type="number" id="mpesanum" name="mpesanum">
 
-                <label for="phone">Amount</label>
+                <label for="amount">Amount</label>
                 <input type="number" name="amount">
 
                 <div class="info">
@@ -180,58 +181,118 @@
             </div>
         </div>
 </div>
-    
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
 </body>
 </html>
 
+<?php
+// INCLUDE THE ACCESS TOKEN FILE
+include 'accesstoken.php';
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Collect form data
+    $fname = $_POST["fname"];
+    $lname = $_POST["lname"];
+    $phone = $_POST["phone"];
+    $gender = $_POST["gender"];
+    $mpesanum = $_POST["mpesanum"];
+    $amount = $_POST["amount"];
+    
+    // Validation
+    $errors = array();
+    if (strlen($fname) < 5) {
+        $errors[] = "First Name must be at least 5 characters long.";
+    }
+    if (preg_match('/\d/', $fname)) {
+        $errors[] = "First Name must not contain numbers.";
+    }
+    if (strlen($lname) < 5) {
+        $errors[] = "Last Name must be at least 5 characters long.";
+    }
+    if (preg_match('/\d/', $lname)) {
+        $errors[] = "Last Name must not contain numbers.";
+    }
+    
+    if (!is_numeric($amount) || $amount <= 0) {
+        $errors[] = "Amount must be a positive number.";
+    }
 
+    if (count($errors) > 0) {
+        echo '<script>';
+        foreach ($errors as $error) {
+            echo "Swal.fire('Error', '$error', 'error');";
+        }
+        echo '</script>';
+    } else {
+        // Proceed with STK push
+        date_default_timezone_set('Africa/Nairobi');
+        $processrequestUrl = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
+        $callbackurl = 'https://7670-105-163-2-251.ngrok-free.app/Riverside-Hostel-Management-System/MPESA/callback.php';
+        $passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
+        $BusinessShortCode = '174379';
+        $Timestamp = date('YmdHis');
+        $Password = base64_encode($BusinessShortCode . $passkey . $Timestamp);
+        $phone = '254743928989'; // Convert to international format
+        $PartyA = $phone;
+        $PartyB = $BusinessShortCode;
+        $AccountReference = 'RIVERSIDE HOSTELS';
+        $TransactionDesc = 'Room Booking';
+        $Amount = $amount;
+        $stkpushheader = ['Content-Type:application/json', 'Authorization:Bearer ' . $access_token];
+        
+        $curl_post_data = array(
+            'BusinessShortCode' => $BusinessShortCode,
+            'Password' => $Password,
+            'Timestamp' => $Timestamp,
+            'TransactionType' => 'CustomerPayBillOnline',
+            'Amount' => $Amount,
+            'PartyA' => $PartyA,
+            'PartyB' => $BusinessShortCode,
+            'PhoneNumber' => $PartyA,
+            'CallBackURL' => $callbackurl,
+            'AccountReference' => $AccountReference,
+            'TransactionDesc' => $TransactionDesc
+        );
 
+        $data_string = json_encode($curl_post_data);
 
+        // Initiate CURL
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $processrequestUrl);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $stkpushheader);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
+        $curl_response = curl_exec($curl);
+        echo $curl_response;
 
-
-
-
-<!-- <form class="reservation" style="background-color: rgb(255, 99, 71);; display: none;  border: 3px solid black;box-shadow: 10px 10px green; border-radius: 20px; padding: 60px; text-align: center; max-width: 400px;
-            margin: auto;" action="/Admin-RIVERSIDE/PROJECT%20WORK/MPESA/stkpush.php" method="post" id="reservation">
-
-    <span style="float: right; padding-bottom: 10px; cursor: pointer;" id="close">&times;</span>
-    <label for="name">First Name:</label>
-    <input style=" width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
-            box-sizing: border-box;" type="text" id="name" name="fname" required>
-    <label for="name">Last Name:</label>
-    <input style=" width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
-            box-sizing: border-box;" type="text" id="name" name="lname" required>
-
-    <label style="display: block;
-            margin-bottom: 8px;" for="id">Gender:</label>
-
-
-    <select style="width: 100%;" name="gender">
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
-    </select>
-
-
-    <img style="padding-left: 20px" width="300px" src="images/mpesa.png">
-
-    <h3 style="text-align: center; color: #4CAF50; padding-bottom: 50px;">LIPA NA MPESA</h3>
-
-    <label style="display: block;
-            margin-bottom: 8px; text-align: center;" for="mpesaNumber">Mpesa Number:</label>
-    <input
-      style=" width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
-            box-sizing: border-box; border-top: white; border-left: white;border-right: white; border-bottom: 2px solid green;"
-      type="text" placeholder="Start with 254! " id="mpesaNumber" name="mpesanum" required>
-
-    <h4>Total: 10,000</h4>
-
-
-   <button><a href="https://2348-105-163-157-25.ngrok-free.app/Admin-RIVERSIDE/PROJECT%20WORK/RIVERSIDE/RIVERSIDE.php"></a></button>
-   -->
+        if ($curl_response === false) {
+            echo '<script>Swal.fire("Error", "CURL Error: ' . curl_error($curl) . '", "error");</script>';
+        } else {
+            $data = json_decode($curl_response);
+            if ($data->ResponseCode == "0") {
+                include ("connection.php");
+                $query = "INSERT INTO riversidebookings (`First Name`, `Last Name`, Gender, NumberPaid, AmountPaid) VALUES (?, ?, ?, ?, ?)";
+                $stmt = mysqli_prepare($conn, $query);
+        
+                if ($stmt) {
+                    mysqli_stmt_bind_param($stmt, "sssss", $fname, $lname, $gender, $mpesanum, $amount);
+                    if (mysqli_stmt_execute($stmt)) {
+                        echo $TransactionDesc;
+                    } else {
+                        echo "Error: " . mysqli_error($conn);
+                    }
+                    mysqli_stmt_close($stmt);
+                } else {
+                    echo "Error: " . mysqli_error($conn);
+                }
+                mysqli_close($conn);
+            } else {
+                echo '<script>Swal.fire("Error", "STK Push Failed. Please try again.", "error");</script>';
+            }
+        }
+        curl_close($curl);
+    }
+}
+?>
