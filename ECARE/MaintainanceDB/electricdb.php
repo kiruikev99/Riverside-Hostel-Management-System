@@ -2,14 +2,13 @@
 
 include "connection.php";
 
-// date_default_timezone_set('Africa/Nairobi');
 session_start();
 
 $user = $_SESSION['username'];
 
 $query = "SELECT * FROM tenantaccount WHERE Username = ?";
 $stmt = mysqli_prepare($conn, $query);
-mysqli_stmt_bind_param($stmt, "s", $user); 
+mysqli_stmt_bind_param($stmt, "s", $user);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 
@@ -18,9 +17,24 @@ if ($result && mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
     
     $roomNo = $row['RoomNo'];
-
-
 }
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECARE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+</head>
+
+<body>
+
+<?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -28,30 +42,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $date = date('Y-d-m');
     $fname = $_SESSION['wame'];
 
-
-
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
-}
+    }
 
-$sql = "INSERT INTO electricdb (FirstName, RoomNo, Issue, Date)
-VALUES ('$fname', '$roomNo', '$name', '$date')";
+    // Enable exception mode for mysqli
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-if ($conn->query($sql) === TRUE) {
-    echo '<script>alert("You will be Contacted by the admin the Date Electrician will come. Thank You")
-    window.location.href = "/Admin-RIVERSIDE/PROJECT%20WORK/ECARE/tenantbase.php";</script>';
-  } 
-  else {
-    // Error
-    if ($conn->errno == 1062) {
-        echo '<script>alert("'.$roomNo.' has already been assigned to a Electricity Issue. ")
-        window.location.href = "/Admin-RIVERSIDE/PROJECT%20WORK/ECARE/tenantbase.php";</script>';
-    } else {
-        echo "Error: " . $stmt->error;
+    try {
+        $sql = "INSERT INTO electricdb (FirstName, RoomNo, Issue, Date)
+                VALUES ('$fname', '$roomNo', '$name', '$date')";
+        $conn->query($sql);
+
+        echo '<script>
+            swal({
+                title: "Issue Reported!",
+                text: "You will be contacted by the admin. Thank you!",
+                icon: "success"
+            }).then(function() {
+                window.location.href = "/Riverside-Hostel-Management-System/ECARE/tenantbase.php";
+            });
+        </script>';
+
+    } catch (mysqli_sql_exception $e) {
+        if ($e->getCode() == 1062) {
+            echo '<script>
+                swal({
+                    title: "Duplicate Entry",
+                    text: "You have already reported this issue.",
+                    icon: "error"
+                }).then(function() {
+                    window.location.href = "/Riverside-Hostel-Management-System/ECARE/tenantbase.php";
+                });
+            </script>';
+        } else {
+            echo "Error: " . $e->getMessage();
+        }
     }
 }
 
-}
-
-
 ?>
+
+<!-- Your HTML form and other content here -->
+
+</body>
+</html>

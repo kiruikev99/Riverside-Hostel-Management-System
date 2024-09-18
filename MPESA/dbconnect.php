@@ -2,7 +2,7 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "kiprono04";
+$password = "";
 $dbname = "riversidedb";
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {

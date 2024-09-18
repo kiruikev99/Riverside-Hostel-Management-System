@@ -1,161 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-   
-    <?php include('base.php'); ?>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
 
-<div style="text-align: center; padding-top: 10px;" class="plumbing">
-    <H2>PLUMBING SECTION</H2>
-</div>
-<table>
-    <thead>
-        <tr>
-            <th>Tenant Name</th>
-            <th>RoomNo</th>
-            <th>Issue</th>
-            <th>Date Submited</th>
-            <th>Action</th>
-            
-        </tr>
-    </thead>
-    <tbody>
-    <?php
-            include("connection.php");
+        .container {
+            display: flex;
+        }
 
+        .side {
+            /* Your existing styles for the side column */
+        }
 
-            // Query to retrieve data from the database
-           
-            $query = "SELECT * FROM plumbingdb";
-            $result = mysqli_query($conn, $query);
+        .tabo {
+            flex: 1;
+            padding: 20px;
+            background-color: #ffffff;
+            margin-left: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
 
-            if (mysqli_num_rows($result) > 0) {
-                // Loop through the database results
-                while ($row = mysqli_fetch_assoc($result)) {
-                    
-                    echo "<tr>";
-                   
-                    echo "<td>" .$row["FirstName"]. "</td>";
-                    echo "<td>" .$row["RoomNo"]. "</td>";
-                    echo "<td>" .$row["Issue"]. "</td>";
-                    echo "<td>" .$row["Date"]. "</td>";
-                    echo "<td class='delete'> <button> Delete</button> </td>";
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
 
-                    echo "</tr>";
-                  
-                }
-                
-            } else {
-                echo "<tr><td colspan='6'>No records found in the database.</td></tr>";
-            }
+        table th,
+        table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #dddddd;
+            text-align: center;
+        }
 
-            mysqli_close($conn);
-            ?>
+        table thead {
+            background-color: #009879;
+            color: #ffffff;
+        }
 
-</table>
-        </tbody>
+        table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
 
-    <div style="text-align: center; padding-top: 20px;" class="plumbing">
-        <h2>ELECTRICITY SECTION</h2>
+        .delete button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .delete button:hover {
+            background-color: darkred;
+        }
+
+        .plumbing {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="side">
+            <!-- Include your side content, such as navigation or other elements -->
+            <?php include("base.php"); ?>
         </div>
 
-        <table>
-    <thead>
-        <tr>
-            <th>Tenant Name</th>
-            <th>RoomNo</th>
-            <th>Issue</th>
-            <th>Date Submited</th>
-            <th>Action</th>
-            
-        </tr>
-    </thead>
-    <tbody>
-    <?php
-            include("connection.php");
+        <div class="tabo">
+            <h1>TENTANT ISSUES INQUIRIES</h1>
+            <div class="plumbing">PLUMBING SECTION</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tenant Name</th>
+                        <th>RoomNo</th>
+                        <th>Issue</th>
+                        <th>Date Submitted</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    include("connection.php");
 
+                    // Query to retrieve data from the plumbingdb table
+                    $query = "SELECT * FROM plumbingdb";
+                    $result = mysqli_query($conn, $query);
 
-            // Query to retrieve data from the database
-           
-            $query = "SELECT * FROM electricdb";
-            $result = mysqli_query($conn, $query);
+                    if (mysqli_num_rows($result) > 0) {
+                        // Loop through the database results
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<tr>";
+                            echo "<td>" . $row["FirstName"] . "</td>";
+                            echo "<td>" . $row["RoomNo"] . "</td>";
+                            echo "<td>" . $row["Issue"] . "</td>";
+                            echo "<td>" . $row["Date"] . "</td>";
+                            echo '<td class="delete"><button><a href="plumbdelete.php?issuedelete=' . $row["RoomNo"] . '">Delete</a></button></td>';
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo '<tr><td colspan="5">No records found in the database.</td></tr>';
+                    }
 
-            if (mysqli_num_rows($result) > 0) {
-                // Loop through the database results
-                while ($row = mysqli_fetch_assoc($result)) {
-                    
-                    echo '<tr>;
-                   
-                    "<td> '.$row["FirstName"].' </td>
-                    <td> '.$row["RoomNo"].' </td>
-                    <td> '.$row["Issue"].' </td>
-                    <td> '.$row["Date"].' </td>
-                    <td class="delete"> <button><a href="electricdelete.php? issuedelete='.$row["RoomNo"].'">Delete</a></button> </td>
+                    mysqli_close($conn);
+                    ?>
+                </tbody>
+            </table>
 
-                    </tr>';
-                  
-                }
-                
-            } else {
-                echo "<tr><td colspan='6'>No records found in the database.</td></tr>";
-            }
+            <div class="plumbing">ELECTRICITY SECTION</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tenant Name</th>
+                        <th>RoomNo</th>
+                        <th>Issue</th>
+                        <th>Date Submitted</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    include("connection.php");
 
-            mysqli_close($conn);
-            ?>
+                    // Query to retrieve data from the electricdb table
+                    $query = "SELECT * FROM electricdb";
+                    $result = mysqli_query($conn, $query);
 
-</table>
+                    if (mysqli_num_rows($result) > 0) {
+                        // Loop through the database results
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<tr>";
+                            echo "<td>" . $row["FirstName"] . "</td>";
+                            echo "<td>" . $row["RoomNo"] . "</td>";
+                            echo "<td>" . $row["Issue"] . "</td>";
+                            echo "<td>" . $row["Date"] . "</td>";
+                            echo '<td class="delete"><button><a href="electricdelete.php?issuedelete=' . $row["RoomNo"] . '">Delete</a></button></td>';
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo '<tr><td colspan="5">No records found in the database.</td></tr>';
+                    }
 
-<div style="text-align: center; padding-top: 20px;" class="plumbing">
-        <h2>PAINT SECTION</h2>
+                    mysqli_close($conn);
+                    ?>
+                </tbody>
+            </table>
+
+            <div class="plumbing">PAINT SECTION</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tenant Name</th>
+                        <th>RoomNo</th>
+                        <th>Issue</th>
+                        <th>Date Submitted</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    include("connection.php");
+
+                    // Query to retrieve data from the walldb table
+                    $query = "SELECT * FROM walldb";
+                    $result = mysqli_query($conn, $query);
+
+                    if (mysqli_num_rows($result) > 0) {
+                        // Loop through the database results
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<tr>";
+                            echo "<td>" . $row["FirstName"] . "</td>";
+                            echo "<td>" . $row["RoomNo"] . "</td>";
+                            echo "<td>" . $row["Issue"] . "</td>";
+                            echo "<td>" . $row["Date"] . "</td>";
+                            echo '<td class="delete"><button><a href="paintdelete.php?issuedelete=' . $row["RoomNo"] . '">Delete</a></button></td>';
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo '<tr><td colspan="5">No records found in the database.</td></tr>';
+                    }
+
+                    mysqli_close($conn);
+                    ?>
+                </tbody>
+            </table>
         </div>
-
-        <table>
-    <thead>
-        <tr>
-            <th>Tenant Name</th>
-            <th>RoomNo</th>
-            <th>Issue</th>
-            <th>Date Submited</th>
-            <th>Action</th>
-            
-        </tr>
-    </thead>
-    <tbody>
-    <?php
-            include("connection.php");
-
-
-            // Query to retrieve data from the database
-           
-            $query = "SELECT * FROM walldb";
-            $result = mysqli_query($conn, $query);
-
-            if (mysqli_num_rows($result) > 0) {
-                // Loop through the database results
-                while ($row = mysqli_fetch_assoc($result)) {
-                  echo "<tr>";
-                  echo "<td>" . $row["FirstName"] . "</td>";
-                  echo "<td>" . $row["RoomNo"] . "</td>";
-                  echo "<td>" . $row["Issue"] . "</td>";
-                  echo "<td>" . $row["Date"] . "</td>";
-                  echo "<td class='delete'> <button type='button' onclick=\"window.location.href='https://www.upwork.com/freelancers'\">Delete</button> </td>";
-                  echo "</tr>";
-                  
-                
-                
-            }
-         } else {
-                echo "<tr><td colspan='6'>No records found in the database.</td></tr>";
-            }
-
-            mysqli_close($conn);
-        
-            ?>
-
-</table>
-
-
+    </div>
 </body>
+
 </html>

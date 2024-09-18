@@ -2,48 +2,31 @@
 include 'connection.php';
 session_start();
 
+if (!isset($_SESSION['username'])) {
+    header("Location: adminportal.php");
+    exit;
+}
+
 if (isset($_GET['tenantid'])) {
-    $no = $_GET['tenantid'];
     $no = $_GET['tenantid'];
 
     $_SESSION["no"] = $_GET['tenantid'];
-
-
-
-
-
 
     $sql = "SELECT * FROM riversidebookings WHERE No = $no";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        // Output data of each row
         while ($row = $result->fetch_assoc()) {
             $firstName = $row["First Name"];
             $lastName = $row["Last Name"];
             $gender = $row["Gender"];
-            $paid = $row["AmountPaid"];
-            $balance = (50 - $row["AmountPaid"]);
-            // Add more lines for other columns as needed
-
 
             $_SESSION["fname"] = $firstName;
             $_SESSION["lname"] = $lastName;
-            $_SESSION["paid"] = $paid;
-            $_SESSION["balance"] = $balance;
             $_SESSION["gender"] = $gender;
-
-
-
-
         }
     }
 }
-
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -53,197 +36,177 @@ if (isset($_GET['tenantid'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tenant Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-R1P5Zhs1Dh65NLVtioHJ0btST5NvJIS6TcxWTEGfP0HEQWzGt6QfaCw7Ihrw3N5ID5V1svDwPY4FgCq5K5yekg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
     <style>
         body {
             background-color: #f0f0f0;
             font-family: 'Arial', sans-serif;
             margin: 0;
+            display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
         }
 
-        .formregister {
+        .container {
             background-color: #fff;
-
-            padding: 30px;
-            width: 300px;
-            text-align: center;
-
-        }
-
-        .registration-form {
-            background-color: #fff;
-
             padding: 20px;
-            width: 300px;
+            width: 100%;
+            max-width: 600px;
             text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
 
-        h2 {
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-weight: bold;
             color: #333;
         }
 
-        label {
-            display: block;
-            margin: 10px 0 5px;
-            color: #555;
-        }
-
-        input {
+        .form-group input,
+        .form-group select {
             width: 100%;
             padding: 8px;
-            margin-bottom: 15px;
+            margin-top: 5px;
+            margin-bottom: 10px;
             box-sizing: border-box;
             border: 1px solid #ccc;
             border-radius: 4px;
             outline: none;
+            font-size: 16px;
         }
 
-        input[type="submit"] {
+        .form-group input[type="submit"] {
             background-color: #4caf50;
             color: #fff;
             cursor: pointer;
             transition: background-color 0.3s;
         }
 
-        input[type="submit"]:hover {
+        .form-group input[type="submit"]:hover {
             background-color: #45a049;
         }
 
-        @media screen and (max-width: 600px) {
-
-            .section {
-                flex-direction: column;
-                height: 100%;
-            }
-
+        .alert-message {
+            color: red;
+            margin-top: 5px;
         }
     </style>
 </head>
 
 <body>
-    <header style=" justify-content: center; text-align: center;">
-        <div class="image">
-            <img src="images/riverside-logo.png" width="200" alt="Logo">
-        </div>
+    <div class="container">
+        <header class="logo">
+            <img src="images/riverside-logo.png" width="150" alt="Logo">
+        </header>
 
-    </header>
-    <div style="display: flex; padding-left: 100px; " class="section">
-        <div class="registration-form">
-            <h2 style="">
-                <?php echo $firstName; ?>'s Information
-            </h2>
-
+        <div class="form-group">
+            <h2><?php echo $firstName ?>'s Information</h2>
             <label for="firstName">First Name</label>
-            <h3>
-                <?php echo $firstName; ?>
-            </h3>
-            <br><br>
+            <input type="text" value="<?php echo $firstName ?>" disabled>
             <label for="lastName">Last Name</label>
-            <h3>
-                <?php echo $lastName; ?>
-            </h3>
-            <br><br>
+            <input type="text" value="<?php echo $lastName ?>" disabled>
             <label for="gender">Gender</label>
-            <h3>
-                <?php echo $gender; ?>
-            </h3>
-            <br><br>
-            <label for="email">
-                <?php echo $firstName; ?> Room Fee
-            </label>
-            <h3>10,000/per Month</h3>
-            <br><br>
-
-
+            <input type="text" value="<?php echo $gender ?>" disabled>
         </div>
 
-        <div class="formregister">
+        <hr>
 
-            <form action="tenantsuccess.php" method="post">
-                <h2 style="">
-                    <?php echo $firstName; ?>'s Contact/Medical Info
-                </h2>
-                <label for="firstName">Father/Guardian Full Name</label>
-                <input required name="father" placeholder="Father Name" type="text">
+        <form id="registrationForm" action="tenantsuccess.php" method="post">
+            <div class="form-group">
+                <h2><?php echo $firstName ?>'s Contact/Medical Info</h2>
+                <label for="father">Father/Guardian Full Name</label>
+                <input type="text" name="father" id="father" placeholder="Enter Father's Name" required>
+                <label for="fatherno">Phone Number</label>
+                <input type="tel" name="fatherno" id="fatherno" placeholder="Enter Phone Number" required>
+            </div>
 
-                <label for="firstName"> Phone Number</label>
-                <input required name="fatherno" placeholder="Number" type="number">
+            <div class="form-group">
+                <h4>Medical Info</h4>
+                <label for="disease">Diseases (if any)</label>
+                <input type="text" name="disease" id="disease" placeholder="Enter Diseases">
+                <label for="doctor">Doctor</label>
+                <input type="text" name="doctor" id="doctor" placeholder="Enter Doctor's Name">
+                <label for="blood">Blood Group</label>
+                <input type="text" name="blood" id="blood" placeholder="Enter Blood Group">
+            </div>
 
-                <hr>
-                <h4><b>Medical Info </h4></b>
-
-                <label for="number">Diseases(if any)</label>
-                <input name="disease" placeholder="Optional" type="text">
-
-                <label for="lastName">Doctor</label>
-                <input name="doctor" placeholder="Optional" type="text">
-
-                <label for="blood"> Blood Group </label>
-                <input name="blood" placeholder="Optional" type="text">
-
-                <hr>
-                <h4><b>Personal Info </h4></b>
-
-
-                <label for="firstName">Date-of-Birth</label>
-                <input required name="D-O-B" placeholder="e.g C3, C5" type="date">
-
-                <label for="password">
-                    <?php echo $firstName; ?>'s Phone Number
-                </label>
-                <input required name="userphone" type="number">
-
-                <label for="password">
-                    <?php echo $firstName; ?>'s Email
-                </label>
-                <input placeholder="Optional" name="useremail" type="email">
-
-
+            <div class="form-group">
+                <h4>Personal Info</h4>
+                <label for="D-O-B">Date-of-Birth</label>
+                <input type="date" name="D-O-B" id="D-O-B" required>
+                <label for="userphone"><?php echo $firstName ?>'s Phone Number</label>
+                <input type="tel" name="userphone" id="userphone" required>
+                <label for="useremail"><?php echo $firstName ?>'s Email</label>
+                <input type="email" name="useremail" id="useremail" placeholder="Optional">
                 <label for="university">University</label>
-                <select required style="width: 100%; font-size: 18px" id="univerity" name="University">
-                    <option value="Kabianga Univerity">Kabianga Univerity</option>
-                    <option value="Kapkatet Univerity">Kapkatet University</option>
-
+                <select name="University" id="university" required>
+                    <option value="Kabianga University">Kabianga University</option>
+                    <option value="Kapkatet University">Kapkatet University</option>
                 </select>
+            </div>
 
+            <div class="form-group">
+                <h2><?php echo $firstName ?>'s Room Info</h2>
+                <label for="room">Room No</label>
+                <input type="text" name="room" id="room" placeholder="Enter Room No" required>
+                <label for="Username">Username</label>
+                <input type="text" name="Username" id="Username" placeholder="Enter Username" required>
+                <label for="Password">Password</label>
+                <input type="password" name="Password" id="Password" placeholder="Enter Password" required>
+                <label for="Date">Checkin Date</label>
+                <input type="date" name="Date" id="Date" required>
+            </div>
 
-
-
-
-                </div>
-
-
-                <br>
-
-                <div class="formregister">
-                    <h2 style="">
-                        <?php echo $firstName; ?>'s Room Info
-                    </h2>
-
-
-                    <br>
-                    <label for="firstName">ROOM NO</label>
-                    <input required name="room" placeholder="e.g C3, C5" type="text">
-
-                    <label for="lastName">Username</label>
-                    <input required name="Username" type="text">
-
-                    <label for="email"> Password </label>
-                    <input required name="Password" type="password">
-
-                    <label for="password">Checkin Date</label>
-                    <input required name="Date" type="date">
-
-                    <input  type="submit" value="Register">
-                    
-            </form>
-
-
-        </div>
+            <div class="form-group">
+                <input type="submit" value="Register">
+            </div>
+        </form>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        // Function to validate form inputs
+        function validateForm() {
+            var father = document.getElementById('father').value.trim();
+            var fatherno = document.getElementById('fatherno').value.trim();
+            var dob = document.getElementById('D-O-B').value.trim();
+            var userphone = document.getElementById('userphone').value.trim();
+            var room = document.getElementById('room').value.trim();
+            var username = document.getElementById('Username').value.trim();
+            var password = document.getElementById('Password').value.trim();
+            var date = document.getElementById('Date').value.trim();
+
+            // Simple validation
+            if (father === '' || fatherno === '' || dob === '' || userphone === '' || room === '' || username === '' || password === '' || date === '') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please fill in all required fields!',
+                });
+                return false;
+            }
+
+            return true;
+        }
+
+        // Event listener for form submission
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            if (!validateForm()) {
+                event.preventDefault(); // Prevent form submission if validation fails
+            }
+        });
+    </script>
 </body>
 
 </html>

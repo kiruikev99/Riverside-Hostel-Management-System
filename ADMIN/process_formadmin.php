@@ -1,18 +1,6 @@
 <?php
 include 'connection.php';
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "login";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 // The following block should not be inside the above if statement
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["adminName"];

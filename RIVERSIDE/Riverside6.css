@@ -1,554 +1,553 @@
-@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
 
-.bg-2{
-  background-image:url(images/core2.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: local;
-  background-position: center;
-  height: 100
-
+.text h2 {
+  font-size: 30px;
+  animation: popup 1s ease-out forwards;
 }
 
-ul > li:hover{
-  color: rgb(137, 225, 60);
-  opacity: 1.0;
+.text p {
+  font-size: 70px;
+  margin-top: 10px;
+  animation: popup 2.2s ease-in forwards;
 }
-.background-image{
-    background-image:url(images/stude2.jpeg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
 
-    height: 100%;
+.text button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  animation: popup 2.8s ease-in forwards;
+}
 
- }
+@keyframes popup {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
 
-nav{
-  background-color: #ffffff;
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+body {
+  font-family: 'Rajdhani', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 90px;
+
+}
+.middle{
+ padding: 100px;
+  font-size: 70px;
+  background-color: rgba(0, 0, 0, 0);;
+}
+
+.head {
+  background-color: #4CAF50; /* Green */
+  padding: 1rem;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.navbar-flex {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hamburg {
+  display: flex;
+  align-items: center;
+}
+
+.hamburg2 {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.logo img {
+  margin-right: 1rem;
+}
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(78, 78, 78);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+  color: #f1f1f1;
+}
+
+.closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+.background-image {
+  background: url('images/dexx.jpeg') no-repeat center center/cover;
+  height: 100vh;
+  animation: popup 1.0s ease-in ;
+
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
   position: fixed;
   width: 100%;
-  padding: 5px;
 }
-.buttons{
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
   display: flex;
+  gap: 6rem;
  
+}
+
+nav li {
+  cursor: pointer;
+}
+
+nav li:hover {
+  text-decoration: underline;
+}
+
+nav .buttons button {
+  background-color: #4CAF50;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  cursor: pointer;
+}
+
+nav .buttons button:hover {
+  background-color: #45a049;
+}
+
+.section {
+  padding: 6rem;
+  font-size: 26px;
+}
+
+.about-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 400px;
+}
+
+.about-content {
+  max-width: 600px;
+  text-align: justify;
+}
+
+.about-content > p {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-size: 22px;
+    font-style: normal;
+ 
+}
+
+.about-head h2 {
+  font-family: 'Bebas Neue', cursive;
+  margin-bottom: 1rem;
+}
+
+.bg-2 {
+  background-color: #f1f1f1;
+  padding: 1rem 0;
+}
+
+.core-values {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem;
+  font-size: 28px;
+}
+
+.core-text h1 {
+  font-family: "SUSE", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+
+  margin-bottom: 1rem;
+  font-size: 50px;
+  text-align: center;
+}
+
+.core-text ol {
+  font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 22px;
+    font-style: normal;
+  list-style: decimal;
+  padding-left: 1rem;
+  font-size: 26px;
+}
+
+.service {
+  padding: 2rem;
+  background-color: #f9f9f9;
+}
+
+#sections {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 24px;
+  justify-content: space-between;
+}
+
+
+.hot-shower,
+.wifi,
+.shop {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-size: 20px;
+  font-style: normal;
+
+  width: 32%;
+  background-color: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hot-shower h3,
+.wifi h3,
+.shop h3 {
+  font-family: 'Bebas Neue', cursive;
+  margin-bottom: 1rem;
+  font-size: 28px;
+
   
 }
- ul{
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 100px;
-  opacity: 0.8;
-  padding-top: 35px;
-  cursor: pointer;
- font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.buttons{
-  padding-top: 23px;
-}
-.buttons > button{
-  background-color: yellowgreen;
-  height: 6.5vh;
-  border: none;
-  padding: 10px;
-  border-radius: 20px;
+
+.karibibu {
+  background: url('images/karibu.jpg') no-repeat center center/cover;
+  padding: 2rem;
   color: white;
-  width: 25vh;
-
 }
 
- 
- .text h2{
-     font-size: 50px
- }
- .text p{
-     font-family: 'Kanit', sans-serif;
-     color: rgb(0, 255, 136);
- }
- .header{
-     color: rgba(255, 255, 255, 0.486);
- }
- .about-tittle{
-     font-family: 'Kanit', sans-serif;
-     /* padding-top: 14%; */
-     float: right;
-     
-     
- }
- .about-tittle p{
-     font-family: 'Playfair Display', serif;
-     font-size: large;
-     /* padding-top: 20px; */
- }
- .background-image2{
-     background-image:url(gray-abstract-wireframe-technology-background.jpg);
-     background-size: cover;
-     background-repeat: no-repeat;
-     background-position: center;
-     padding: 8%;
-     height: 100%;
- }
- .SERVICES .image{
-     text-align: center;
-     font-family: 'Titillium Web', sans-serif;
- }
- .card{
-     
- }
- .rooms-cards{
-     display: grid;
-     grid-template-columns: auto auto;
-     text-align: center;
-     padding-left: 200px;
-     padding-top: 100px;
- }
- .background{
-     background-image:url(/basss.jpg);
-     background-size: cover;
-     background-repeat: no-repeat;
-     background-position: center;
-     padding: 3%;
-     height: 100%;
- 
- }
- .background-karibu{
-  background-image:url(images/karibu.jpg);
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 3%;
-  height: 100%;
+.background-karibu {
   display: flex;
-  gap: 30px;
-  padding:80px;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+}
+
+.head-texte h3 {
+  font-size: 4%;
 
 }
 
- 
- .facility{
-     text-align: left;
-     font-family: 'Kanit', sans-serif;
-     
- } 
- .facility h6{
-     font-family: 'Playfair Display', serif;
- 
- }
- .btn-about{
-     background-color: rgb(255, 255, 255);
-     border-color: greenyellow;
-     color: green;
-     padding: 1%;
-     border-radius: 30px;
- 
- }
- .parapgraphy button:hover{
-     color: white;
-     background-color: green;
- }
-/* tranistion */
-.about-image {
-     animation: fadeIn 10s;
-   }
-   
-   @keyframes fadeIn {
-     0% { opacity: 0; }
-     100% { opacity: 1; }
-   }
- 
- .background3{
-     
-     background-color: rgb(77, 63, 63);
-     background-repeat: no-repeat;
-     background-position: center;
-     padding: 3%;
-     height: 100%;
- }
- .grid{
-     display: grid;
-     grid-template-columns: auto auto auto;
- }
- .maps .contact-us{
-     padding-top: 400px;
- }
- .background-faculty{
-     padding: 8%;
- }
- .facitity-info{
-     padding-top: 50px;
-     font-family: 'Abel', sans-serif;
-     font-size: larger;
- }
- .icons{
-     flex-wrap: wrap;
-     padding-top: 50px;
-     padding-left: 20px;
- }
- .icons {
-     
-     padding-left: 10px ;
- }
- .grid-section{
-     display: grid;
-     grid-template-columns: auto auto auto;
- }
- 
- .contact-us, .contact-form{
-     padding-top: 90px;
-     padding-right: 40px;
- }
- .contact-form{
-     color: aliceblue;
- }
- .contact-us li{
-     list-style: none;
-     color: aliceblue;
-     
- }
- .contact-form input{
-     display: block;
-     
- }
- .logo button{
-     background-color: aliceblue;
- }
- .logo a{
-     display: block;
-     padding-top: 5%;
-     filter: grayscale(50%);
-     padding-left: 30%;
- }
- .logo a:hover{
-     filter: grayscale(0);
- }
- .gridsecction{
-     color: aliceblue;
- }
- .terms input{
-     display: block;
-     
-     padding: 3%;
- }
- .name {
-     padding-bottom: 30px;
-     padding-left: 25px;
- }
- .jjj{
-     filter:blur(40);
- }
- .main1 {
-   display: none;
-   grid-template-columns: 1fr 1fr; /* Two columns */
-   grid-gap: 20px; /* Gap between grid items */
- }
- 
- .grid-item {
-   /* Add any styles you want for each grid item */
- }
- .small-image{
-    display: none;
- }
- .head{
- }
-   
- .service{
-  background-image: url(images/service.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 6%;
-  height: 100%;
- }
 
+.rooms-section,
+.gallery-section {
+  padding: 6rem;
+}
+
+.rooms {
+  text-align: center;
+}
+
+.rooms-head h2 {
+  font-family: 'Bebas Neue', cursive;
+  margin-bottom: 2rem;
+}
+
+.rooms-container {
 
  
- @media screen and (min-width: 600px){
+}
 
-    .text{
-        font-family: 'Kanit', sans-serif;
-        color: aliceblue;
-        text-align: center;
-        padding-top: 14%;
-        font-size: 40px
-    }
-    .about-flex > .p {
-        font-size: 18px;
-     }
-     .core-values{
-        justify-content: center;
-        padding: 140px 100px
-     }
-     .core-values > button{
-        width:18%;
-     }
-     .hot-shower {
-        border-right: 4px solid purple;
-        padding: 10px;
+.room-item {
+  width: 100%;
+  background-color: white;
+  padding: 6rem;
+  
+ 
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-      }
+.room-image img {
+  width: 100%;
+  margin-bottom: 1rem;
+}
 
-      .wifi {
-        border-right: 4px solid yellow;
-        padding: 20px;
-      }
+.room-content h3 {
+  font-family: 'Bebas Neue', cursive;
+  margin-bottom: 1rem;
+}
 
-      .shop {
-        border-right: 4px solid blue;
-        padding: 20px;
-      }
-      .background-karibu{
-    
-      }
-      #sections{
-        display: flex;
-      }
-      .head{
-        display: none;
-      }
-      .Riverside-about, .core-values {
-        padding-bottom: 80px;
-      }
-     
+.gallery {
+  text-align: center;
+}
 
- }
+.gallery-head h2 {
+  font-family: 'Bebas Neue', cursive;
+  margin-bottom: 2rem;
+}
+
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.gallery-item {
+  width: 23%;
+  margin-bottom: 1rem;
+}
+
+.gallery-item img {
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact {
+  padding: 2rem;
+  background-color: black;
+  color: aliceblue;
+  text-align: center;
+  display: flex;
+ justify-content: space-evenly;
+ gap: 100px;
+ text-align: center;
+}
 
 
- @media screen and (max-width: 800px){
-  #imgg{
+
+
+
+
+
+
+
+
+.contact h2 {
+  font-family: 'Bebas Neue', cursive;
+  margin-bottom: 2rem;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.contact-form label {
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contact-form button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #45a049;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #4CAF50;
+  color: white;
+}
+.sec{
+  padding-top: 200px;
+}
+
+@media (max-width: 700px) {
+  .sec{
+    padding-top: 8  0px;
+  }
+  .about-content, .about-head{
+    font-size: x-small;
+  }
+  .about-image{
+    width: 500px;
+  }
+  .middle{
+    background-color: none;
+  }
+  .text > h2{
+    font-size: 20px;
+  }
+  .text > p{
+    font-size: 45px;
+  }
+ 
+  .core-values {
+    display: block;
+    padding: 10px;
+  }
+  .core-values > .img {
     display: none;
   }
-  .background-image{
-    background-attachment: local;
-  }
-  body{
-    overflow-x: hidden;
-  }
-  .book-btn > button{
-    width: 90%;
-
+  #sections{
+    display: block;
+    width: 130vh;
   }
   .background-karibu{
-    background-image:url(images/karibu.jpg);
-    background-attachment:local;
+    font-size: small;
+    text-align: center;
+    display: block;
+   
   }
-  
-  .Riverside-about, .core-values {
-    padding-bottom: 80px;
+  .room-item{
+   
   }
 
-  .img{
+  * {
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+  }
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+  .head{
+    display: block;
+    position: sticky;
+  }
+  
+  nav{
     display: none;
   }
- 
-   .wifi-content, .hot-shower-content, .shop-content {
-         font-size: 11px;
-        }
-    .core-text {
-        font-size: 15px;
-    }
-    .core-values{
-      padding: 40px;
-    }
-    .img > img {
-        width: 90%;
-        height: 70%;
-    }
-    .background-karibu{
-      display: block;
-      text-align: center;
-      padding: 40px;
-    }
-    nav{
-      display: none;
-    }
+  .logo{
+    float: right;
+  }
+  .contact{
+    display: block;
+  }
+  .logo2{
+    text-align: center;
+  }
+  .gallery-container{
+    display: block;
+   width: 170vh;
 
-    .s
+  }
 
-   
-    .head{
-        display: contents;
-    }
-    .overlay {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: rgb(211, 244, 248);
-        overflow-x: hidden;
-        transition: 0.5s;
-      }
-      
-      .overlay-content {
-        position: relative;
-        top: 25%;
-        width: 100%;
-        text-align: center;
-        margin-top: 30px;
-      }
-      
-      .overlay a {
-        padding: 8px;
-        text-decoration: none;
-        font-size: 36px;
-        color: #383f35;
-        display: block;
-        transition: 0.3s;
-      }
-      
-      .overlay a:hover, .overlay a:focus {
-        color: #f1f1f1;
-      }
-      
-      .overlay .closebtn {
-        position: absolute;
-        top: 20px;
-        right: 45px;
-        font-size: 60px;
-      }
-      .navbar-flex{
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        gap: 50px;
-        position: fixed;
-        background: white;
-        width: 100%;
-        height: 10%;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000; /* Set a high z-index value */
-       
-      }
+  .gallery-container, #sections{
+    width: 350%;
 
-    .text {
-        font-family: 'Kanit', sans-serif;
-        color: aliceblue;
-        text-align: center;  
-        
+  }
+  .head-texte{
+    color: black;
+    font-size: small;
+  }
+  .service  {
+    font-size: small;
+  }
 
-    }
-    .text > p {
-        font-size: 19px;
-    }
- 
- .navlink{
- flex-direction: column;
- justify-content: center;
-  font-size: large;
- padding-left: 15%;
-background-color: cornflowerblue;
+  .about-flex{
+    display: block;
+    width: 110%;
 
-display: none;
- }
- .navlink > button{
-     display: none;
-     
- }
- .small-image{
+  }
+  .about-flex img {
+    width: 30vh;
+  }
+  .room-item {
+    width: 50vh;
     display: block;
     
- }
- 
- .about-flex{
-     flex-direction: column;
-     justify-content: center;
- }
- .about-flex > .p {
-    font-size: 9px;
- }
- .about-image{
-    padding-left: 20px;
- }
- .facility-info{
-    flex-direction: column;
- }
- .room-booking{
-     flex-direction: column;
-     justify-content: center;
- }
- .gridsecction {
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
-     text-align: center;
-   }
-   .newsletter, .about, .terms {
-     margin-bottom: 20px;
-   }
-   .termo{
-     display: none;
-   }
-   /* Images  */
-   .images > img{
-     padding-right: 10px;
-     width: 400px;
-   }
-   /* Rooms */
-   .grid-item > img {
-     width: 350px;
-   }
-  
-   .grid-item2{
-     font-size: large;
-     
-     border: none;
-   }
- 
-   .grid-item {
-     width: 100%; /* Adjust the width as needed for each grid item */
-     padding-left: 0; /* Optionally adjust padding for each grid item */
-     border-left: none; /* Optionally remove the left border */
-   }
- 
-   /* Facilities */
-   .grid-section{
-     display: block;
-   }
-   .image > img{
-     width: 400px;
-     border-radius: none;
-   }
-   .icons>img{
-     width: 26px;
-   }
-   .icons{
-     font-size: large;
-    
-   }
-   /* about us */
-   .about{
-     padding-bottom: 300px;
-     
-   }
-  
-   .about-tittle {
-     text-align: center;
-   }
-   .text{
-     padding-top: 500px;
-   }
-   .navlink > button{
-     padding-right: 40px;
-   }
-   nav > .navlink > button {
-     width: 20px;
-   }
-   
- 
-   /* Styling for hamburger icon */
- 
- }
+  }
+  .carousel-images{
+    display: block;
+  }
+
+  .about-content p{
+
+    font-size: 16px;
+  }
+  .core-text ol li p{
+    font-size: 13px;
+
+  }
+  .core-text {
+    padding: 10px;
+  }
+  #sections{
+    font-size: 10px;
+  }
+}
+
  

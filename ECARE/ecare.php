@@ -1,3 +1,6 @@
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
+
 <?php
 
 include("connection.php");
@@ -20,18 +23,29 @@ if (isset($_POST['submit'])) {
     $result = mysqli_stmt_get_result($stmt);
 
     if ($result && mysqli_num_rows($result) > 0) {
-       echo "<script> alert('Welcome " . $_SESSION['username'] . "')</script>";
-
-       
-        header("Location: tenantbase.php");
+        echo '<script type="text/javascript">
+            Swal.fire({
+                title: "Welcome!",
+                text: "Welcome '. $_SESSION['username']. '!",
+                icon: "success",
+                confirmButtonText: "OK"
+            }).then(function() {
+                window.location.href = "tenantbase.php";
+            });
+                  </script>';
        
 
         exit();
     } else {
         // Invalid username or password
-        echo "<script>
-            alert('Incorrect Information');
-            </script>";
+         echo '<script type="text/javascript">
+            Swal.fire({
+                title: "Error!",
+                text: "Incorrect Password or username.",
+                icon: "error",
+                confirmButtonText: "OK"
+            })
+                </script>';
     }
 
     mysqli_stmt_close($stmt);
@@ -132,7 +146,7 @@ button img:hover{
 input{
     padding: 10px;
     width: 90%;
-    color: black;
+   
     border-bottom: 2px solid white;
 
     
@@ -169,21 +183,23 @@ label{
 
 }
 .submit input{
-    background: transparent;
+   background-color: greenyellow;
+    color: black;
     font-family: 'Playfair Display', serif;
     font-size: large;
-    color: black;
+    border: none;
+  
     border-radius: 4px;
-    border: 1px solid greenyellow;
     cursor: pointer;
 
 }
 .submit input:hover{
-    background-color: greenyellow;
-    color: black;
+    background-color: green;
+    color: white;
 }
 .username input, .password input{
-    background: transparent;
+    background: white;
+    color: black;
     border-radius: 2px;
     border-top: none;
     border-left: none;
@@ -214,10 +230,7 @@ label{
         
     
 <div class="background-image">
-<div style="float: left;" class="logo">
-                <a href=" https://0127-105-163-1-153.ngrok-free.app/Admin-RIVERSIDE/PROJECT%20WORK/RIVERSIDE/RIVERSIDE.php"><img
-                            width="50px" src="images/left-arrow.png"></a>
-            </div>
+
       <div class="sections">
                 <img class="comps" src="images/portal2.jpg">
             <div class="BOX">
@@ -234,14 +247,14 @@ label{
                 <div class="from-section">
                     <div class="username">
                     <form method="post" action="">
-                            <label>Username<br> <input name="nickname" autocomplete="off" placeholder="Username" type="text"></label>
+                            <input name="nickname" autocomplete="off" placeholder="Username" type="text"></label>
                             </div>
                             <div class="password">
-                                <label>Password <br><input placeholder="Password" name="pass" type="password"></label>
+                               <input placeholder="Password" name="pass" type="password"></label>
                             </div>
                         </div>
-                            <div class="submit">
-                                <input name="submit" type="submit">
+                            <div  class="submit">
+                                <input   name="submit" type="submit">
                             </div>
                            
 

@@ -6,178 +6,173 @@ if (!isset($_SESSION['username'])) {
     header("Location: adminportal.php");
     exit;
 }
-
 ?>
 
-<style>
-    body {
-        background-color: #ecf0f1;
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-    }
+<!DOCTYPE html>
+<html lang="en">
 
-    header {
-        background-color: #3498db;
-        padding: 20px;
-        text-align: center;
-        color: #fff;
-    }
-
-    nav {
-        background-color: #2c3e50;
-        overflow: hidden;
-        display: flex;
-        justify-content: space-around;
-    }
-
-    nav a {
-        float: left;
-        display: block;
-        color: #fff;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 16px;
-    }
-
-    nav a:hover {
-        background-color: #555;
-        color: #fff;
-    }
-
-    table {
-        width: 80%;
-        margin: 20px auto;
-        border-collapse: collapse;
-        background-color: #fff;
-        table-layout: fixed;
-        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    th,
-    td {
-        padding: 20px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-    }
-
-    th {
-        background-color: #3498db;
-        color: #fff;
-    }
-
-    tbody::-webkit-scrollbar {
-        width: 10px;
-    }
-
-    tbody::-webkit-scrollbar-track,
-    tbody::-webkit-scrollbar-thumb {
-        background: black;
-        box-shadow: inset 30 0 5px rgba(0, 0, 0, 0.2);
-
-    }
-    .action > button {
-        border-radius: 15px;
-        border: none;
-        background-color: skyblue;
-        padding: 10px;
-    }
-    .action > button > a {
-        text-decoration: none;
-        color: black;
-    }
-    .delete > button {
-        border-radius: 15px;
-        border: none;
-        background-color: red;
-        padding: 10px;
-       
-        
-    }
-    .delete > button > a {
-        text-decoration: none;
-        color: white;
-    }
-
-    @media screen and (max-width: 600px) {
-
-        nav > a {
-            font-size: 12px;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal</title>
+    <style>
+        body {
+            background-color: #ecf0f1;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
-        table {
+        .sidebar {
+            background-color: #2d3748;
+            width: 250px;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #a0aec0;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .sidebar a:hover {
+            background-color: #4a5568;
+            color: #ffffff;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .toggle-btn {
+            display: none;
+            background-color: #2d3748;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
             width: 100%;
-            font-size: 20px;
+            text-align: left;
         }
-        .action > button {
-        font-size: 8px;
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
         }
-        .delete > button {
-        text-decoration: none;
-        font-size: 8px;
-        color: white;
-    }
-        tr{
-            font-size: 9px;
+
+        .logo img {
+            width: 140px;
         }
-    }
 
-    .registration > form{
-       border: 1px solid black;
-       text-align: center;
-       padding: 20px;
-       border-width: 10%;
-       
-        
-    }
-    
-        
-    
-</style>
+        .admin-info {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
 
+        .logout-btn {
+            background-color: #e53e3e;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 4px;
+            text-align: center;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
 
+        .logout-btn:hover {
+            background-color: #c53030;
+        }
 
+        @media screen and (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
 
-<header>
-<div style="float: center" id="datetime">
-    <h5>Date & Time: </h5> <span style="" id="date"> </span>
-</div>
+            .sidebar.open {
+                transform: translateX(0);
+            }
 
-<script>
-    function updateDateTime() {
-        var datetimeElement = document.getElementById('datetime');
-        var currentTime = new Date();
-        var formattedDateTime = currentTime.getFullYear() + '-' + (currentTime.getMonth() + 1) + '-' + currentTime.getDate() +
-            ' ' + currentTime.getHours() + ':' + currentTime.getMinutes() + ':' + currentTime.getSeconds();
+            .toggle-btn {
+                display: block;
+            }
 
-        datetimeElement.innerHTML = formattedDateTime;
-    }
+            .content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
 
-    // Update every second (1000 milliseconds)
-    setInterval(updateDateTime, 1000);
+<body>
 
-    // Initial update
-    updateDateTime();
-</script>
-<button><a href="adminportal.php"><img width="140px" src="images/riverside-logo.png"></a></button>
-<h1>RIVESIDE ADMIN</h1>
+    <div class="sidebar">
+        <div class="logo">
+            <a href="adminportal.php"><img src="images/riverside-logo.png" alt="Logo"></a>
+        </div>
+        <div class="admin-info">
+            <h3>Admin: <?php echo $_SESSION['username'] ?></h3>
+            <div id="datetime">
+                <h5>Date & Time: </h5>
+                <span id="date"></span>
+            </div>
+        </div>
 
+        <nav>
+            <a href="summary.php">Summary</a>
+            <a href="booking.php">Single Bed Bookings</a>
+           
+            <a href="addtenant.php">Tenants</a>
+            <a href="Pricesummary.php">Prices</a>
+            <a href="issues.php">Issues</a>
+            <a href="cashpayment.php">Cash Payment</a>
+            <a href="inquiries.php">Inquiries</a>
+            <a href="notices.php">Tenant Notices</a>
+            <a href="newadmin.php">Add Admin</a>
+        </nav>
 
+        <a href="logout.php" class="logout-btn">Logout</a>
+    </div>
 
-<button style="background-color: red; padding: 10px 20px; color: white; border-radius: 4px; border: none; "><a href="logout.php">Logout</a> </button>
+    <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
 
+    <div class="content">
+        <!-- Your content here -->
+    </div>
 
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('open');
+        }
 
-</header>
+        function updateDateTime() {
+            var dateElement = document.getElementById('date');
+            var currentTime = new Date();
+            var formattedDateTime = currentTime.getFullYear() + '-' + (currentTime.getMonth() + 1) + '-' + currentTime.getDate() +
+                ' ' + currentTime.getHours() + ':' + currentTime.getMinutes() + ':' + currentTime.getSeconds();
+            dateElement.innerHTML = formattedDateTime;
+        }
 
-<nav>
-    <a href="summary.php">Summary</a>
-    <a href="booking.php">Single Bed Bookings</a>
-    <a href="bookingtwobed.php">Two Bed Bookings</a>
-    <a href="addtenant.php">Tenants</a>
-    <a href="issues.php">Issues</a>
-    <a href="inquiries.php">Inquiries</a>
-    <a href="notices.php">Tenant Notices</a>
-    <a href="newadmin.php">Add Admin</a>
-</nav>
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+    </script>
+
+</body>
+
+</html>

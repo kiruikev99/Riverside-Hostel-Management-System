@@ -166,7 +166,7 @@
 
             <div class="sections">
                 <div style="display:flex" class="sec-1">
-                    <span><h5>Total</h5> </span>  <span style="padding-left: 20px"><h2>4,000</h2> </span>
+                    <span><h5>Total</h5> </span>  <span style="padding-left: 20px"><h2>5,000</h2> </span>
                 </div>
                 <hr>
             </div>
