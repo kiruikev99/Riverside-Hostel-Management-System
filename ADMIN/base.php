@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-// If session variable is not set, redirect to login page
 if (!isset($_SESSION['username'])) {
     header("Location: adminportal.php");
     exit;
@@ -15,52 +13,60 @@ if (!isset($_SESSION['username'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #ecf0f1;
-            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f9;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
         }
 
         .sidebar {
-            background-color: #2d3748;
-            width: 250px;
+            background-color: #1a202c;
+            width: 260px;
             padding: 20px;
             height: 100vh;
             position: fixed;
             top: 0;
             left: 0;
             overflow-y: auto;
-            transition: transform 0.3s ease-in-out;
+            box-shadow: 3px 0 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
         }
 
         .sidebar a {
             display: block;
             color: #a0aec0;
-            padding: 10px 15px;
+            padding: 12px 18px;
             text-decoration: none;
-            font-size: 18px;
-            border-radius: 4px;
-            margin-bottom: 10px;
-            transition: background-color 0.2s, color 0.2s;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .sidebar a:hover {
             background-color: #4a5568;
-            color: #ffffff;
+            color: #fff;
+        }
+
+        .sidebar a.active {
+            background-color: #3182ce;
+            color: #fff;
         }
 
         .content {
-            margin-left: 250px;
+            margin-left: 260px;
             padding: 20px;
         }
 
         .toggle-btn {
             display: none;
-            background-color: #2d3748;
+            background-color: #1a202c;
             color: white;
-            padding: 10px;
+            padding: 12px;
             cursor: pointer;
             border: none;
             width: 100%;
@@ -69,30 +75,32 @@ if (!isset($_SESSION['username'])) {
 
         .logo {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .logo img {
             width: 140px;
+            border-radius: 8px;
         }
 
         .admin-info {
             text-align: center;
-            color: #ffffff;
-            margin-bottom: 20px;
+            color: #edf2f7;
+            margin-bottom: 25px;
         }
 
         .logout-btn {
             background-color: #e53e3e;
-            padding: 10px 20px;
+            padding: 12px;
             color: white;
-            border-radius: 4px;
+            border-radius: 6px;
             text-align: center;
             display: block;
             width: 100%;
-            margin-top: 20px;
             text-decoration: none;
-            transition: background-color 0.2s;
+            margin-top: 20px;
+            font-weight: 500;
+            transition: background-color 0.3s;
         }
 
         .logout-btn:hover {
@@ -134,9 +142,8 @@ if (!isset($_SESSION['username'])) {
         </div>
 
         <nav>
-            <a href="summary.php">Summary</a>
+            <a href="summary.php" class="active">Summary</a>
             <a href="booking.php">Single Bed Bookings</a>
-           
             <a href="addtenant.php">Tenants</a>
             <a href="Pricesummary.php">Prices</a>
             <a href="issues.php">Issues</a>

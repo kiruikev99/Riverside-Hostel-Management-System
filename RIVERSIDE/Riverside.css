@@ -1,6 +1,86 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
 
+
+
+.description {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+}
+.rooms-title{
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+}
+.rooms-title h1{
+  font-size: 50px;
+}
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.rooms {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.room {
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.room h2 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.room .description {
+  display: none;
+  font-size: 0.9em;
+  color: #666;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.room:hover {
+  background-color: #f9f9f9;
+}
+
+.room:hover .description {
+  display: block;
+}
+
+.room:hover h2 {
+  display: none;
+}
+
 .text h2 {
   font-size: 30px;
   animation: popup 1s ease-out forwards;

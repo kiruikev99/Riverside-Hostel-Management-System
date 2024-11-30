@@ -27,10 +27,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve data from the form
     $no = $_SESSION["no"];
     $dateofbirth = $_POST["D-O-B"];
-    $room = $_POST["room"];
+    $room =  $_SESSION["roomno"];
     $user= $_POST["Username"];
     $password = $_POST["Password"];
-    $university = $_POST["University"];
+    $university = $_SESSION["university"];
     $checkinDate = $_POST["Date"];
 
 
@@ -46,11 +46,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     
 
-    $number = $_POST["userphone"];
+    $number = $_SESSION["phone"];
     $fname =  $_SESSION["fname"];
     $lname =  $_SESSION["lname"];
 
-    $insertQuery = "INSERT INTO tenantaccount (RoomNo, FirstName, LastName, PhoneNumber, Username, Password, University, Checkin, `D-O-B`, Gender, FatherName, FatherNumber, Disease, Doctor, BloodGroup, Email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $insertQuery = "INSERT INTO tenantaccountblockc (RoomNo, FirstName, LastName, PhoneNumber, Username, Password, University, Checkin, `D-O-B`, Gender, FatherName, FatherNumber, Disease, Doctor, BloodGroup, Email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($insertQuery);
     $stmt->bind_param("ssssssssssssssss", $room, $fname, $lname, $number, $user, $password, $university, $checkinDate, $dateofbirth, $gender, $fathername, $fathernumber, $disease, $doctor, $blood, $email);
     

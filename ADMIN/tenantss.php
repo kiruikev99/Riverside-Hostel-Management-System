@@ -12,13 +12,13 @@ if (isset($_GET['tenantid'])) {
 
     $_SESSION["no"] = $_GET['tenantid'];
 
-    $sql = "SELECT * FROM riversidebookings WHERE No = $no";
+    $sql = "SELECT * FROM `blockabooking` WHERE RoomNo = '$no'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            $firstName = $row["First Name"];
-            $lastName = $row["Last Name"];
+            $firstName = $row["Name"];
+            $lastName = $row["LastName"];
             $gender = $row["Gender"];
 
             $_SESSION["fname"] = $firstName;
@@ -125,16 +125,16 @@ if (isset($_GET['tenantid'])) {
         <form id="registrationForm" action="tenantsuccess.php" method="post">
             <div class="form-group">
                 <h2><?php echo $firstName ?>'s Contact/Medical Info</h2>
-                <label for="father">Father/Guardian Full Name</label>
-                <input type="text" name="father" id="father" placeholder="Enter Father's Name" required>
+                <label for="father">Parent/Guardian Full Name</label>
+                <input type="text" name="father" id="father" placeholder="Enter Name" required>
                 <label for="fatherno">Phone Number</label>
                 <input type="tel" name="fatherno" id="fatherno" placeholder="Enter Phone Number" required>
             </div>
 
             <div class="form-group">
                 <h4>Medical Info</h4>
-                <label for="disease">Diseases (if any)</label>
-                <input type="text" name="disease" id="disease" placeholder="Enter Diseases">
+                <label for="disease">Allergies/known Condition</label>
+                <input type="text" name="disease" id="disease" placeholder="Optional">
                 <label for="doctor">Doctor</label>
                 <input type="text" name="doctor" id="doctor" placeholder="Enter Doctor's Name">
                 <label for="blood">Blood Group</label>

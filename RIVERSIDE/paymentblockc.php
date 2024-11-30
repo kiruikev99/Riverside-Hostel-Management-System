@@ -7,6 +7,12 @@ use Dotenv\Dotenv;
 
 require 'vendor/autoload.php';
 
+$tenantid = isset($_GET['tenantid']) ? $_GET['tenantid'] : '';
+
+// If form is submitted, get tenantid from POST instead of GET
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $tenantid = isset($_POST['tenantid']) ? $_POST['tenantid'] : $tenantid;
+}
 
 ?>
 <!DOCTYPE html>
@@ -166,18 +172,16 @@ require 'vendor/autoload.php';
             <div class="img-book">
                 <img width="300" src="images/BOOKING.png" alt="Booking Image">
             </div>
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                <label for="fname">First Name</label>
+            <form action="paymentblockc.php?tenantid=<?php echo htmlspecialchars($tenantid); ?>" method="post">
+            <input type="hidden" name="tenantid" value="<?php echo htmlspecialchars($tenantid); ?>">
+                <label for="fname">Student's First Name</label>
                 <input required type="text" id="fname" name="fname">
 
-                <label for="lname">Last Name</label>
+                <label for="lname">Student's Last Name</label>
                 <input required type="text" id="lname" name="lname">
 
-                <label for="phone">Student Phone Number</label>
+                <label for="phone">Student's Phone Number </label>
                 <input required type="number" id="phone" name="phone">
-
-                <label for="phone">Email</label>
-                <input required type="text" id="email" name="email">
 
                 <label for="gender">Gender</label>
                 <select required id="gender" name="gender">
@@ -185,14 +189,17 @@ require 'vendor/autoload.php';
                     <option value="Female">Female</option>
                 </select>
 
+                <label for="university">University</label>
+                <select required id="university" name="university">
+                    <option value="Kabianga University">Kabianga University</option>
+                    <option value="Kapkatet University">Kapkatet University</option>
+                </select>
+
                 <div style="text-align:center;" class="mpesa">
                     <img width="200" src="images/mpesa.png" alt="Mpesa Logo">
                 </div>
                 <label for="mpesanum">Mpesa Number</label>
                 <input required placeholder="Enter Phone Number Paying" type="number" id="mpesanum" name="mpesanum">
-
-                <label for="amount">Amount</label>
-                <input required type="number" name="amount">
 
                 <div class="info">
                     <p>If you have any problem with the Payment or want more inquiries, contact <b>0743928989</b><br>
@@ -204,14 +211,14 @@ require 'vendor/autoload.php';
         </div>
 
         <div class="order-summary">
-            <h2>Room Order</h2>
+            <h2>Room Details</h2>
             <div class="sections">
                 <div style="display:flex">
                     <span>
-                        <h5>Room Type:</h5>
+                        <h5>Room: </h5>
                     </span>
                     <span style="padding-left: 20px">
-                        <h5>Single Room</h5>
+                    <?php echo ($tenantid); ?>
                     </span>
                 </div>
                 <hr>
@@ -265,41 +272,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = $_POST["phone"];
     $gender = $_POST["gender"];
     $mpesanum = $_POST["mpesanum"];
-    $amount = $_POST["amount"];
-    $email = $_POST["email"];
+    $tenantid = $_POST['tenantid'];
+    $university = $_POST["university"];
 
     // Validation
     $errors = array();
-    if (strlen($fname) < 5) {
-        $errors[] = "First Name must be at least 5 characters long.";
+    if (strlen($fname) < 3) {
+        $errors[] = "First Name must be at least 3 characters long.";
     }
     if (preg_match('/\d/', $fname)) {
         $errors[] = "First Name must not contain numbers.";
     }
-    if (strlen($lname) < 5) {
-        $errors[] = "Last Name must be at least 5 characters long.";
+    if (strlen($lname) < 3) {
+        $errors[] = "Last Name must be at least 3 characters long.";
     }
     if (preg_match('/\d/', $lname)) {
         $errors[] = "Last Name must not contain numbers.";
     }
-    if (!is_numeric($amount) || $amount <= 0) {
-        $errors[] = "Amount must be a positive number.";
-    }
 
     // Remove any spaces or hyphens in the phone number
     $phone = str_replace(array(' ', '-'), '', $phone);
-
-    // If the phone number starts with '0', replace '0' with '254'
     if (substr($phone, 0, 1) == '0') {
         $phone = '254' . substr($phone, 1);
     }
-
-    // If the phone number starts with '7', add '254' at the beginning
     if (substr($phone, 0, 1) == '7') {
         $phone = '254' . $phone;
     }
-
-    // Ensure the phone number is 12 digits long (international format)
     if (strlen($phone) != 12) {
         $errors[] = "Invalid phone number format.";
     }
@@ -323,7 +321,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $PartyB = $BusinessShortCode;
         $AccountReference = 'RIVERSIDE HOSTELS';
         $TransactionDesc = 'Room Booking';
-        $Amount = $amount;
+        $Amount = '1';
         $stkpushheader = ['Content-Type:application/json', 'Authorization:Bearer ' . $access_token];
 
         $curl_post_data = array(
@@ -359,88 +357,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($curl_response === false) {
             echo '<script>Swal.fire("Error", "CURL Error: ' . $curl_error . '", "error");</script>';
         } else {
+            $stats = "Booked";
             $data = json_decode($curl_response);
             if ($data->ResponseCode == "0") {
-                //Entering Database
                 include("connection.php");
-                $query = "INSERT INTO riversidebookings (`First Name`, `Last Name`, Email, Gender, NumberPaid, AmountPaid) VALUES (?, ?, ?, ?, ?, ?)";
+                $query = "UPDATE blockcbooking 
+                    SET `Status` = ?, 
+                        `Name` = ?, 
+                        LastName = ?, 
+                        StudentPhoneNumber = ?, 
+                        Gender = ?, 
+                        University = ?,
+                        NumberPaid = ?
+                    WHERE RoomNo = ?";  // Changed to use parameter binding for RoomNo
                 $stmt = mysqli_prepare($conn, $query);
-
+        
                 if ($stmt) {
-                    mysqli_stmt_bind_param($stmt, "ssssss", $fname, $lname, $email, $gender, $mpesanum, $amount);
+                    // Add $tenantid to the bind_param call
+                    mysqli_stmt_bind_param($stmt, "ssssssss", $stats, $fname, $lname, $phone, $gender, $university, $mpesanum, $tenantid);
                     if (mysqli_stmt_execute($stmt)) {
                         echo '<script type="text/javascript">
-                        Swal.fire({
-                            title: "STK PUSH SUCCESS!",
-                            text: "Please Enter Your MPESA Pin To Complete Booking",
-                            icon: "success",
-                            confirmButtonText: "OK"
-                        }).then(function() {
-                            window.location.href = "riverside.php";
-                        });
-                              </script>';
-
-                        // Send email using PHPMailer
-                     
-                        $dotenv = Dotenv::createImmutable(__DIR__);
-                        $dotenv->load();
-                        
-                        $mail = new PHPMailer(true);
-                        
-                        try {
-                            //Server settings
-                            $mail->isSMTP();
-                            $mail->Host = $_ENV['EMAIL_HOST'];
-                            $mail->SMTPAuth = true;
-                            $mail->Username = $_ENV['EMAIL_USERNAME'];
-                            $mail->Password = $_ENV['EMAIL_PASSWORD'];
-                            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-                            $mail->Port = $_ENV['EMAIL_PORT'];
-                        
-                            //Recipients
-                            $mail->setFrom($_ENV['EMAIL_USERNAME'], 'Riverside Hostel');
-                            $mail->addAddress($email, $fname . ' ' . $lname);
-                        
-                            //Content
-                            $mail->isHTML(true);
-                            $mail->Subject = 'Welcome To Riverside';
-                            $mail->Body    = '
-                            <html>
-                            <head>
-                                <title>Welcome</title>
-                            </head>
-                            <body>
-                                <h1>Welcome to Riverside Hostel</h1>
-                                <p>Thank you for your booking. Your payment has been processed successfully.</p>
-                                <p><strong>Details:</strong></p>
-                                <ul>
-                                    <li><strong>Name:</strong> ' . $fname . ' ' . $lname . '</li>
-                                    <li><strong>Email:</strong> ' . $email . '</li>
-                                    <li><strong>Phone:</strong> ' . $phone . '</li>
-                                    <li><strong>Amount:</strong> ' . $amount . '</li>
-                                </ul>
-                            </body>
-                            </html>';
-                            $mail->AltBody = 'Thank you for your booking. Your payment has been processed successfully.';
-                        
-                            $mail->send();
-                            echo 'Email has been sent';
-                        } catch (Exception $e) {
-                            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-                        }
+                            Swal.fire({
+                                title: "STK PUSH SUCCESS!",
+                                text: "Please Enter Your MPESA Pin To Complete Booking",
+                                icon: "success",
+                                confirmButtonText: "OK"
+                            }).then(function() {
+                                window.location.href = "riverside.php";
+                            });
+                        </script>';
                     } else {
-                        echo "Error: " . mysqli_error($conn);
+                        echo '<script>Swal.fire("Error", "Database update failed: ' . mysqli_error($conn) . '", "error");</script>';
                     }
                     mysqli_stmt_close($stmt);
-                } else {
-                    echo "Error: " . mysqli_error($conn);
                 }
-                mysqli_close($conn);
-            } else {
-                echo '<script>Swal.fire("Error", "STK Push Failed. Response: ' . $data->errorMessage . '", "error");</script>';
             }
         }
-        curl_close($curl);
     }
 }
-?>
+        ?>
+        </body>
+        </html>

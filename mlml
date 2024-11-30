@@ -1,0 +1,175 @@
+[33mcommit a0745b9b22a6fd181a6df32efe9e347b3c2227e1[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: kiruikev99 <kiruikev99@gmail.com>
+Date:   Thu Sep 26 08:27:00 2024 +0300
+
+    mysql query
+
+[33mcommit cd757f4f1c16efc658c0df3e2c6db1a0f9fa20dc[m
+Author: kiruikev99 <kiruikev99@gmail.com>
+Date:   Wed Sep 18 23:12:42 2024 +0300
+
+    whole change in the admin section and the ecare
+
+[33mcommit af97dfdf0dcfb14e7f8db3ce81b65f2b18bab398[m
+Author: kiruikev99 <kiruikev99@gmail.com>
+Date:   Sun Jul 7 19:22:38 2024 +0300
+
+    mde validation on portal
+
+[33mcommit f93702923d5d1d59dab8fa669ca65bb10e906353[m
+Author: _kkirui <Kkirui@btn-solutions.co.ke>
+Date:   Wed Jun 5 19:42:50 2024 +0300
+
+    small adjustment to code
+
+[33mcommit 2e1313d215d217f778f758000fdfacffeffe7b8b[m
+Author: _kkirui <Kkirui@btn-solutions.co.ke>
+Date:   Thu Apr 25 14:12:26 2024 +0300
+
+    updated the payment form, done more config
+
+[33mcommit 19b63c7a2cd0d6185d6dd6ba3d3a7712219775b0[m
+Author: Kevin Kirui <kiruikev99@gmail.com>
+Date:   Wed Apr 24 19:28:09 2024 +0300
+
+    media query config for services
+
+[33mcommit 1124048292b61fd1a5a479b29799fd13e080dd63[m
+Author: _kkirui <Kkirui@btn-solutions.co.ke>
+Date:   Wed Apr 24 15:22:55 2024 +0300
+
+    Added new sections in riverside.php
+
+[33mcommit b104683799f660ea2b8b9f2a2bdf8d6fa88e18c3[m
+Author: Kevin Kirui <kiruikev99@gmail.com>
+Date:   Mon Apr 22 14:08:36 2024 +0300
+
+    change the links
+
+[33mcommit df92d476d7e076d92851c40cf5300c83a68e90a4[m
+Author: Kevin Kirui <kiruikev99@gmail.com>
+Date:   Mon Apr 22 11:05:16 2024 +0300
+
+    added a set.php that checks if user has logged in if not it logs them out
+
+[33mcommit 57bac2a320b46abf2ee370e8e91bcd476ee55a5a[m
+Author: Kevin Kirui <kiruikev99@gmail.com>
+Date:   Mon Apr 22 10:41:59 2024 +0300
+
+    added an sql imprt
+
+[33mcommit 08ce69c728ac550430752d8b93e207379251d302[m
+Author: Kevin Kirui <kiruikev99@gmail.com>
+Date:   Mon Apr 22 10:32:08 2024 +0300
+
+    added a summary.php
+
+[33mcommit 8a5c260b8157e466f14e3dbfeca7a78c7ec001d3[m
+Author: Kevin Kirui <kiruikev99@gmail.com>
+Date:   Sun Apr 7 19:51:00 2024 +0300
+
+    added view tenant folder and configured abit in the admin php
+
+[33mcommit 70dee0e5d6e9f4f353b2dfb32c3db6b0edf16796[m
+Author: Kevin Kirui <kiruikev99@gmail.com>
+Date:   Mon Feb 12 23:37:00 2024 +0300
+
+    made the mainnatainace section
+
+[33mcommit efac418a861a813edfa7c56351d094f25107328a[m
+Author: Kevin Kirui <kiruikev99@gmail.com>
+Date:   Wed Feb 7 22:56:36 2024 +0300
+
+    debug
+
+[33mcommit b3743c4c35b5909b6f0d78d4adb710f32b8a3572[m
+Author: Kevin Kirui <kiruikev99@gmail.com>
+Date:   Mon Jan 29 12:12:55 2024 +0300
+
+    made a better ui of the tenantbase
+
+[33mcommit f4df96b5d1f70cd1398f70cd36bf0d4083c1d8ae[m
+Author: Kevin Kirui <kiruikev99@gmail.com>
+Date:   Mon Jan 15 01:15:27 2024 +0300
+
+    Changes in Admin Potal on the design
+
+[33mcommit 914e6bca1528ed1d2e07d5d78c20cc93ee97db95[m
+Merge: 3b1f586 cfb68b5
+Author: Kevin Kirui <kiruikev99@gmail.com>
+Date:   Sun Jan 14 20:49:00 2024 +0300
+
+    order by folders
+
+[33mcommit 3b1f586d9c76772038fc1bf544a5ca908cccc5b4[m
+Author: Kevin Kirui <kiruikev99@gmail.com>
+Date:   Sun Jan 14 20:46:31 2024 +0300
+
+    Making folders for better arrangment
+
+[33mcommit c5c19ce15ad4616f9d17464ed6d4c5afd0c51dca[m
+Author: Kevin Kirui <kiruikev99@gmail.com>
+Date:   Fri Jan 5 19:52:23 2024 +0300
+
+    few changes
+
+[33mcommit cfb68b5dc27779ca21624530515e932444c9d196[m
+Author: Kevin Kirui <100708582+kiruikev99@users.noreply.github.com>
+Date:   Fri Dec 29 16:59:09 2023 +0300
+
+    Update callback.php
+
+[33mcommit 8e0e6817092ed7206e691266938ff1bf3c9671d1[m
+Author: Kevin Kirui <kiruikev99@gmail.com>
+Date:   Fri Dec 29 16:49:24 2023 +0300
+
+    adding callbackurl
+
+[33mcommit 9aa00009bae2c94427b5431013d80a7e17ea9c92[m
+Author: Kevin Kirui <kiruikev99@gmail.com>
+Date:   Tue Dec 26 12:20:01 2023 +0300
+
+    Fixing img Tag not working
+
+[33mcommit e0fac17b6d75bcde8deaed0fc4b85438392f5cef[m
+Author: Kevin Kirui <kiruikev99@gmail.com>
+Date:   Sat Dec 16 21:50:12 2023 +0300
+
+    changes to tennat bass
+
+[33mcommit f19f5c765b1c25d4379033c519c0c4c008978158[m
+Author: Kevin Kirui <kiruikev99@gmail.com>
+Date:   Fri Nov 24 21:48:10 2023 +0300
+
+    made the Room Section Better and added javascript
+
+[33mcommit b1b003b7acd789327df2df03a7e0f820e2ad4170[m
+Author: Kevin Kirui <100708582+kiruikev99@users.noreply.github.com>
+Date:   Mon Nov 20 22:38:10 2023 +0300
+
+    Delete CNAME
+
+[33mcommit 53de27af5daf70560ec4aad3bce585c56724855e[m
+Merge: a9d6a97 ac98aa5
+Author: Kevin Kirui <kiruikev99@gmail.com>
+Date:   Mon Nov 20 10:12:21 2023 +0300
+
+    Merge branch 'main' of https://github.com/kiruikev99/Riverside-Hostel-Management-System
+
+[33mcommit a9d6a97798eb9151901d3b53c87df9c6d890186b[m
+Author: Kevin Kirui <kiruikev99@gmail.com>
+Date:   Sat Nov 18 21:30:41 2023 +0300
+
+    Making the UI of the tenantbase.php
+
+[33mcommit ac98aa5aed0446c084d449e2504eb1291fa5742f[m
+Author: Kevin Kirui <100708582+kiruikev99@users.noreply.github.com>
+Date:   Fri Nov 17 21:37:30 2023 +0300
+
+    Create CNAME
+
+[33mcommit 94ad26c49253e4fa66fe6a84487a763bdadf174f[m
+Author: Kevin Kirui <kiruikev99@gmail.com>
+Date:   Fri Nov 17 21:27:51 2023 +0300
+
+    pushing to github

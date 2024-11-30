@@ -17,68 +17,66 @@
             display: flex;
         }
 
-        .tabo {
+        .side {
+            /* Sidebar styling can go here */
+        }
+
+        .content {
             flex: 1;
             padding: 20px;
-            padding-top: 20px;
             background-color: #ffffff;
             margin-left: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
 
+        h1 {
+            color: #333;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #009879;
+            margin: 20px 0;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 25px 0;
             font-size: 16px;
-            text-align: left;
+            margin-bottom: 20px;
         }
 
-        table thead tr {
+        table thead {
             background-color: #009879;
             color: #ffffff;
-            text-align: left;
         }
 
         table th, table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #dddddd;
+            padding: 12px;
+            border: 1px solid #dddddd;
+            text-align: center;
         }
 
-        table tbody tr:nth-of-type(even) {
-            background-color: #f3f3f3;
+        table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
         }
 
-        table tbody tr:last-of-type {
-            border-bottom: 2px solid #009879;
-        }
-
-        .edit, .delete2 {
-            padding: 8px 16px;
+        .action-button {
+            background-color: #28a745;
+            color: white;
+            padding: 8px 12px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-        }
-
-        .edit {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        .edit a {
-            color: white;
             text-decoration: none;
+            transition: background-color 0.3s;
         }
 
-        .delete2 {
-            background-color: #f44336;
-            color: white;
-        }
-
-        .delete2 a {
-            color: white;
-            text-decoration: none;
+        .action-button:hover {
+            background-color: #218838;
         }
     </style>
 </head>
@@ -88,47 +86,146 @@
         <div class="side">
             <?php include("base.php"); ?>
         </div>
-        
-        <div class="tabo">
-            <h1>Single Room Booking </h1>
+
+        <div class="content">
+            <h1>Single Room Bookings</h1>
+
+            <?php
+            include("connection.php");
+            ?>
+
+            <!-- Block A Booking Table -->
+            <div class="section-title">BLOCK A</div>
             <table>
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>NAME</th>
-                        <th>NUMBER PAID</th>
-                        <th>GENDER</th>
-                        <th>ACTION</th>
-                        <th>DELETE</th>
+                        <th>Room No</th>
+                        <th>Tenant Name</th>
+                        <th>Gender</th>
+                        <th>Student Phone Number</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    include("connection.php");
-
-                    // Query to retrieve data from the database
-                    $query = "SELECT * FROM riversidebookings";
+                    $query = "SELECT * FROM blockabooking WHERE Status = 'Booked'";
                     $result = mysqli_query($conn, $query);
-
                     if (mysqli_num_rows($result) > 0) {
-                        // Loop through the database results
                         while ($row = mysqli_fetch_assoc($result)) {
-                            $gender = $row["Gender"];
-                            $balance = (50 - $row["AmountPaid"]);
-
-                            echo '<tr>
-                                <td>' . $row["No"] . '</td>
-                                <td>' . $row["First Name"] . ' ' . $row["Last Name"] . '</td>
-                                <td>' . $row["NumberPaid"] . '</td>
-                                <td>' . $row["Gender"] . '</td>
-                                <td class="action"><button class="edit"><a href="tenantss.php?tenantid=' . $row["No"] . '">Make Account</a></button></td>
-                                <td class="delete"><button class="delete2"><a href="deletebooking.php?tenantid=' . $row["No"] . '">Delete</a></button></td>
-                            </tr>';
+                            echo "<tr>
+                                <td>{$row['RoomNo']}</td>
+                                <td>{$row['Name']}</td>
+                                <td>{$row['Gender']}</td>
+                                <td>{$row['StudentPhoneNumber']}</td>
+                                <td><a class='action-button' href='blocksbookings/blockabooking.php?tenantid={$row['RoomNo']}'>Make Account</a></td>
+                            </tr>";
                         }
+                    } else {
+                        echo '<tr><td colspan="5">No records found.</td></tr>';
                     }
                     ?>
                 </tbody>
             </table>
+
+            <!-- Block B Booking Table -->
+            <div class="section-title">BLOCK B</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Room No</th>
+                        <th>Tenant Name</th>
+                        <th>Gender</th>
+                        <th>Student Phone Number</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $query = "SELECT * FROM blockbbooking WHERE Status = 'Booked'";
+                    $result = mysqli_query($conn, $query);
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<tr>
+                                <td>{$row['RoomNo']}</td>
+                                <td>{$row['Name']}</td>
+                                <td>{$row['Gender']}</td>
+                                <td>{$row['StudentPhoneNumber']}</td>
+                                <td><a class='action-button' href='blocksbookings/blockbbooking.php?tenantid={$row['RoomNo']}'>Make Account</a></td>
+                            </tr>";
+                        }
+                    } else {
+                        echo '<tr><td colspan="5">No records found.</td></tr>';
+                    }
+                    ?>
+                </tbody>
+            </table>
+
+            <!-- Block C Booking Table -->
+            <div class="section-title">BLOCK C</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Room No</th>
+                        <th>Tenant Name</th>
+                        <th>Gender</th>
+                        <th>Student Phone Number</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $query = "SELECT * FROM blockcbooking WHERE Status = 'Booked'";
+                    $result = mysqli_query($conn, $query);
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<tr>
+                                <td>{$row['RoomNo']}</td>
+                                <td>{$row['Name']}</td>
+                                <td>{$row['Gender']}</td>
+                                <td>{$row['StudentPhoneNumber']}</td>
+                                <td><a class='action-button' href='blocksbookings/blockcbooking.php?tenantid={$row['RoomNo']}'>Make Account</a></td>
+                            </tr>";
+                        }
+                    } else {
+                        echo '<tr><td colspan="5">No records found.</td></tr>';
+                    }
+                    ?>
+                </tbody>
+            </table>
+
+            <!-- Block D Booking Table -->
+            <div class="section-title">BLOCK D</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Room No</th>
+                        <th>Tenant Name</th>
+                        <th>Gender</th>
+                        <th>Student Phone Number</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $query = "SELECT * FROM blockdbooking WHERE Status = 'Booked'";
+                    $result = mysqli_query($conn, $query);
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<tr>
+                                <td>{$row['RoomNo']}</td>
+                                <td>{$row['Name']}</td>
+                                <td>{$row['Gender']}</td>
+                                <td>{$row['StudentPhoneNumber']}</td>
+                                <td><a class='action-button' href='blocksbookings/blockdbooking.php?tenantid={$row['RoomNo']}'>Make Account</a></td>
+                            </tr>";
+                        }
+                    } else {
+                        echo '<tr><td colspan="5">No records found.</td></tr>';
+                    }
+                    ?>
+                </tbody>
+            </table>
+
         </div>
     </div>
 </body>

@@ -3,7 +3,7 @@
 
 <head>
   <link rel="icon" href="images/logo.png" type="image/icon type">
-  <link rel="stylesheet" href="Riverside6.css">
+  <link rel="stylesheet" href="Riverside.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,7 +47,7 @@
       document.getElementById("myNav").style.width = "50%";
       document.getElementById('imgg').style.display = "none";
       document.getElementById("navbarFlex").style.zIndex = "0";
-      document.getElementById('text').style.display = "none"; // Hide the text element
+      document.getElementById('text').style.opacity = "none"; // Hide the text element
     }
 
     function closeNav() {
@@ -102,7 +102,7 @@
         </div>
         <p>Riverside Hostel, nestled in the serene town of Kapkatet, Kericho, offers a warm and welcoming home away from
           home. With comfortable accommodations, friendly staff, and a picturesque setting, we ensure a tranquil stay
-          for travelers exploring the beauty of Kapkatet and its surroundings. Discover comfort and hospitality at
+          for Students enjoying the beauty of Kapkatet and its surroundings. Discover comfort and hospitality at
           Riverside Hostel.</p>
       </div>
     </div>
@@ -152,42 +152,7 @@
   </script>
 
   <!-- SERVICES -->
-  <section class="service">
-    <div id="sections">
-      <div class="hot-shower">
-        <div class="hot-shower-img">
-          <img width="80" src="images/shower2.png" alt="">
-          <h3>Hot <span>Shower</span></h3>
-        </div>
-        <div class="hot-shower-content">
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium rem eos eveniet incidunt amet
-            accusamus sapiente, atque eius nihil saepe, corporis accusantium, voluptatibus hic quisquam laboriosam. Eum
-            ex minus possimus!</p>
-        </div>
-      </div>
-      <div class="wifi">
-        <div class="wifi-img">
-          <img width="80" src="images/wifi2.png" alt="">
-          <h3>Free <span>WIFI</span></h3>
-        </div>
-        <div class="wifi-content">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam omnis repellat delectus, suscipit cumque
-            eaque laborum distinctio laboriosam recusandae nemo harum enim nihil neque minima facere quia cupiditate est
-            reprehenderit.</p>
-        </div>
-      </div>
-      <div class="shop">
-        <div class="shop-img">
-          <img width="80" src="images/store2.png" alt="">
-          <h3>Super<span>Market</span></h3>
-        </div>
-        <div class="shop-content">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis eaque sunt earum maiores soluta doloribus sed
-            quam in voluptatum! Ullam dicta esse quasi nulla incidunt nostrum veritatis ipsam. Sint, quisquam!</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- KARIBU -->
   <section class="karibibu">
@@ -195,7 +160,7 @@
       <div class="head-texte">
         <h3 style="font-size: 35px">Karibu Riverside</h3>
         <h5 style="font-size: 35px"><b></b>Your New Community</h5>
-        <p>Riverside Hostel, in collaboration with the University of Kabianga, provides convenient and comfortable
+        <p>Riverside Hostel, at close proximity to University of Kabianga - Kapkatet Campus, provides convenient and comfortable
           accommodation solutions tailored for university students. Our hostel ensures a conducive environment for
           academic success while fostering a sense of community among residents.</p>
       </div>
@@ -204,50 +169,46 @@
       </div>
     </div>
   </section>
-  <br><br><br>
+  <br>
+  <br>
+  <br>
   <!-- HOSTEL ROOMS -->
-  <section id="rooms" class="rooms-section">
-    <div class="rooms">
-      
-      <br>
-      <h3 style="font-size: 40px"><b>Single Room</b></h3>
-      <div class="rooms-container ">
-        <div class="room-item ">
-          <div class="room-carousel ">
-            <div style="display: flex; justify-content: center; gap: 20px" class="carousel-images">
-              <div class="room-image ">
-                <img style="width: 80vh" src="images/bed1.jpeg" alt="Room 2">
-              </div>
-              <div class="room-image ">
-                <img style="width: 80vh" src="images/bed2.jpeg" alt="Room 3">
-              </div>
-              <div class="room-image ">
-                <img style="width: 80vh" src="images/bed3.jpeg" alt="Room 4">
-              </div>
-            </div>
-          
-          </div>
-
-          <div style="padding-top: 60px" class="room-content">
-            
-            <p style="font-size: 25px"> Experience the freedom and tranquility of having your own space. Booking a single room allows you to
-              create a personal sanctuary where you can study, relax, and recharge. Enjoy uninterrupted privacy and
-              focus on your goals without any distractions. Treat yourself to the comfort and convenience of a single
-              room booking today</p>
-              <br>
-            <h4 style="font-size: 35px;"><b>KSH: 3,500/=</b></h4>
-            <br>
-            <button style="background-color: greenyellow; width: 50%; padding: 20px; color: black; border: none"><a
-                style="text-decoration: none; color: black;"
-                href="/Riverside-Hostel-Management-System/RIVERSIDE/payment-form.php">Book Single Room</a></button>
-          </div>
-        </div>
-        <br>
-
-
+  <section>
+    <div class="rooms-title">
+      <div class="available">
+        <h1><b>AVAILABLE ROOMS</b></h1>
+        <p>We Cuurently Offer Single Rooms</p>
       </div>
     </div>
-  </section>
+  <div class="room-flex" style="display: flex; justify-content: left; padding: 25px; padding-left: 100px">
+    <div class="single-bed" style="max-width: 500px; background-color: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <!-- Image on top -->
+      <div class="single-image" style="text-align: center;">
+        <img width="100%" src="images/bed1.jpeg" alt="Bed" style="border-top-left-radius: 10px; border-top-right-radius: 10px;">
+      </div>
+      
+      <!-- Block A - B Description -->
+      <div class="single-context" style="padding: 15px;">
+        <h2 style="font-size: 2.3rem; font-weight: bold;">Single Room</h2>
+        <h2 style="font-size: 1.4rem; opacity: 60%; "><i>Block A -> Block D</i></h2>
+        <p style="color: #555;">A comfortable single bed room with all basic amenities. Ideal for a peaceful and relaxing stay.</p>
+      </div>
+      
+      <!-- Price section -->
+      <div class="single-price" style="padding: 10px; font-size: 1.2rem; font-weight: bold; color: #333;">
+        <span style="color: #e60000;">3,500 KSH</span>
+      </div>
+      
+      <!-- Book Now Button -->
+      <div class="single-action" style="text-align: left; padding: 15px;">
+        <button style="background-color: green; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer;">
+         <a href="singleroomblocks.php">Book Now</a> 
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <!-- GALLERY -->
   <section id="gallery" class="gallery-section">

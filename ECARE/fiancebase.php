@@ -251,7 +251,7 @@ mysqli_stmt_close($stmt);
             <div class="payment-form">
 
                 <img width="200" src="images/mpesa.png">
-                <h3>Make a Payment</h3>
+                <h3>Pay Rent</h3>
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                     <label for="phone">Phone Number</label><br>
                     <input type="number" name="phone" id="phone" placeholder="Enter your phone number" required><br>
