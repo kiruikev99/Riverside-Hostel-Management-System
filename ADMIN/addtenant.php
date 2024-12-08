@@ -78,6 +78,12 @@
         .expanded {
             display: block;
         }
+        .tabo > p {
+            opacity: 0.5;
+        }
+        .tabo > h1 {
+            font-family: Tahoma;
+        }
     </style>
 </head>
 
@@ -90,11 +96,60 @@
         </div>
 
         <div class="tabo">
-            <h1>ALL TENANTS</h1>
+            <h1>CURRENT TENANTS</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At aperiam aliquid ducimus corporis debitis voluptates aliquam minima eum. Vero perferendis ipsam odit odio at ex eligendi minus ea doloremque laborum?</p>
             <input type="text" id="searchInput" placeholder="Search for tenant names.." onkeyup="searchTable()" style="margin-bottom: 20px; padding: 10px; width: 100%; font-size: 16px; border: 1px solid #ddd; border-radius: 4px;">
 
             <table id="tenantTable">
                 <thead>
+                    BLOCK A
+                    <tr>
+                        <th>ROOM-NO</th>
+                        <th>TENANT</th>
+                        <th>GENDER</th>
+                        <th>PHONE NUMBER</th>
+                        <th>CHECK-IN</th>
+                        <th> <?php echo $month?> BALANCE</th>
+                      
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    include("connection.php");
+
+                    // Query to retrieve data from the database
+                    $query = "SELECT * FROM tenantaccountblocka";
+                    $result = mysqli_query($conn, $query);
+                  
+
+                    if (mysqli_num_rows($result) > 0) {
+                        // Loop through the database results
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo '<tr>
+                                    <td>' . $row["RoomNo"] . '</td>
+                                    <td>' . $row["FirstName"] . ' ' . $row["LastName"] . '</td>
+                                    <td>' . $row["Gender"] . '</td>
+                                    <td>' . $row["PhoneNumber"] . '</td>
+                                    <td>' . $row["Checkin"] . '</td>
+                                    <td>' . $row["MonthBalance"] . '</td>
+                                    <td>
+                                        <button class="drop-in-button"><a style="color: white; text-decoration: none;" href="viewtenantblocka.php?roomno=' . $row["RoomNo"] . '"> View More </a></button> <br>
+                                          <button class="drop-in-button"><a style="color: white; text-decoration: none;" href="roomavailableblocka.php?roomno=' . $row["RoomNo"] . '"> Make Room Available </a></button>
+                                    </td>
+                                    
+                                </tr>';
+                        }
+                    }
+                    ?>
+                </tbody>
+            </table>
+
+
+
+            <table id="tenantTable">
+                <thead>
+                    BLOCK B
                     <tr>
                         <th>ROOM-NO</th>
                         <th>TENANT</th>
@@ -110,7 +165,7 @@
                     include("connection.php");
 
                     // Query to retrieve data from the database
-                    $query = "SELECT * FROM tenantaccount";
+                    $query = "SELECT * FROM tenantaccountblockb";
                     $result = mysqli_query($conn, $query);
                   
 
@@ -125,7 +180,99 @@
                                     <td>' . $row["Checkin"] . '</td>
                                     <td>' . $row["MonthBalance"] . '</td>
                                     <td>
-                                        <button class="drop-in-button"><a style="color: white; text-decoration: none;" href="viewtenant.php?roomno=' . $row["RoomNo"] . '"> View More </a></button>
+                                        <button class="drop-in-button"><a style="color: white; text-decoration: none;" href="viewtenantblockb.php?roomno=' . $row["RoomNo"] . '"> View More </a></button>
+                                        <button class="drop-in-button"><a style="color: white; text-decoration: none;" href="roomavailableblockb.php?roomno=' . $row["RoomNo"] . '"> Make Room Available </a></button>
+
+                                    </td>
+                                </tr>';
+                        }
+                    }
+                    ?>
+                </tbody>
+            </table>
+
+
+            <table id="tenantTable">
+                <thead>
+                    BLOCK C
+                    <tr>
+                        <th>ROOM-NO</th>
+                        <th>TENANT</th>
+                        <th>GENDER</th>
+                        <th>PHONE NUMBER</th>
+                        <th>CHECK-IN</th>
+                        <th> <?php echo $month?> BALANCE</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    include("connection.php");
+
+                    // Query to retrieve data from the database
+                    $query = "SELECT * FROM tenantaccountblockc";
+                    $result = mysqli_query($conn, $query);
+                  
+
+                    if (mysqli_num_rows($result) > 0) {
+                        // Loop through the database results
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo '<tr>
+                                    <td>' . $row["RoomNo"] . '</td>
+                                    <td>' . $row["FirstName"] . ' ' . $row["LastName"] . '</td>
+                                    <td>' . $row["Gender"] . '</td>
+                                    <td>' . $row["PhoneNumber"] . '</td>
+                                    <td>' . $row["Checkin"] . '</td>
+                                    <td>' . $row["MonthBalance"] . '</td>
+                                    <td>
+                                        <button class="drop-in-button"><a style="color: white; text-decoration: none;" href="viewtenantblockc.php?roomno=' . $row["RoomNo"] . '"> View More </a></button>
+                                        <button class="drop-in-button"><a style="color: white; text-decoration: none;" href="roomavailableblockc.php?roomno=' . $row["RoomNo"] . '"> Make Room Available </a></button>
+
+                                    </td>
+                                </tr>';
+                        }
+                    }
+                    ?>
+                </tbody>
+            </table>
+
+
+            <table id="tenantTable">
+                <thead>
+                    BLOCK D
+                    <tr>
+                        <th>ROOM-NO</th>
+                        <th>TENANT</th>
+                        <th>GENDER</th>
+                        <th>PHONE NUMBER</th>
+                        <th>CHECK-IN</th>
+                        <th> <?php echo $month?> BALANCE</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    include("connection.php");
+
+                    // Query to retrieve data from the database
+                    $query = "SELECT * FROM tenantaccountblockd";
+                    $result = mysqli_query($conn, $query);
+                  
+
+                    if (mysqli_num_rows($result) > 0) {
+                        // Loop through the database results
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo '<tr>
+                                    <td>' . $row["RoomNo"] . '</td>
+                                    <td>' . $row["FirstName"] . ' ' . $row["LastName"] . '</td>
+                                    <td>' . $row["Gender"] . '</td>
+                                    <td>' . $row["PhoneNumber"] . '</td>
+                                    <td>' . $row["Checkin"] . '</td>
+                                    <td>' . $row["MonthBalance"] . '</td>
+                                    <td>
+                                        <button class="drop-in-button"><a style="color: white; text-decoration: none;" href="viewtenantblockd.php?roomno=' . $row["RoomNo"] . '"> View More </a></button>
+                                        <button class="drop-in-button"><a style="color: white; text-decoration: none;" href="roomavailableblockd.php?roomno=' . $row["RoomNo"] . '"> Make Room Available </a></button>
+
                                     </td>
                                 </tr>';
                         }

@@ -11,7 +11,7 @@ $password = "";
 if (isset($_GET['roomno'])) {
     $roomno = $_GET['roomno'];
 
-    $sql = "SELECT * FROM tenantaccount WHERE RoomNo = '$roomno'";
+    $sql = "SELECT * FROM tenantaccountblockb WHERE RoomNo = '$roomno'";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {

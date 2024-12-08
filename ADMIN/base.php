@@ -144,7 +144,7 @@ if (!isset($_SESSION['username'])) {
         <nav>
             <a href="summary.php" class="active">Summary</a>
             <a href="booking.php">Single Bed Bookings</a>
-            <a href="addtenant.php">Tenants</a>
+            <a href="addtenant.php">Current Tenants</a>
             <a href="Pricesummary.php">Prices</a>
             <a href="issues.php">Issues</a>
             <a href="cashpayment.php">Cash Payment</a>

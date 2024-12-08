@@ -22,7 +22,7 @@
         }
 
         .content {
-            flex: 1;
+           
             padding: 20px;
             background-color: #ffffff;
             margin-left: 20px;
@@ -35,7 +35,7 @@
         }
 
         .section-title {
-            text-align: center;
+            text-align: left;
             font-size: 1.5em;
             font-weight: bold;
             color: #009879;
