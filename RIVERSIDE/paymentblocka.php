@@ -172,7 +172,7 @@
                 <div class="img-book">
                     <img width="300" src="images/BOOKING.png" alt="Booking Image">
                 </div>
-                <form action="callbackblocka.php?tenantid=<?php echo htmlspecialchars($tenantid); ?>" method="post">
+                <form action="stkpush.php?tenantid=<?php echo htmlspecialchars($tenantid); ?>" method="post">
               
                     <label for="fname">Student's First Name</label>
                     <input required type="text" id="fname" name="fname">
@@ -188,6 +188,7 @@
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
+                    
 
                     <label for="university">University</label>
                     <select required id="university" name="university">

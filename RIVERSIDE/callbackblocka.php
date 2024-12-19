@@ -67,46 +67,7 @@ if ($data && isset($data->Body->stkCallback)) {
     echo json_encode(['status' => 'error', 'message' => 'Invalid callback response']);
 }
 
-// Handle form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Collect form data
-    $fname = trim($_POST["fname"] ?? '');
-    $lname = trim($_POST["lname"] ?? '');
-    $phone = trim($_POST["phone"] ?? '');
-    $gender = trim($_POST["gender"] ?? '');
-    $mpesanum = trim($_POST["mpesanum"] ?? '');
-    $tenantid = trim($_POST["tenantid"] ?? '');
-    $university = trim($_POST["university"] ?? '');
-    $stats = "Booked"; // Status to update
 
-    // Validate form data
-    $errors = [];
-    if (strlen($fname) < 3 || preg_match('/\d/', $fname)) {
-        $errors[] = "First Name must be at least 3 characters long and not contain numbers.";
-    }
-    if (strlen($lname) < 3 || preg_match('/\d/', $lname)) {
-        $errors[] = "Last Name must be at least 3 characters long and not contain numbers.";
-    }
-
-    // Clean phone number
-    $phone = str_replace([' ', '-'], '', $phone);
-    if (substr($phone, 0, 1) === '0') {
-        $phone = '254' . substr($phone, 1);
-    } elseif (substr($phone, 0, 1) === '7') {
-        $phone = '254' . $phone;
-    }
-    if (strlen($phone) != 12) {
-        $errors[] = "Invalid phone number format.";
-    }
-
-    // Display errors using SweetAlert
-    if (!empty($errors)) {
-        echo '<script>';
-        foreach ($errors as $error) {
-            echo "Swal.fire('Error', '$error', 'error');";
-        }
-        echo '</script>';
-    } else {
         // Initialize STK push for payment
         date_default_timezone_set('Africa/Nairobi');
         $processrequestUrl = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';

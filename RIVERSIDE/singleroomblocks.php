@@ -40,7 +40,10 @@
         <tbody>
           <?php
           include("connection.php");
-          $query = "SELECT * FROM `blockabooking` WHERE STATUS = 'Available'";
+          $query =$query = "SELECT * FROM `blockabooking` 
+          WHERE RoomNo IN ('A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10') 
+          AND Status = 'Available';";
+
           $result = mysqli_query($conn, $query);
           if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
@@ -69,14 +72,17 @@
         <tbody>
           <?php
           include("connection.php");
-          $query = "SELECT * FROM `blockbbooking` WHERE STATUS = 'Available'";
+          $query = $query = "SELECT * FROM `blockabooking` 
+          WHERE RoomNo IN ('B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B9', 'B10') 
+          AND Status = 'Available';";
+
           $result = mysqli_query($conn, $query);
           if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
               echo '<tr>
                 <td>' . $row["RoomNo"] . '</td>
                 <td>' . $row["Status"] . '</td>
-                <td><a href="paymentblockb.php?tenantid=' . $row["RoomNo"] . '" class="book-btn">Book Room</a></td>
+                <td><a href="paymentblocka.php?tenantid=' . $row["RoomNo"] . '" class="book-btn">Book Room</a></td>
               </tr>';
             }
           }
@@ -98,14 +104,16 @@
         <tbody>
           <?php
           include("connection.php");
-          $query = "SELECT * FROM `blockcbooking` WHERE STATUS = 'Available'";
+          $query = "SELECT * FROM `blockabooking` 
+          WHERE RoomNo IN ('C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10') 
+          AND Status = 'Available';";
           $result = mysqli_query($conn, $query);
           if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
               echo '<tr>
                 <td>' . $row["RoomNo"] . '</td>
                 <td>' . $row["Status"] . '</td>
-                <td><a href="paymentblockc.php?tenantid=' . $row["RoomNo"] . '" class="book-btn">Book Room</a></td>
+                <td><a href="paymentblocka.php?tenantid=' . $row["RoomNo"] . '" class="book-btn">Book Room</a></td>
               </tr>';
             }
           }
@@ -127,14 +135,17 @@
         <tbody>
           <?php
           include("connection.php");
-          $query = "SELECT * FROM `blockdbooking` WHERE STATUS = 'Available'";
+          $query =$query = "SELECT * FROM `blockabooking` 
+          WHERE RoomNo IN ('D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8', 'D9', 'D10') 
+          AND Status = 'Available';";
+;
           $result = mysqli_query($conn, $query);
           if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
               echo '<tr>
                 <td>' . $row["RoomNo"] . '</td>
                 <td>' . $row["Status"] . '</td>
-                <td><a href="paymentblockd.php?tenantid=' . $row["RoomNo"] . '" class="book-btn">Book Room</a></td>
+                <td><a href="paymentblocka.php?tenantid=' . $row["RoomNo"] . '" class="book-btn">Book Room</a></td>
               </tr>';
             }
           }

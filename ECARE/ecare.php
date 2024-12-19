@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
 
 
     // Use prepared statement to prevent SQL injection
-    $stmt = mysqli_prepare($conn, "SELECT * FROM tenantaccount WHERE Username = ? AND Password = ?");
+    $stmt = mysqli_prepare($conn, "SELECT * FROM tenantaccountblocka WHERE Username = ? AND Password = ?");
     mysqli_stmt_bind_param($stmt, "ss", $_SESSION['username'],$_SESSION['password']);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
