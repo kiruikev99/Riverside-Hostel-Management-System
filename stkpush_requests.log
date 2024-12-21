@@ -1,0 +1,12 @@
+[2024-12-19 17:35:00] New form submission received for tenant ID: A10
+[2024-12-19 19:35:00] Preparing STK Push for phone: 254743928989, amount: 1
+[2024-12-19 19:35:00] STK Push payload prepared: {"BusinessShortCode":"174379","Timestamp":"20241219193500","TransactionType":"CustomerPayBillOnline","Amount":"1","PartyA":"254743928989","PartyB":"174379","PhoneNumber":"254743928989","CallBackURL":"https:\/\/f220-105-160-72-131.ngrok-free.app\/Riverside-Hostel-Management-System\/RIVERSIDE\/callback.php?fname=Michelle&lname=Cherono&phone1=254743928989&gender=Male&tenantid=A10&university=Kabianga+University","AccountReference":"RIVERSIDE HOSTELS","TransactionDesc":"Room Booking Payment"}
+[2024-12-19 19:35:02] M-Pesa API Response: {
+            "MerchantRequestID":"bbcd-4a89-bd1a-6ecdc639893b521146",
+            "CheckoutRequestID":"ws_CO_19122024193459647743928989",
+            "ResponseCode": "0",
+            "ResponseDescription":"Success. Request accepted for processing",
+            "CustomerMessage":"Success. Request accepted for processing"
+        }
+        
+[2024-12-19 19:35:02] Success: STK Push sent. CheckoutRequestID: ws_CO_19122024193459647743928989

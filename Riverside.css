@@ -1,0 +1,633 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+
+
+
+.description {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+}
+.rooms-title{
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+}
+.rooms-title h1{
+  font-size: 50px;
+}
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.rooms {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.room {
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.room h2 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.room .description {
+  display: none;
+  font-size: 0.9em;
+  color: #666;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.room:hover {
+  background-color: #f9f9f9;
+}
+
+.room:hover .description {
+  display: block;
+}
+
+.room:hover h2 {
+  display: none;
+}
+
+.text h2 {
+  font-size: 30px;
+  animation: popup 1s ease-out forwards;
+}
+
+.text p {
+  font-size: 70px;
+  margin-top: 10px;
+  animation: popup 2.2s ease-in forwards;
+}
+
+.text button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  animation: popup 2.8s ease-in forwards;
+}
+
+@keyframes popup {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+body {
+  font-family: 'Rajdhani', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 90px;
+
+}
+.middle{
+ padding: 100px;
+  font-size: 70px;
+  background-color: rgba(0, 0, 0, 0);;
+}
+
+.head {
+  background-color: #4CAF50; /* Green */
+  padding: 1rem;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.navbar-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hamburg {
+  display: flex;
+  align-items: center;
+}
+
+.hamburg2 {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.logo img {
+  margin-right: 1rem;
+}
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(78, 78, 78);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+  color: #f1f1f1;
+}
+
+.closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+.background-image {
+  background: url('images/dexx.jpeg') no-repeat center center/cover;
+  height: 100vh;
+  animation: popup 1.0s ease-in ;
+
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 6rem;
+ 
+}
+
+nav li {
+  cursor: pointer;
+}
+
+nav li:hover {
+  text-decoration: underline;
+}
+
+nav .buttons button {
+  background-color: #4CAF50;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  cursor: pointer;
+}
+
+nav .buttons button:hover {
+  background-color: #45a049;
+}
+
+.section {
+  padding: 6rem;
+  font-size: 26px;
+}
+
+.about-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 400px;
+}
+
+.about-content {
+  max-width: 600px;
+  text-align: justify;
+}
+
+.about-content > p {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-size: 22px;
+    font-style: normal;
+ 
+}
+
+.about-head h2 {
+  font-family: 'Bebas Neue', cursive;
+  margin-bottom: 1rem;
+}
+
+.bg-2 {
+  background-color: #f1f1f1;
+  padding: 1rem 0;
+}
+
+.core-values {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem;
+  font-size: 28px;
+}
+
+.core-text h1 {
+  font-family: "SUSE", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+
+  margin-bottom: 1rem;
+  font-size: 50px;
+  text-align: center;
+}
+
+.core-text ol {
+  font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 22px;
+    font-style: normal;
+  list-style: decimal;
+  padding-left: 1rem;
+  font-size: 26px;
+}
+
+.service {
+  padding: 2rem;
+  background-color: #f9f9f9;
+}
+
+#sections {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 24px;
+  justify-content: space-between;
+}
+
+
+.hot-shower,
+.wifi,
+.shop {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-size: 20px;
+  font-style: normal;
+
+  width: 32%;
+  background-color: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hot-shower h3,
+.wifi h3,
+.shop h3 {
+  font-family: 'Bebas Neue', cursive;
+  margin-bottom: 1rem;
+  font-size: 28px;
+
+  
+}
+
+.karibibu {
+  background: url('images/karibu.jpg') no-repeat center center/cover;
+  padding: 2rem;
+  color: white;
+}
+
+.background-karibu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+}
+
+.head-texte h3 {
+  font-size: 4%;
+
+}
+
+
+.rooms-section,
+.gallery-section {
+  padding: 6rem;
+}
+
+.rooms {
+  text-align: center;
+}
+
+.rooms-head h2 {
+  font-family: 'Bebas Neue', cursive;
+  margin-bottom: 2rem;
+}
+
+.rooms-container {
+
+ 
+}
+
+.room-item {
+  width: 100%;
+  background-color: white;
+  padding: 6rem;
+  
+ 
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.room-image img {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.room-content h3 {
+  font-family: 'Bebas Neue', cursive;
+  margin-bottom: 1rem;
+}
+
+.gallery {
+  text-align: center;
+}
+
+.gallery-head h2 {
+  font-family: 'Bebas Neue', cursive;
+  margin-bottom: 2rem;
+}
+
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.gallery-item {
+  width: 23%;
+  margin-bottom: 1rem;
+}
+
+.gallery-item img {
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact {
+  padding: 2rem;
+  background-color: black;
+  color: aliceblue;
+  text-align: center;
+  display: flex;
+ justify-content: space-evenly;
+ gap: 100px;
+ text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+.contact h2 {
+  font-family: 'Bebas Neue', cursive;
+  margin-bottom: 2rem;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.contact-form label {
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contact-form button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #45a049;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #4CAF50;
+  color: white;
+}
+.sec{
+  padding-top: 200px;
+}
+
+@media (max-width: 700px) {
+  .sec{
+    padding-top: 8  0px;
+  }
+  .about-content, .about-head{
+    font-size: x-small;
+  }
+  .about-image{
+    width: 500px;
+  }
+  .middle{
+    background-color: none;
+  }
+  .text > h2{
+    font-size: 20px;
+  }
+  .text > p{
+    font-size: 45px;
+  }
+ 
+  .core-values {
+    display: block;
+    padding: 10px;
+  }
+  .core-values > .img {
+    display: none;
+  }
+  #sections{
+    display: block;
+    width: 130vh;
+  }
+  .background-karibu{
+    font-size: small;
+    text-align: center;
+    display: block;
+   
+  }
+  .room-item{
+   
+  }
+
+  * {
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+  }
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+  .head{
+    display: block;
+    position: sticky;
+  }
+  
+  nav{
+    display: none;
+  }
+  .logo{
+    float: right;
+  }
+  .contact{
+    display: block;
+  }
+  .logo2{
+    text-align: center;
+  }
+  .gallery-container{
+    display: block;
+   width: 170vh;
+
+  }
+
+  .gallery-container, #sections{
+    width: 350%;
+
+  }
+  .head-texte{
+    color: black;
+    font-size: small;
+  }
+  .service  {
+    font-size: small;
+  }
+
+  .about-flex{
+    display: block;
+    width: 110%;
+
+  }
+  .about-flex img {
+    width: 30vh;
+  }
+  .room-item {
+    width: 50vh;
+    display: block;
+    
+  }
+  .carousel-images{
+    display: block;
+  }
+
+  .about-content p{
+
+    font-size: 16px;
+  }
+  .core-text ol li p{
+    font-size: 13px;
+
+  }
+  .core-text {
+    padding: 10px;
+  }
+  #sections{
+    font-size: 10px;
+  }
+}
+
+ 
