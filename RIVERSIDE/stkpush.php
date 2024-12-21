@@ -31,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION["mpesanum1"] = $_POST["mpesanum"];
     $_SESSION["tenantid1"] = $tenantid;
     $_SESSION["unvisity1"] = $_POST["university"];
+    $_SESSION["email"] = $_POST["email"];
     $_SESSION["status1"] = "Booked"; // Status to update
 
     // Validate form data
@@ -66,13 +67,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Set up M-Pesa STK Push request
     date_default_timezone_set('Africa/Nairobi');
     $processrequestUrl = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
-    $callbackurl = 'https://f220-105-160-72-131.ngrok-free.app/Riverside-Hostel-Management-System/RIVERSIDE/callback.php';
+    $callbackurl = 'https://7c5f-105-160-72-131.ngrok-free.app/Riverside-Hostel-Management-System/RIVERSIDE/callback.php';
     $callbackurl .= '?fname=' . urlencode($_SESSION["fname1"]);
     $callbackurl .= '&lname=' . urlencode($_SESSION["lname1"]);
     $callbackurl .= '&phone1=' . urlencode($_SESSION["phone1"]);
     $callbackurl .= '&gender=' . urlencode($_SESSION["gender1"]);
     $callbackurl .= '&tenantid=' . urlencode($_SESSION["tenantid1"]);
     $callbackurl .= '&university=' . urlencode($_SESSION["unvisity1"]);
+    $callbackurl .= '&email=' . urlencode($_SESSION["email"]);
 
     $passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
     $BusinessShortCode = '174379';
@@ -118,8 +120,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $CheckoutRequestID = $data->CheckoutRequestID ?? null;
 
     if ($ResponseCode === "0") {
-        echo '<script>Swal.fire("Success", "Payment request sent. CheckoutRequestID: ' . $CheckoutRequestID . '", "success");</script>';
-    } else {
+        echo '
+        <script>
+            Swal.fire({
+                title: "Success",
+                text: "Please Enter Your MPESA Pin, If Successful you will receive a Confirmation Email.",
+                icon: "success",
+                confirmButtonText: "Okay"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "riverside.php"; // Redirects to riverside.php
+                }
+            });
+        </script>';    } 
+        
+        else {
         $errorMessage = $data->errorMessage ?? 'Unknown error occurred';
         echo '<script>Swal.fire("Error", "M-Pesa API Error: ' . $errorMessage . '", "error");</script>';
     }

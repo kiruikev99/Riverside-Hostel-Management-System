@@ -75,7 +75,7 @@
             }
 
             .form-section input[type="text"],
-            .form-section input[type="number"],
+            .form-section input[type="number"], .form-section input[type="email"],
             .form-section select {
                 border: 1px solid #ccc;
                 border-radius: 5px;
@@ -182,6 +182,9 @@
 
                     <label for="phone">Student's Phone Number </label>
                     <input required type="number" id="phone" name="phone">
+
+                    <label for="phone">Student's Email </label>
+                    <input required type="email" id="phone" name="email">
 
                     <label for="gender">Gender</label>
                     <select required id="gender" name="gender">

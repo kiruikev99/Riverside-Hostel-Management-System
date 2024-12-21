@@ -40,20 +40,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $conn->prepare($insertQuery);
     $stmt->bind_param("ssssssssssssssss", $room, $fname, $lname, $number, $user, $password, $university, $checkinDate, $dateofbirth, $gender, $fathername, $fathernumber, $disease, $doctor, $blood, $email);
 
-    if ($stmt->execute()) {
-        // Delete from blockabooking
-        $deleteQuery = "DELETE FROM blockabooking WHERE RoomNo = ?";
-        $deleteStmt = $conn->prepare($deleteQuery);
-        $deleteStmt->bind_param("s", $room);
-        if ($deleteStmt->execute()) {
-            echo '<script>alert("Success"); window.location.href = "addtenant.php";</script>';
-        } else {
-            echo "Error deleting record: " . $deleteStmt->error;
-        }
-        $deleteStmt->close();
-    } else {
-        echo "Error: " . $stmt->error;
-    }
+    // if ($stmt->execute()) {
+    //     // Delete from blockabooking
+    //     $deleteQuery = "DELETE FROM blockabooking WHERE RoomNo = ?";
+    //     $deleteStmt = $conn->prepare($deleteQuery);
+    //     $deleteStmt->bind_param("s", $room);
+    //     if ($deleteStmt->execute()) {
+    //         echo '<script>alert("Success"); window.location.href = "addtenant.php";</script>';
+    //     } else {
+    //         echo "Error deleting record: " . $deleteStmt->error;
+    //     }
+    //     $deleteStmt->close();
+    // } else {
+    //     echo "Error: " . $stmt->error;
+    // }
 
     $stmt->close();
     $conn->close();
