@@ -1,4 +1,5 @@
 <?php
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include 'connection.php';
 
@@ -7,32 +8,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $roomno = $_POST['roomno'];
 
     // Delete from tenantaccountblocka
-    $delete_sql = "DELETE FROM tenantaccountblocka WHERE RoomNo = ?";
+    $delete_sql = "DELETE FROM blockabooking WHERE RoomNo = ?";
     $delete_stmt = $conn->prepare($delete_sql);
 
-    // Update blockabooking
-    $update_sql = "UPDATE blockabooking 
-               SET Status = 'Available', 
-                   Name = '', 
-                   LastName = '', 
-                   StudentPhoneNumber = '', 
-                   Gender = '', 
-                   University = '', 
-                   NumberPaid = '',
-                   TransactionId = ''
-             WHERE RoomNo = ?";
-    $update_stmt = $conn->prepare($update_sql);
 
-    if ($delete_stmt && $update_stmt) {
+    if ($delete_stmt) {
         // Bind and execute DELETE query
         $delete_stmt->bind_param("s", $roomno);
         $delete_result = $delete_stmt->execute();
 
-        // Bind and execute UPDATE query
-        $update_stmt->bind_param("s", $roomno);
-        $update_result = $update_stmt->execute();
 
-        if ($delete_result && $update_result) {
+        if ($delete_result) {
             http_response_code(200); // OK
             echo "Success";
         } else {

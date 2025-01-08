@@ -12,7 +12,7 @@ if (isset($_GET['tenantid'])) {
 
     $_SESSION["no"] = $_GET['tenantid'];
 
-    $sql = "SELECT * FROM `blockbbooking` WHERE RoomNo = '$no'";
+    $sql = "SELECT * FROM `blockabooking` WHERE RoomNo = '$no'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {

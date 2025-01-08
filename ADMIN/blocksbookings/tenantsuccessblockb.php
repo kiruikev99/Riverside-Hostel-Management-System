@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fname =  $_SESSION["fname"];
     $lname =  $_SESSION["lname"];
 
-    $insertQuery = "INSERT INTO tenantaccountblockb (RoomNo, FirstName, LastName, PhoneNumber, Username, Password, University, Checkin, `D-O-B`, Gender, FatherName, FatherNumber, Disease, Doctor, BloodGroup, Email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $insertQuery = "INSERT INTO tenantaccountblocka (RoomNo, FirstName, LastName, PhoneNumber, Username, Password, University, Checkin, `D-O-B`, Gender, FatherName, FatherNumber, Disease, Doctor, BloodGroup, Email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($insertQuery);
     $stmt->bind_param("ssssssssssssssss", $room, $fname, $lname, $number, $user, $password, $university, $checkinDate, $dateofbirth, $gender, $fathername, $fathernumber, $disease, $doctor, $blood, $email);
     

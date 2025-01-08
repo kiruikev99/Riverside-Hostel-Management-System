@@ -70,6 +70,16 @@
             text-decoration: none;
             transition: background-color 0.3s;
         }
+        .action-button2 {
+            background-color:rgb(255, 0, 0);
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
         .action-button:hover {
             background-color: #218838;
         }
@@ -111,7 +121,10 @@
                                    <td>{$row['Name']}</td>
                                    <td>{$row['Gender']}</td>
                                    <td>{$row['StudentPhoneNumber']}</td>
-                                   <td><a class='action-button' href='blocksbookings/blockabooking.php?tenantid={$row['RoomNo']}'>Make Account</a></td>
+                                   <td><a class='action-button' href='blocksbookings/blockabooking.php?tenantid={$row['RoomNo']}'>Make Account</a>
+                                   <a class='action-button2' href='removebookedtenant.php?roomno={$row['RoomNo']}'>Remove</a>
+</td>
+
                                </tr>";
                        }
                    } else {
@@ -144,7 +157,8 @@
                                    <td>{$row['Name']}</td>
                                    <td>{$row['Gender']}</td>
                                    <td>{$row['StudentPhoneNumber']}</td>
-                                   <td><a class='action-button' href='blocksbookings/blockbbooking.php?tenantid={$row['RoomNo']}'>Make Account</a></td>
+                                   <td><a class='action-button' href='blocksbookings/blockbbooking.php?tenantid={$row['RoomNo']}'>Make Account</a>
+                                   <a class='action-button2' href='removebookedtenant.php?roomno={$row['RoomNo']}'>Remove</a>
                                </tr>";
                        }
                    } else {
@@ -177,7 +191,8 @@
                                    <td>{$row['Name']}</td>
                                    <td>{$row['Gender']}</td>
                                    <td>{$row['StudentPhoneNumber']}</td>
-                                   <td><a class='action-button' href='blocksbookings/blockcbooking.php?tenantid={$row['RoomNo']}'>Make Account</a></td>
+                                   <td><a class='action-button' href='blocksbookings/blockcbooking.php?tenantid={$row['RoomNo']}'>Make Account</a>
+                                   <a class='action-button2' href='removebookedtenant.php?roomno={$row['RoomNo']}'>Remove</a>
                                </tr>";
                        }
                    } else {

@@ -74,7 +74,7 @@ if ($ResultCode == 0) {
         $mail->Subject = 'Booking Confirmation';
         $mail->Body = "
         <div style='display: center'>
-          <img width='180' src='https://7c5f-105-160-72-131.ngrok-free.app/Riverside-Hostel-Management-System/RIVERSIDE/images/riverside-logo.png'>
+          <img width='180' src='https://fe52-105-163-1-123.ngrok-free.app /Riverside-Hostel-Management-System/RIVERSIDE/images/riverside-logo.png'>
         </div>
             <h2> Room $tenantid Confirmation   </h2>
             <p>Dear $fname $lname,</p>

@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Set up M-Pesa STK Push request
     date_default_timezone_set('Africa/Nairobi');
     $processrequestUrl = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
-    $callbackurl = 'https://7c5f-105-160-72-131.ngrok-free.app/Riverside-Hostel-Management-System/RIVERSIDE/callback.php';
+    $callbackurl =   'http://rnqoo-105-163-2-125.a.free.pinggy.link/Riverside-Hostel-Management-System/Riverside-Hostel-Management-System/RIVERSIDE/callback.php';
     $callbackurl .= '?fname=' . urlencode($_SESSION["fname1"]);
     $callbackurl .= '&lname=' . urlencode($_SESSION["lname1"]);
     $callbackurl .= '&phone1=' . urlencode($_SESSION["phone1"]);

@@ -1,6 +1,9 @@
 <?php
 include ('connection.php');
 session_start();
+echo '
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate session variables
@@ -34,26 +37,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $doctor = $_POST["doctor"];
     $blood = $_POST["blood"];
     $email = $_POST["useremail"];
+    $status = 'Pending';
+
+    // Calculate Rent_Deadline_Date (one month from Checkin)
+    $checkinDateObject = new DateTime($checkinDate);
+    $checkinDateObject->modify('+1 month');
+    $rentDeadlineDate = $checkinDateObject->format('Y-m-d'); // Format the date for SQL
 
     // Insert query
-    $insertQuery = "INSERT INTO tenantaccountblocka (RoomNo, FirstName, LastName, PhoneNumber, Username, Password, University, Checkin, `D-O-B`, Gender, FatherName, FatherNumber, Disease, Doctor, BloodGroup, Email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $insertQuery = "INSERT INTO tenantaccountblocka (RoomNo, FirstName, LastName, PhoneNumber, Username, Password, University, Checkin, RentStatus, Rent_Deadline_Date, `D-O-B`, Gender, FatherName, FatherNumber, Disease, Doctor, BloodGroup, Email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($insertQuery);
-    $stmt->bind_param("ssssssssssssssss", $room, $fname, $lname, $number, $user, $password, $university, $checkinDate, $dateofbirth, $gender, $fathername, $fathernumber, $disease, $doctor, $blood, $email);
+    $stmt->bind_param("ssssssssssssssssss", $room, $fname, $lname, $number, $user, $password, $university, $checkinDate, $status, $rentDeadlineDate, $dateofbirth, $gender, $fathername, $fathernumber, $disease, $doctor, $blood, $email);
 
-    // if ($stmt->execute()) {
-    //     // Delete from blockabooking
-    //     $deleteQuery = "DELETE FROM blockabooking WHERE RoomNo = ?";
-    //     $deleteStmt = $conn->prepare($deleteQuery);
-    //     $deleteStmt->bind_param("s", $room);
-    //     if ($deleteStmt->execute()) {
-    //         echo '<script>alert("Success"); window.location.href = "addtenant.php";</script>';
-    //     } else {
-    //         echo "Error deleting record: " . $deleteStmt->error;
-    //     }
-    //     $deleteStmt->close();
-    // } else {
-    //     echo "Error: " . $stmt->error;
-    // }
+    if ($stmt->execute()) {
+        echo '
+        <script>
+            Swal.fire({
+                title: "Success",
+                text: "Tenant Account Has Been Created",
+                icon: "success",
+                confirmButtonText: "Okay"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "booking.php"; // Redirects to riverside.php
+                }
+            });
+        </script>';
+    } else {
+        echo "Error: " . $stmt->error;
+    }
 
     $stmt->close();
     $conn->close();

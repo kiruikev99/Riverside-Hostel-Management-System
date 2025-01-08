@@ -23,7 +23,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     $room = $row['RoomNo'];
     $Username = $row['Username'];
     $Password = $row['Password'];
-    $balance = $row['MonthBalance'];
+    $Balance = $row['MonthBalance'];
     $university = $row['University'];
     $dateofbirth = $row['D-O-B'];
     $checkin = $row['Checkin'];
@@ -35,6 +35,32 @@ if ($result && mysqli_num_rows($result) > 0) {
     $Email = $row['Email'];
     $Doctor = $row['Doctor'];
     $Blood = $row['BloodGroup'];
+    $deadline_date = $row['Rent_Deadline_Date'];
+
+    if($Disease == ""){
+        $Disease = "None";
+    }
+
+    if($Doctor == ""){
+        $Doctor = "None";
+    }
+    if($Blood == ""){
+        $Blood = "None";
+    }
+  
+    if ($deadline_date) {
+        // Attempt to create a DateTime object with the correct format
+        $date_object = DateTime::createFromFormat('Y-m-d', $deadline_date);
+    
+        // Check if the creation was successful
+        if ($date_object) {
+            // Format the date to the desired output
+            $formatted_date2 = $date_object->format('l, d F Y'); // e.g., 'Wednesday, 31 January 2024'
+          
+        } else {
+            echo "Invalid date format or input: $deadline_date";
+        }
+    }
 } else {
     echo "Error fetching tenant information.";
 }
@@ -62,6 +88,8 @@ $formattedDate = date("M", strtotime($date));
 <html lang="en">
 
 <head>
+<link rel="icon" href="images/ecare-logo.png" type="image/x-icon"> <!-- Updated -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECARE</title>
@@ -188,6 +216,8 @@ $formattedDate = date("M", strtotime($date));
 
         <div class="header">
             <h1>Welcome, <?php echo $name; ?></h1>
+            <h2>Deadline Payment: <b><?php echo $formatted_date2 ?></b></h2>
+            <h2>Current Balance: <b><?php echo $Balance ?></b></h2>
         </div>
         <div class="notices">
             <h2>Notice</h2>
@@ -229,7 +259,7 @@ $formattedDate = date("M", strtotime($date));
                 <p>Disease: <?php echo $Disease; ?></p>
                 <p>Doctor: <?php echo $Doctor; ?></p>
                 <p>Blood Group: <?php echo $Blood; ?></p>
-          r/div>
+    </div>
         </div>
         <div style="text-align: center; " class="BUTTON">
         <button id="myBtn" class="BTN" style="">View More</button>
@@ -245,7 +275,7 @@ $formattedDate = date("M", strtotime($date));
                             <li><strong>Username:</strong> <?php echo $Username; ?></li>
                             <li><strong>Password:</strong> <?php echo $Password; ?></li>
                             <li><strong>Check-in Date:</strong> <?php echo $checkin; ?></li>
-                            <li><strong>Month Balance:</strong> <?php echo $balance; ?></li>
+                            <li><strong>Month Balance:</strong> <?php echo $Balance; ?></li>
                         </ul>
                     </div>
                 `,
