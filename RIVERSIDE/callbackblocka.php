@@ -123,6 +123,5 @@ if ($data && isset($data->Body->stkCallback)) {
                 });
             </script>';
         }
-    }
-}
+
 ?>

@@ -7,20 +7,40 @@ header("Content-Type: application/json");
 
 // Log the incoming M-Pesa callback response
 $stkCallbackResponse = file_get_contents('php://input');
-$logFile = "MpesaResponsetTenant.json";
+$logFile = "MpesaTenant.json";
+
+if (!$stkCallbackResponse) {
+    error_log("Callback received no data", 3, "error.log");
+    die(json_encode(["error" => "No data received"]));
+}
+
+// Log raw data for debugging
 $log = fopen($logFile, "a");
-fwrite($log, $stkCallbackResponse);
+fwrite($log, $stkCallbackResponse . "\n");
 fclose($log);
 
+// Validate JSON
 $data = json_decode($stkCallbackResponse);
+if (json_last_error() !== JSON_ERROR_NONE) {
+    error_log("Invalid JSON received in callback: " . json_last_error_msg(), 3, "error.log");
+    die(json_encode(["error" => "Invalid JSON format"]));
+}
 
-$MerchantRequestID = $data->Body->stkCallback->MerchantRequestID;
-$CheckoutRequestID = $data->Body->stkCallback->CheckoutRequestID;
-$ResultCode = $data->Body->stkCallback->ResultCode;
-$ResultDesc = $data->Body->stkCallback->ResultDesc;
-$Amount = $data->Body->stkCallback->CallbackMetadata->Item[0]->Value;
-$TransactionId = $data->Body->stkCallback->CallbackMetadata->Item[1]->Value;
-$UserPhoneNumber = $data->Body->stkCallback->CallbackMetadata->Item[4]->Value;
+// Confirm required structure
+if (!isset($data->Body->stkCallback)) {
+    error_log("Callback missing stkCallback structure", 3, "error.log");
+    die(json_encode(["error" => "Invalid callback structure"]));
+}
+
+// Extract necessary fields
+$MerchantRequestID = $data->Body->stkCallback->MerchantRequestID ?? null;
+$CheckoutRequestID = $data->Body->stkCallback->CheckoutRequestID ?? null;
+$ResultCode = $data->Body->stkCallback->ResultCode ?? null;
+$ResultDesc = $data->Body->stkCallback->ResultDesc ?? null;
+
+$Amount = $data->Body->stkCallback->CallbackMetadata->Item[0]->Value ?? 0;
+$TransactionId = $data->Body->stkCallback->CallbackMetadata->Item[1]->Value ?? '';
+$UserPhoneNumber = $data->Body->stkCallback->CallbackMetadata->Item[4]->Value ?? '';
 
 // Process successful transactions
 if ($ResultCode == 0) {

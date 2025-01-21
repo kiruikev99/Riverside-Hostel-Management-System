@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Proceed with STK push
         date_default_timezone_set('Africa/Nairobi');
         $processrequestUrl = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
-        $callbackurl =  'http://rnqoo-105-163-2-125.a.free.pinggy.link/Riverside-Hostel-Management-System/ECARE/callback.php'; // Replace with your active ngrok URL
+        $callbackurl =  'https://rnmhx-105-161-204-114.a.free.pinggy.link/Riverside-Hostel-Management-System/ECARE/callback.php'; // Replace with your active ngrok URL
         $callbackurl .= '?phone=' . urlencode($_SESSION["phone"]);
         $callbackurl .= '&amount=' . urlencode($_SESSION["amount"]);
         $callbackurl .= '&user=' . urlencode($_SESSION["user"]);

@@ -53,48 +53,48 @@ if ($ResultCode == 0) {
     WHERE RoomNo = '$tenantid'");
 
     // SEND EMAIL
-    $mail = new PHPMailer(true);
-    try {
-        // Server settings
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com'; // Use your mail server here
-        $mail->SMTPAuth = true;
-        $mail->Username = 'riversidehostels@gmail.com'; // Replace with your Gmail address
-        $mail->Password = 'vgkizurrywyuyhwm
-';   // Replace with your Gmail app password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
+//     $mail = new PHPMailer(true);
+//     try {
+//         // Server settings
+//         $mail->isSMTP();
+//         $mail->Host = 'smtp.gmail.com'; // Use your mail server here
+//         $mail->SMTPAuth = true;
+//         $mail->Username = 'riversidehostels@gmail.com'; // Replace with your Gmail address
+//         $mail->Password = 'vgkizurrywyuyhwm
+// ';   // Replace with your Gmail app password
+//         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+//         $mail->Port = 587;
 
-        // Recipients
-        $mail->setFrom('riversidehostels@gmail.com', 'Riverside Hostels'); // Sender email and name
-        $mail->addAddress($email); // Recipient email
+//         // Recipients
+//         $mail->setFrom('riversidehostels@gmail.com', 'Riverside Hostels'); // Sender email and name
+//         $mail->addAddress($email); // Recipient email
 
-        // Content
-        $mail->isHTML(true);
-        $mail->Subject = 'Booking Confirmation';
-        $mail->Body = "
-        <div style='display: center'>
-          <img width='180' src='https://fe52-105-163-1-123.ngrok-free.app /Riverside-Hostel-Management-System/RIVERSIDE/images/riverside-logo.png'>
-        </div>
-            <h2> Room $tenantid Confirmation   </h2>
-            <p>Dear $fname $lname,</p>
-            <p>Thank you for Booking. Your transaction was successful.</p>
-            <p><b>Please note</b> You are Required to Move in 1 Week Prior your University Opening date To avoid Inconvinience<br> Tenants Acconts will also be made once they have settled</p>
-            <p><strong>Transaction Details:</strong></p>
-            <ul>
-                <li>Room No:  $tenantid</li>
-                <li>Amount: KES $Amount</li>
-                <li>Transaction ID: $TransactionId</li>
-                <li>Date: $date</li>
-            </ul>
-            <p>Regards,<br>Riverside Hostels</p>
-        ";
+//         // Content
+//         $mail->isHTML(true);
+//         $mail->Subject = 'Booking Confirmation';
+//         $mail->Body = "
+//         <div style='display: center'>
+//           <img width='180' src='https://fe52-105-163-1-123.ngrok-free.app /Riverside-Hostel-Management-System/RIVERSIDE/images/riverside-logo.png'>
+//         </div>
+//             <h2> Room $tenantid Confirmation   </h2>
+//             <p>Dear $fname $lname,</p>
+//             <p>Thank you for Booking. Your transaction was successful.</p>
+//             <p><b>Please note</b> You are Required to Move in 1 Week Prior your University Opening date To avoid Inconvinience<br> Tenants Acconts will also be made once they have settled</p>
+//             <p><strong>Transaction Details:</strong></p>
+//             <ul>
+//                 <li>Room No:  $tenantid</li>
+//                 <li>Amount: KES $Amount</li>
+//                 <li>Transaction ID: $TransactionId</li>
+//                 <li>Date: $date</li>
+//             </ul>
+//             <p>Regards,<br>Riverside Hostels</p>
+//         ";
 
-        $mail->send();
-        echo 'Email sent successfully';
-    } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-    }
+//         $mail->send();
+//         echo 'Email sent successfully';
+//     } catch (Exception $e) {
+//         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+//     }
 
     echo $fname;
 } else {

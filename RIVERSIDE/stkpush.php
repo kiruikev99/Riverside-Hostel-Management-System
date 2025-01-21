@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Set up M-Pesa STK Push request
     date_default_timezone_set('Africa/Nairobi');
     $processrequestUrl = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
-    $callbackurl =   'http://rnqoo-105-163-2-125.a.free.pinggy.link/Riverside-Hostel-Management-System/Riverside-Hostel-Management-System/RIVERSIDE/callback.php';
+    $callbackurl =   'https://f220-105-160-72-131.ngrok-free.app/Riverside-Hostel-Management-System/RIVERSIDE/callback.php';
     $callbackurl .= '?fname=' . urlencode($_SESSION["fname1"]);
     $callbackurl .= '&lname=' . urlencode($_SESSION["lname1"]);
     $callbackurl .= '&phone1=' . urlencode($_SESSION["phone1"]);
@@ -120,20 +120,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $CheckoutRequestID = $data->CheckoutRequestID ?? null;
 
     if ($ResponseCode === "0") {
-        echo '
-        <script>
-            Swal.fire({
-                title: "Success",
-                text: "Please Enter Your MPESA Pin, If Successful you will receive a Confirmation Email.",
-                icon: "success",
-                confirmButtonText: "Okay"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = "riverside.php"; // Redirects to riverside.php
-                }
-            });
-        </script>';    } 
-        
+
+        echo $curl_response;
+        // echo '
+        // <script>
+        //     Swal.fire({
+        //         title: "Success",
+        //         text: "Please Enter Your MPESA Pin, If Successful you will receive a Confirmation Email.",
+        //         icon: "success",
+        //         confirmButtonText: "Okay"
+        //     }).then((result) => {
+        //         if (result.isConfirmed) {
+        //             window.location.href = "riverside.php"; // Redirects to riverside.php
+        //         }
+        //     });
+        // </script>';    } 
+    }
         else {
         $errorMessage = $data->errorMessage ?? 'Unknown error occurred';
         echo '<script>Swal.fire("Error", "M-Pesa API Error: ' . $errorMessage . '", "error");</script>';
